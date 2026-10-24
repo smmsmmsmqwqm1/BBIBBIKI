@@ -1,5 +1,5 @@
-/* 오프라인 · 업데이트(인터넷 되면 새 판을 받고, 안 되면 저장해 둔 판으로) — kr.topicenglish.musicpro 1.0.6 */
-var C = 'kr.topicenglish.musicpro-1.0.6', PRE = 'kr.topicenglish.musicpro-';
+/* 오프라인 · 업데이트(인터넷 되면 새 판을 받고, 안 되면 저장해 둔 판으로) — kr.topicenglish.musicpro 1.0.7 */
+var C = 'kr.topicenglish.musicpro-1.0.7', PRE = 'kr.topicenglish.musicpro-';
 self.addEventListener('install', function (e) { e.waitUntil(caches.open(C).then(function (c) { return c.addAll(['./', './index.html', './manifest.webmanifest', './icon-180.png', './icon-512.png']); })); self.skipWaiting(); });
 self.addEventListener('activate', function (e) { e.waitUntil(caches.keys().then(function (ks) { return Promise.all(ks.filter(function (k) { return k.indexOf(PRE) === 0 && k !== C; }).map(function (k) { return caches.delete(k); })); }).then(function () { return self.clients.claim(); })); });
 self.addEventListener('fetch', function (e) {
