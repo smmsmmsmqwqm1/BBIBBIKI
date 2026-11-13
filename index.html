@@ -159,7 +159,7 @@ pre.rep { white-space: pre-wrap; font-size: 12px; background: var(--card); borde
   if ('serviceWorker' in navigator && location.protocol === 'https:') window.addEventListener('load', function () { navigator.serviceWorker.register('sw.js').catch(function () {}); });
 })();
 </script>
-<script>window.APP_VERSION="1.0.9";window.APP_NOTES=["홈 '이어서 하기' 아래에 '🎧 듣고 대답하기'가 생겼어요 — 상대가 하는 말을 듣고, 무슨 말인지 고른 뒤, 영어로 소리 내어 대답해 봐요(공부한 말만 나와요)", "홈 '내 실력'에서 '익힌 말'을 누르면 지금까지 익힌 말을 모아 볼 수 있어요 — '오늘 새로 배운 말' · '오늘 푼 문제'를 누르면 오늘 공부한 말이 나와요", "문법 설명 아래 예문마다 한국어 해석이 붙었어요", "짝 맞추기에서 '한 판 더'를 누르면 앞 판과 다른 말이 나와요", "공부 기록은 그대로예요"];</script>
+<script>window.APP_VERSION="1.0.10";window.APP_NOTES=["화면을 보기 좋게 새로 다듬었어요. 공부하는 방법과 순서는 그대로예요", "'다음' · '알겠어요' 단추가 늘 화면 맨 아래에 있어요", "홈 '다른 연습'에 '실력 확인'이 생겼어요. 20문제를 풀면 점수가 나오고, 몇 번이든 볼 수 있어요", "'듣고 대답하기'도 '다른 연습' 칸으로 옮겼어요", "'공부한 말'을 누르면 지금까지 공부한 말을 묶음별로 볼 수 있어요", "공부 기록은 그대로예요"];</script>
 <script>
 /* 주제 설정 — 프로듀서 · A&R 영어 (10-22)
    엔진(core.js · app.js)은 공장 공통 · 이 파일은 '이 주제만의 것'(이름 · 묶음 · 순서 · 학습 단계 · 비슷한 말 무리 · 화면 문구)
@@ -170,6 +170,7 @@ var TOPIC = {
   simpleSend: true,                                     // 남에게 주는 앱 = '📤 기록 보내기' 단추 하나
   dayList: true,                                        // 달력 날짜를 누르면 그날 공부한 말(엄마영어 v1.0.8에서 온 것 · 사용자 10-26)
   skillTap: true,                                       // 홈 '내 실력' 줄을 누르면 익힌 말 · 오늘 공부한 말(E-11-06 · 11-09)
+  skillCheck: true,                                     // 홈 '다른 연습'의 '실력 확인'(20문제 · 점수 · 몇 번이든 · 이어 풀기 · 새 내용 0 · 엄마영어 v1.0.20과 같은 것 · 사용자 11-14 "삑삑이 apk (개선판으로, 엄마영어에 쓰인 것들)")
   // 듣고 대답하기(E-11-08 · 사용자 11-09 '앞으로는 다 넣을 거고' · 워커 검증: reply qa:13 '반반?' · qa:7 '최종 믹스 마감 금요일?' 뺌(질문과 대답이 어긋남 · 역할이 뒤집힘) · same 3묶음 더함) — 문제 = 배운 대화 줄 + reply(대화 줄 대답이 그대로 통하는 예문 질문 · 둘 다 배웠을 때만) · 새 문장 0
   //   skip = 맥락 없이 짧아 오답 뜻으로도 안 쓰는 말 · same = 뜻이 같아 서로 정답이 될 말(서로 오답 X) · 같은 대답을 빌려 쓰는 말끼리는 엔진이 자동으로 서로 오답 X · 워커 상의 = 앱_현황 E-11-08
   listenLab: {
@@ -1547,7 +1548,7 @@ mine|제 것
 </script>
 <script>
 /* 이 문장에서의 뜻 — 자동 생성(손으로 고치지 말 것) · 원본 = 이 폴더 sense_src.txt · 만드는 도구 = 주제별_영어앱\도구\topiclib.py */
-var SENSE = {"about":{"d":"~에 대해","s":{"1xxvqkf":"대략(~쯤)","1bg2afi":"대략(~쯤)","3mh0hk":"대략(~쯤)","1lniq2u":"대략(~쯤)","16d04nv":"(How about ~? = ~하는 거 어때요?)","17f6n6x":"(How about ~? = ~하는 거 어때요?)","jixt8w":"(not sure about ~ = ~는 잘 모르겠다)","g201jj":"(not sure about ~ = ~는 잘 모르겠다)","1lrra2j":"(not sure about ~ = ~는 잘 모르겠다)"}},"add":{"d":"넣다(더하다)","s":{"1cwrzjy":"쌓이다(add up = 쌓여 커지다)","1eooeoq":"쌓이다(add up = 쌓여 커지다)"}},"as":{"d":"~로(서)","s":{"14x8lty":"~만큼(as hard as = ~만큼 세게)","l5kl41":"~만큼(as hard as = ~만큼 세게)","1v5sz4h":"~로(~ 역할로)","ry4sio":"~로(~ 역할로)","1ao7mvd":"~와(same ~ as = ~와 같은)","1xlvyoh":"~와(same ~ as = ~와 같은)","19kesah":"(as long as = ~만 되면)","1oju8uh":"(as long as = ~만 되면)","19kesah.2":"(as long as = ~만 되면)","1oju8uh.2":"(as long as = ~만 되면)"}},"back":{"d":"다시(되돌려)","s":{"1dmz63j":"(dial back = 살짝 줄이다)","1xxdzpm":"(dial back = 살짝 줄이다)","1njakib":"(dial back = 살짝 줄이다)","a3l0f2":"(dial back = 살짝 줄이다)","cn9orz":"(dial back = 살짝 줄이다)","1ewmhj8":"(dial back = 살짝 줄이다)","12zknro":"(dial back = 살짝 줄이다)","1rt22xd":"(strip back = 덜어 내다)","1lccpim":"(strip back = 덜어 내다)","eh70gz":"(strip back = 덜어 내다)","a2kx46":"(strip back = 덜어 내다)","1lhzbal":"(strip back = 덜어 내다)","12nizka":"(strip back = 덜어 내다)","a7e0kl":"(laid back = 느긋한)","1fqtube":"(laid back = 느긋한)","1dt600a":"(laid back = 느긋한)","e5ti6t":"(laid back = 느긋한)","wnf27s":"(laid back = 느긋한)","85em0z":"(laid back = 느긋한)","dhdp6k":"다시(come back = 다시 들어오다)","8bj4av":"다시(come back = 다시 들어오다)","1616ikj":"(back off the mic = 마이크에서 떨어지다)","1bu6999":"(back off the mic = 마이크에서 떨어지다)","8iemsh":"(back off the mic = 마이크에서 떨어지다)","62vy4n":"(back off the mic = 마이크에서 떨어지다)","13q2v7p":"(back off the mic = 마이크에서 떨어지다)","1u7efcv":"(back off the mic = 마이크에서 떨어지다)","1f8d0ju":"뒤로(push back = 미루다)","1d8txuc":"뒤로(push back = 미루다)","1i51e0h":"돌아와(came back = 작업물이 들어왔다)","1jcaxjx":"돌아와(came back = 작업물이 들어왔다)","1gdk4tk":"(circle back = 나중에 다시 얘기하다)","2p4y3e":"(circle back = 나중에 다시 얘기하다)","1a0wssg":"(get back to you = 다시 연락드리다)","1kxf6ym":"(get back to you = 다시 연락드리다)","nspq8e":"(listen back = 다시 들어 보다)","1d8vvy":"(listen back = 다시 들어 보다)","p6yzg1":"(listen back = 다시 들어 보다)","1qqq5e9":"(listen back = 다시 들어 보다)","1bt8k1u":"(listen back = 다시 들어 보다)","6j9gte":"(listen back = 다시 들어 보다)","18sl2":"뒤로(push back = 미루다)","1t2dgt2":"뒤로(push back = 미루다)"}},"by":{"d":"~까지(마감)","s":{"2hm0hu":"~에게(run it by = ~에게 확인받다)","1h75oz1":"~에게(run it by = ~에게 확인받다)","igz2wi":"~라는 말로(mean by ~ = ~가 무슨 뜻이다)","1otumsz":"~라는 말로(mean by ~ = ~가 무슨 뜻이다)"}},"cans":{"d":"=단어장"},"chops":{"d":"=단어장"},"clean":{"d":"정리하다(clean up)"},"close":{"d":"가까운","s":{"fmvyon":"거의 다 된(It's close = 거의 다 왔다)","ipcgn5":"거의 다 된(It's close = 거의 다 왔다)"}},"comes":{"d":"들어온다(come in)","s":{"whuoct":"온 것이다(comes from = ~에서 가져왔다)","1usok3z":"온 것이다(comes from = ~에서 가져왔다)","frz83z":"나온다(comes out = 발매된다)","1qjzjnx":"나온다(comes out = 발매된다)"}},"could":{"d":"~해 줄 수 있어요(부탁)","s":{"1iavdqv":"~할 수도 있다","1v1yvqj":"~할 수도 있다","1yawsj":"~해 볼 수 있을까요(Could we ~?)","crchbz":"~해 볼 수 있을까요(Could we ~?)","buhev9":"~해 볼 수 있을까요(Could we ~?)","1bsac85":"(I was wondering if you could ~ = 혹시 ~해 주실 수 있을까 해서요)"}},"count":{"d":"세다","s":{"1ao7mvd":"수(syllable count = 음절 수)","1xlvyoh":"수(syllable count = 음절 수)"}},"cut":{"d":"자르다(줄이다)","s":{"1uz1i6v":"깎다(소리를 줄이다)","173sc0l":"깎다(소리를 줄이다)","175zsiz":"깎다(소리를 줄이다)","91jm6":"깎다(소리를 줄이다)","105uy17":"끊다(cut it off = 딱 끊다)","1tzb8d":"끊다(cut it off = 딱 끊다)","ycle35":"뚫다(cut through = 뚫고 나오다)","1popdwf":"뚫다(cut through = 뚫고 나오다)"}},"dated":{"d":"=단어장"},"did":{"d":"했다","s":{"hdny4s":"(과거 질문에 붙는 말)","1edcqy3":"(과거 질문에 붙는 말)","16cfooc":"(과거 질문에 붙는 말)","7fafqz":"(과거 질문에 붙는 말)","rpla34":"(과거 질문에 붙는 말)","78m6iw":"(과거 질문에 붙는 말)","1m9bv78":"(과거 질문에 붙는 말)","a4wjqf":"(과거 질문에 붙는 말)","i2x8gw":"(과거 질문에 붙는 말)","1o5k9f":"(과거 질문에 붙는 말)","vzvk95":"(과거 질문에 붙는 말)"}},"do":{"d":"(질문에 붙는 말)","s":{"rvzxac":"하다(do one more = 한 번 더 하다)","f9nga1":"하다(do one more = 한 번 더 하다)","1fwzdoq":"하다(do one more = 한 번 더 하다)","1776rog":"하다(do one more = 한 번 더 하다)","1f9g08p":"되다(I can do Tuesday = 화요일은 돼요)","7gem9q.2":"하다(무슨 일을 하다)","5k5n0y":"하다(I can do that = 그렇게 해 드릴게요)"}},"does":{"d":"(질문에 붙는 말)"},"doing":{"d":"하는","s":{"5m2n0g":"지내는(Hope you're doing well = 잘 지내시죠)","15hr0j5":"지내는(Hope you're doing well = 잘 지내시죠)"}},"even":{"d":"훨씬","s":{"t9iilm":"~조차(~인데도)","1v6u94n":"~조차(~인데도)","4c9lc2":"똑같은(even split = 똑같이 나누기)","lwv23y":"똑같은(even split = 똑같이 나누기)","1776rog":"똑같은(even split = 똑같이 나누기)","189p28n":"(even out = 고르게 맞추다)","1cros3p":"(even out = 고르게 맞추다)"}},"fan":{"d":"팬(좋아하는 사람)","s":{"w6u8fi":"선풍기","zhc3o2":"선풍기"}},"feel":{"d":"느껴지다","s":{"o6eaw2":"느낌","bvpcos":"느낌","1j9np1s":"느낌","12tqdd9":"느낌","105jae6":"느낌","18x8n6c":"느낌","h7xaru":"느낌","pey8j":"느낌","rpfsx":"느끼다","mwxctv":"느끼다","1l4c66v":"(Feel free to ~ = 편하게 ~해요)","9ufcow":"(Feel free to ~ = 편하게 ~해요)","1l4c66v.2":"느낌이 오다","9ufcow.2":"느낌이 오다","iyplhk":"(Feel free to ~ = 편하게 ~해요)","tdea2y":"(Feel free to ~ = 편하게 ~해요)"}},"for":{"d":"~을 위해(~용으로)","s":{"1yuz4k3":"~에 비해","kql3rt":"~에 비해","vfuzzw":"~에 비해","131ispg":"~에 비해","lx45hv":"~에게(~한테는)","1hrid9y":"~에게(~한테는)","1noqj3z":"~에게(~한테는)","12y7mzm":"~에게(~한테는)","1yxb6n9":"~에게(~한테는)","vu1dag":"~에게(~한테는)","1kbzwru":"~에게(~한테는)","1mghrn":"~에게(~한테는)","71l34z":"(go for = 노리다 · 그 느낌으로 가다)","1aisesg":"(go for = 노리다 · 그 느낌으로 가다)","t740g":"(go for = 노리다 · 그 느낌으로 가다)","1cbc759":"(go for = 노리다 · 그 느낌으로 가다)","1a8rvp7":"(go for = 노리다 · 그 느낌으로 가다)","vks4ji":"(go for = 노리다 · 그 느낌으로 가다)","1kpa3v8":"(go for = 노리다 · 그 느낌으로 가다)","rpfsx":"~ 동안","mwxctv":"~ 동안","1i0i6a1":"~치고(~에 비해)","1r2osec":"~치고(~에 비해)","1ceechj":"~치고(~에 비해)","xal66c":"~치고(~에 비해)","kdutt1":"~치고(~에 비해)","4zs2gp":"~치고(~에 비해)","12daykw":"(ask for = 요청하다)","7uu8pl":"(ask for = 요청하다)","1jypkq7":"(ask for = 요청하다)","1r0p4u8":"(ask for = 요청하다)","dapp9d":"(ask for = 요청하다)","5837a6":"(ask for = 요청하다)","179si3q":"(ask for = 요청하다)","1azq6ir":"(ask for = 요청하다)","1sj3yzu":"(ask for = 요청하다)","1o6hgo2":"(ask for = 요청하다)","vwjs8c":"~에 맞출(~와 짝이 될)","15rk7o1":"~에 맞출(~와 짝이 될)","1mul802":"(for now = 지금은 · 일단은)","1wuontr":"(for now = 지금은 · 일단은)","wnhl6c":"(for now = 지금은 · 일단은)","hrweig":"(for now = 지금은 · 일단은)","35z9m9":"(done for the day = 오늘은 끝)","1fmehrp":"(done for the day = 오늘은 끝)","rffylv":"(aim for = 목표로 하다)","1vcsyrd":"(aim for = 목표로 하다)","42u557":"(Thanks for ~ = ~해서 고마워요)","1qwt044":"(Thanks for ~ = ~해서 고마워요)","fx5n1g":"(Thanks for ~ = ~해서 고마워요)","1v9y9tz":"(Thanks for ~ = ~해서 고마워요)","ub5z4d":"(Thanks for ~ = ~해서 고마워요)","cl9gqn":"(Thanks for ~ = ~해서 고마워요)","1eqma5h":"(Thanks for ~ = ~해서 고마워요)","106azjk":"(Thanks for ~ = ~해서 고마워요)","1frq2rk":"~로(날짜)","1b4lg2n":"~로(날짜)","kjw2kg":"~로(날짜)","1k91eqk":"(work for hire = 권리 양도 작업)","oxo0xa":"(work for hire = 권리 양도 작업)","ndw7c":"(work for hire = 권리 양도 작업)","1rl67hy":"(work for hire = 권리 양도 작업)","1w7ij1m":"(work for hire = 권리 양도 작업)","vwdccc":"(work for hire = 권리 양도 작업)","3ojiaz":"(work for hire = 권리 양도 작업)","1thlsim":"(Sorry for ~ = ~해서 죄송해요)","11v88i":"(Sorry for ~ = ~해서 죄송해요)","ihmxfw":"(look for = 찾다)","1mrckr6":"(look for = 찾다)","1gwxcr7":"(for today = 오늘은)","gn1dki":"~하러(~ 때문에)","1jt9jdb":"~에(~에 맞을 만큼)","62xnta":"~ 동안(for a second = 잠깐)","1dvvsvf":"~ 동안(for a second = 잠깐)","4c2u0i":"~ 동안(for a second = 잠깐)","v3zrxz":"~ 동안(for a second = 잠깐)","17s2yme":"~ 동안(for too long = 너무 오래)","5lo5s3":"~ 동안(for too long = 너무 오래)","3njw0v":"~ 동안","ngi6l6":"~ 동안","1ejrvk2":"~마다(for each = ~마다)","1quhpw1":"~마다(for each = ~마다)","11pvf1k":"(Thanks for ~ = ~해서 고마워요)","hs77xb":"(Thanks for ~ = ~해서 고마워요)"}},"get":{"d":"받다(얻다)","s":{"1cjz51l":"빼다(get it out of my head = 머리에서 떨쳐 내다)","f82j71":"빼다(get it out of my head = 머리에서 떨쳐 내다)","2s3tam":"~해지다(get boring = 지루해지다)","16ltv91":"~해지다(get boring = 지루해지다)","1jwh15s":"~해지다","s8cgwf":"~해지다","1g4c19e":"~해지다","1pqnpyc":"~해지다","gbe2wi":"~해지다","16q6r3":"~해지다","ym78xb":"(get in the way = 방해가 되다)","pp6jw6":"(get in the way = 방해가 되다)","19y6vdt":"받다(Can I get ~? = ~ 좀 주실래요?)","c45unb":"받다(Can I get ~? = ~ 좀 주실래요?)","1sydhlf":"받다(Can I get ~? = ~ 좀 주실래요?)","feifsu":"받다(Can I get ~? = ~ 좀 주실래요?)","1x1fmjr":"받다(Can I get ~? = ~ 좀 주실래요?)","f5k8go":"보내 주다(get it back to me = 다시 보내 주다)","kqyqvd":"보내 주다(get it back to me = 다시 보내 주다)","vj4tuk":"보내 주다(get it back to me = 다시 보내 주다)","1a0wssg":"(get back to you = 다시 연락드리다)","1kxf6ym":"(get back to you = 다시 연락드리다)","d5xk0i":"(get going = 시작되다)","ekzbmf":"(get going = 시작되다)"}},"gets":{"d":"~해진다","s":{"1pok37l":"들어간다","4n8qpu":"들어간다","12jhu7":"받는다","gt7exe":"받는다"}},"goes":{"d":"바뀐다(~해진다)"},"got":{"d":"받았다(따냈다)","s":{"1ihyv8o":"해냈다(got it = 끝냈다)","1inkyod":"해냈다(got it = 끝냈다)","axk9a9":"끝냈다(got ~ done = ~을 끝냈다)","49kf3p":"(Got it = 알겠어요)","2b4wc":"(Got it = 알겠어요)"}},"had":{"d":"있었다(가졌다)","s":{"zgabcm":"~해 왔다(I've had ~ = 계속 ~해 있었다)","10wunsj":"~해 왔다(I've had ~ = 계속 ~해 있었다)","qvbimf":"있었다(had time = 시간이 있었다)","dkabgz":"있었다(had time = 시간이 있었다)","10oacpe":"~해야 했다(had to)","1c5g3ie":"~해야 했다(had to)","115o84o":"(had a chance to = ~해 볼 틈이 있었다)","2v66ys":"(had a chance to = ~해 볼 틈이 있었다)"}},"hard":{"d":"세게","s":{"a7e0kl":"애써(trying too hard = 너무 애쓰다)","1fqtube":"애써(trying too hard = 너무 애쓰다)","ru74se":"끝까지(hard left = 왼쪽 끝)","48gfi7":"끝까지(hard left = 왼쪽 끝)"}},"has":{"d":"가지고 있다","s":{"xq8kqe":"~해야 하다(has to)","1skgklw":"~해야 하다(has to)","z01142":"~해야 하다(has to)","bq9yf1":"~해야 하다(has to)"}},"have":{"d":"가지다(있다)","s":{"183iyia":"걸려 있다(have demoitis = 데모 병에 걸리다)","9btmqc":"걸려 있다(have demoitis = 데모 병에 걸리다)","1s00npz":"잡혀 있다(I have a co-write = 공동 작곡이 잡혀 있다)","tcjepn":"잡혀 있다(I have a co-write = 공동 작곡이 잡혀 있다)","pwf4gs":"~해야 하다(have to)","xwm4mi":"~해야 하다(have to)","115o84o":"(Have you had a chance to ~? = 혹시 ~해 보셨어요?)","84uev1":"(have sent = 보냈어요 · 지금 그 상태)"}},"if":{"d":"만약 ~라면","s":{"xbmu0p":"(What if we ~? = ~해 보면 어때요?)","tyo8td":"(What if we ~? = ~해 보면 어때요?)","1guwr51":"(What if we ~? = ~해 보면 어때요?)","1k6lb91":"(What if we ~? = ~해 보면 어때요?)","17ohrj7":"(if possible = 가능하면)","1bsac85":"(I was wondering if ~ = 혹시 ~할 수 있을까 해서요)","13iigha":"(I was wondering if ~ = 혹시 ~할 수 있을까 해서요)","1oj5lrm":"~인지(see if = ~인지 보다)","15ca9yh":"~인지(see if = ~인지 보다)"}},"in":{"d":"~에(때, 곳)","s":{"uxgnlz":"~로(방향 · 쪽)","26518m":"~로(방향 · 쪽)","d8hy7x":"~로(방식: in a fun way = 재밌는 쪽으로)","1w61rvi":"~로(방식: in a fun way = 재밌는 쪽으로)","15fq1im":"(in the pocket = 그루브에 딱 붙은)","fgfln4":"(in the pocket = 그루브에 딱 붙은)","1tfpoit":"(in the pocket = 그루브에 딱 붙은)","le7ih3":"(in the pocket = 그루브에 딱 붙은)","4wbno9":"(in the pocket = 그루브에 딱 붙은)","1xdrlbv":"(in the pocket = 그루브에 딱 붙은)","17aq8lw":"(in the box = 컴퓨터 안에서만)","1qaot79":"(in the box = 컴퓨터 안에서만)","1jmxvw9":"(in the box = 컴퓨터 안에서만)","1dx3vtk":"(in the box = 컴퓨터 안에서만)","hdny4s":"(in the box = 컴퓨터 안에서만)","1edcqy3":"(in the box = 컴퓨터 안에서만)","1xmby7g":"(punch in = 그 부분만 다시 녹음하다)","1dkaz2i":"(punch in = 그 부분만 다시 녹음하다)","1kisvp3":"(punch in = 그 부분만 다시 녹음하다)","1lst0i4":"(punch in = 그 부분만 다시 녹음하다)","1pm85l2":"(punch in = 그 부분만 다시 녹음하다)","1nexy4x":"(punch in = 그 부분만 다시 녹음하다)","1nooj4v":"(punch in = 그 부분만 다시 녹음하다)","ovurgq":"(punch in = 그 부분만 다시 녹음하다)","1wofcvh":"(punch in = 그 부분만 다시 녹음하다)","13di51b":"들어오다(come in = 들어오다)","1mn62ic":"들어오다(come in = 들어오다)","13sg3qc":"들어오다(come in = 들어오다)","1piuhyg":"들어오다(come in = 들어오다)","1egg7ee":"들어오다(come in = 들어오다)","sg6jc4":"들어오다(come in = 들어오다)","hv3wi2":"들어오다(come in = 들어오다)","61yxb2":"들어오다(come in = 들어오다)","gbe2wi":"들어오다(come in = 들어오다)","16q6r3":"들어오다(come in = 들어오다)","1fbyyqo":"들어오다(come in = 들어오다)","m9krpg":"들어오다(come in = 들어오다)","12jh1ib":"~로 된(키 · 박자: in C = C키로 된)","106kgss":"~로 된(키 · 박자: in C = C키로 된)","1g9iw2d":"~로 된(키 · 박자: in C = C키로 된)","19ru9f0":"~로 된(키 · 박자: in C = C키로 된)","zp6vt8":"~로 된(키 · 박자: in C = C키로 된)","8uu751":"~로 된(키 · 박자: in C = C키로 된)","qxxhyo":"~로 된(키 · 박자: in C = C키로 된)","3z2r1n":"~로 된(키 · 박자: in C = C키로 된)","pwd5qu":"~로 된(키 · 박자: in C = C키로 된)","1dgketz":"~로 된(키 · 박자: in C = C키로 된)","18792bk":"~로 된(키 · 박자: in C = C키로 된)","1dsrp4v":"~로 된(키 · 박자: in C = C키로 된)","phops4":"~로 된(키 · 박자: in C = C키로 된)","1jv340d":"~로 된(키 · 박자: in C = C키로 된)","1bxba9e":"~로 된(키 · 박자: in C = C키로 된)","10vnq67":"~로 된(키 · 박자: in C = C키로 된)","d4mqx9":"(in tune = 음정이 맞는)","1eh3gkg":"(in tune = 음정이 맞는)","1tlfpjq":"(in tune = 음정이 맞는)","1s1lb2b":"(in tune = 음정이 맞는)","plekn5":"(in tune = 음정이 맞는)","178v5e6":"(in tune = 음정이 맞는)","ym78xb":"(get in the way = 방해가 되다)","pp6jw6":"(get in the way = 방해가 되다)","1c18vk2":"~ 만에(in one take = 한 번에)","1isktvw":"~ 만에(in one take = 한 번에)","1ihyv8o":"~ 만에(in one take = 한 번에)","1inkyod":"~ 만에(in one take = 한 번에)","axk9a9":"~ 만에(in one take = 한 번에)","auj8bm":"~로(언어: in Korean = 한국어로)","1xea880":"~로(언어: in Korean = 한국어로)","1gyt6rb":"~로(언어: in Korean = 한국어로)","68hovb":"~로(언어: in Korean = 한국어로)","am14le":"넣다(throw in = 툭 넣다)","1fubpuz":"넣다(throw in = 툭 넣다)","frz83z":"~ 뒤에(in two weeks = 2주 뒤에)","1qjzjnx":"~ 뒤에(in two weeks = 2주 뒤에)","tpk917":"~ 뒤에(in two weeks = 2주 뒤에)","15s5gq":"~ 뒤에(in two weeks = 2주 뒤에)","jl7l1v":"(loop in = 메일 · 대화에 넣다)","1xph3vo":"(loop in = 메일 · 대화에 넣다)","10r9zcj":"(loop in = 메일 · 대화에 넣다)","19ahg3m":"(loop in = 메일 · 대화에 넣다)","1p5cfqp":"(loop in = 메일 · 대화에 넣다)","xu1w0y":"(loop in = 메일 · 대화에 넣다)","o10ij0":"직접(in person = 직접 만나서)","1ijxiyp":"직접(in person = 직접 만나서)","1cyjlmu":"(based in = ~에서 활동하는)","15k1j5x":"(based in = ~에서 활동하는)","1era1hy":"(meet in the middle = 중간에서 맞추다)","dvcn7p":"(meet in the middle = 중간에서 맞추다)","vahcsl":"(lock in = 확정하다)","11dnnoy":"(lock in = 확정하다)","qol19l.2":"들어오다(kicks in = 터지며 들어오다)","r4azoh.2":"들어오다(kicks in = 터지며 들어오다)","1mjiag5":"~에서(프로그램 안에서)","hdsu75":"~에서(프로그램 안에서)","1ea6h6l":"~ 기준(어느 시간대로 된)","1joj5u0":"~ 기준(어느 시간대로 된)","1ayeup6":"들어오다(come in = 들어오다)","1b8zhud":"들어오다(come in = 들어오다)"}},"just":{"d":"그냥","s":{"1rt22xd":"~만","1lccpim":"~만","eh70gz":"~만","a2kx46":"~만","1xmby7g":"~만","1dkaz2i":"~만","awku3c":"~만","16rmag6":"~만","sgei8u":"~만","1njrdrb":"~만","14shri1":"~만","q16547":"~만","12zknro":"~만","k127e":"~만","1668sxp":"~만","12daykw":"딱(just one semitone = 딱 반음)","7uu8pl":"딱(just one semitone = 딱 반음)","15o3a8a":"방금","l6yvv3":"방금","gqpay8":"방금","ogxs53":"방금","8fxxdj":"~만","10v636z":"~만"}},"keep":{"d":"두다(유지하다)","s":{"46ndz7":"살리다(그대로 쓰다 · 가지다)","1xmk8wx":"살리다(그대로 쓰다 · 가지다)","11fsy04":"살리다(그대로 쓰다 · 가지다)","1mqq7up":"살리다(그대로 쓰다 · 가지다)","ndw7c":"살리다(그대로 쓰다 · 가지다)","1rl67hy":"살리다(그대로 쓰다 · 가지다)","1tjhlrj":"살리다(그걸로 쓰다)","1wr0gus":"살리다(그걸로 쓰다)","5k5n0y":"(keep it to ~ = ~로 맞추다)","p6yzg1":"살리다(그대로 쓰다 · 가지다)","1qqq5e9":"살리다(그대로 쓰다 · 가지다)"}},"label":{"d":"레이블(음반사)","s":{"76xc0o":"이름을 붙이다","1zmaf8":"이름을 붙이다","1xl9iru":"이름을 붙이다","xxo7mj":"이름을 붙이다"}},"last":{"d":"마지막의","s":{"1m1i15z":"지난(last night = 어젯밤)","76wupu":"지난(last night = 어젯밤)","1i51e0h":"지난(last night = 어젯밤)","1jcaxjx":"지난(last night = 어젯밤)","1m9bv78":"지난(last month = 지난달)","a4wjqf":"지난(last month = 지난달)"}},"leave":{"d":"두다","s":{"1rjggr0":"남기다","16h0hx9":"남기다"}},"left":{"d":"왼쪽","s":{"1lyz2vx":"남은","1620tny":"남은"}},"like":{"d":"~처럼(~ 같은)","s":{"1kfj1zm":"좋아하다","17edlg3":"좋아하다","3qzn0k":"좋아하다","i4w3pf":"좋아하다","1ryaw8f":"좋아하다","1nc4pfi":"좋아하다","zss3zz":"좋아하다","1bwr7or":"좋아하다","pxkk9a":"좋아하다","1guwr51":"좋아하다","vzvk95":"좋아하다","paeqe9":"(I'd like = ~하고 싶어요)","14auusa":"(I'd like = ~하고 싶어요)","kjw2kg":"(I'd like = ~하고 싶어요)","am14le":"~ 같은(예를 들어)","1fubpuz":"~ 같은(예를 들어)","76xc0o":"~ 같은(예를 들어)","1zmaf8":"~ 같은(예를 들어)","1xl9iru":"~ 같은(예를 들어)","xxo7mj":"~ 같은(예를 들어)","njqnrz":"(What does ~ look like? = ~는 어느 정도예요?)","10hbnsq":"(What does ~ look like? = ~는 어느 정도예요?)","1xwatpi":"~ 같은(예를 들어)","i3uvth":"~ 같은(예를 들어)"}},"look":{"d":"(What does ~ look like? = ~는 어느 정도예요?)"},"looking":{"d":"기다리는(looking forward to)","s":{"ihmxfw":"찾는(look for)","1mrckr6":"찾는(look for)"}},"lower":{"d":"낮추다","s":{"gi6fwy":"더 낮게","k4zcxg":"더 낮게","1oj5lrm":"더 낮게","15ca9yh":"더 낮게"}},"make":{"d":"~하게 하다","s":{"plekn5":"(make sure = 꼭 확인하다)","178v5e6":"(make sure = 꼭 확인하다)","1eta6bf":"(make sure = 꼭 확인하다)","l3xlki":"(make sure = 꼭 확인하다)","11dz9w9":"(make sure = 꼭 확인하다)","15cngmu":"(make sure = 꼭 확인하다)","pvy5yb":"(make sure = 꼭 확인하다)","1m9u39t":"(make sure = 꼭 확인하다)","b0po90":"(make sure = 꼭 확인하다)","x6geoi":"(make sure = 꼭 확인하다)","10x9rzm":"(make sure = 꼭 확인하다)","1issuuf":"(make sure = 꼭 확인하다)","10wlwnb":"(make sure = 꼭 확인하다)","rel60o":"(make sure = 꼭 확인하다)","1pqwo07":"(make sure = 꼭 확인하다)","bcyt73":"(make sure = 꼭 확인하다)","1t39ahy":"만들다","1rcxtqx":"만들다","mwj3cz":"만들다","106azjk":"만들다","1juiihp":"(make sense = 말이 되다 · 이해되다)","ni6fdr":"(make sense = 말이 되다 · 이해되다)","10lzkt0":"되게 하다(make Monday work = 월요일로 맞추다)","j26cpn":"되게 하다(make Monday work = 월요일로 맞추다)"}},"makes":{"d":"~하게 한다","s":{"1pkel9t":"만든다","35mhja":"만든다","679m1g":"(make sense = 말이 되다 · 이해되다)","i74fwl":"(make sense = 말이 되다 · 이해되다)"}},"miss":{"d":"그리워하다","s":{"1j9byc":"놓치다","1dq02tq":"놓치다"}},"mix":{"d":"믹스(섞어 완성한 소리)","s":{"sl1f8e":"믹스하다","1uqi6va":"믹스하다","17aq8lw":"믹스하다","1qaot79":"믹스하다","hdny4s":"믹스하다","1edcqy3":"믹스하다","ccutit":"믹스하다","6ee70o":"믹스하다","1mjiag5":"믹스하다","hdsu75":"믹스하다"}},"moving":{"d":"올리는(moving up)","s":{"108yus1":"옮기는","142ugog":"옮기는"}},"notes":{"d":"음들(음표)","s":{"sgei8u":"=단어장","1njrdrb":"=단어장","18i4opq":"=단어장","10zd02d":"=단어장","42u557":"=단어장","1qwt044":"=단어장","r7fgye":"=단어장"}},"off":{"d":"안 맞는(어긋난)","s":{"105uy17":"끊어(cut it off = 딱 끊다)","1tzb8d":"끊어(cut it off = 딱 끊다)","1616ikj":"떨어져(back off = 떨어지다)","1bu6999":"떨어져(back off = 떨어지다)","8iemsh":"떨어져(back off = 떨어지다)","62vy4n":"떨어져(back off = 떨어지다)","13q2v7p":"떨어져(back off = 떨어지다)","1u7efcv":"떨어져(back off = 떨어지다)","n7h0or":"(sign off = 최종 승인하다)","oihulj":"(sign off = 최종 승인하다)","zsnkgy":"(sign off = 최종 승인하다)","1hwlhna":"(sign off = 최종 승인하다)","qvbimf":"(sign off = 최종 승인하다)","dkabgz":"(sign off = 최종 승인하다)"}},"on":{"d":"~에","s":{"je7t5w.2":"~ 위(on stage = 무대 위)","1n25nyy.2":"~ 위(on stage = 무대 위)","1ke3fdp":"~에 대해(agree on = ~를 맞추다)","15xmxek":"~에 대해(agree on = ~를 맞추다)","1qxxtpo":"(put on = 쓰다 · 끼다)","npompz":"(put on = 쓰다 · 끼다)","19zb8il":"위쪽(on top = 위에)","1y7zspt":"위쪽(on top = 위에)","3qzn0k":"~로(악기: on the piano = 피아노로)","i4w3pf":"~로(악기: on the piano = 피아노로)","1bv2t9s":"~로(악기: on the piano = 피아노로)","1lxvp1r":"~로(악기: on the piano = 피아노로)","99mwpg":"~로(악기: on the piano = 피아노로)","at2dk4":"~로(악기: on the piano = 피아노로)","1rynu24":"~로(악기: on the piano = 피아노로)","1onfvp9":"~로(악기: on the piano = 피아노로)","ihxxb4":"~로(악기: on the piano = 피아노로)","1026q6p":"~로(악기: on the piano = 피아노로)","w6u8fi":"켜다(turn on = 켜다)","zhc3o2":"켜다(turn on = 켜다)","1lujvbe":"(go easy on = 살살 하다)","2g7to8":"(go easy on = 살살 하다)","sgei8u":"~에 대해(~에 관한)","1njrdrb":"~에 대해(~에 관한)","18i4opq":"~에 대해(~에 관한)","10zd02d":"~에 대해(~에 관한)","1nz1fnv":"~에 대해(~에 관한)","1vm4sd8":"~에 대해(~에 관한)","n7h0or":"~에 대해(~에 관한)","oihulj":"~에 대해(~에 관한)","qvbimf":"~에 대해(~에 관한)","dkabgz":"~에 대해(~에 관한)","d9dw0n":"~에 대해(~에 관한)","11w421x":"~에 대해(~에 관한)","1fdzzbx":"~에 대해(~에 관한)","1uwrgcv":"~에 대해(~에 관한)","fnzzwd":"~에 대해(~에 관한)","19xx15d":"~에 대해(~에 관한)","6zq6an":"~에 대해(~에 관한)","1lrnn1v":"~에 대해(~에 관한)","3m5iaf":"~에 대해(~에 관한)","1icshia":"~에 대해(~에 관한)","eh672u":"~에 대해(~에 관한)","1bzl0qa":"~에 대해(~에 관한)","r7fgye":"~에 대해(~에 관한)","atxpxo":"~에 대해(~에 관한)","nmjc80":"걸다(put a hold on = 홀드를 걸다)","102xghl":"걸다(put a hold on = 홀드를 걸다)","46mrs0":"걸다(put a hold on = 홀드를 걸다)","1tq4x7n":"(pass on = 거절하다)","l9xsbb":"(pass on = 거절하다)","4iogjj":"(pass on = 거절하다)","hcksdv":"(pass on = 거절하다)","10oacpe":"(pass on = 거절하다)","1c5g3ie":"(pass on = 거절하다)","sb1elp":"(pass on = 거절하다)","1me8fxg":"(pass on = 거절하다)","1vnzyu6":"~에 대해(follow up on = ~ 건으로)","1jvmj2e":"~에 대해(follow up on = ~ 건으로)","1itqur1":"~에 대해(follow up on = ~ 건으로)","zezvgc":"~에 대해(follow up on = ~ 건으로)","wnhl6c":"(on hold = 보류된)","hrweig":"(on hold = 보류된)","1n4btpu":"(on hold = 보류된)","qrq7na":"(on hold = 보류된)","c7nrpj":"(on hold = 보류된)","uiev0r":"(on hold = 보류된)","vxxy6o":"(on your end = 그쪽에서는)","5eqaav":"(on your end = 그쪽에서는)","17ryomb":"(on the same page = 생각이 같은)","8h9z34":"(on the same page = 생각이 같은)","1uszhjl":"~에 대해(sleep on it = 하룻밤 자고 생각하다)","1wn6r08":"~에 대해(sleep on it = 하룻밤 자고 생각하다)","1189582":"(hop on a call = 잠깐 통화하다)","17xw7b8":"(hop on a call = 잠깐 통화하다)","zdhmmq":"(hop on a call = 잠깐 통화하다)","1gqw41x":"~을 쓰는(Which DAW are you on? = 무슨 프로그램 써요?)","8s0ldj.2":"~마다(on every beat = 박마다)","1i5f5l4.2":"~마다(on every beat = 박마다)","1olzbuz":"~ 위를(step on = 덮다)","1x7l8wq":"~ 위를(step on = 덮다)","tex6lc":"~에 대해(~ 건)","na72wq":"~에 대해(~ 건)","nzft9h":"~에 대해(~ 건)","ir3z7j":"~에 대해(~ 건)"}},"one":{"d":"그것(앞에 나온 것: 그 곡, 그 테이크)","s":{"hri6hg":"하나(한 개)","13ouq03":"하나(한 개)","13di51b":"하나(한 개)","1mn62ic":"하나(한 개)","urli0m":"하나(한 개)","sx2u11":"하나(한 개)","de341d":"하나(한 개)","ez7u6i":"하나(한 개)","1c18vk2":"하나(한 개)","1isktvw":"하나(한 개)","vfuzzw":"하나(한 개)","131ispg":"하나(한 개)","rvzxac":"하나(한 개)","f9nga1":"하나(한 개)","1ihyv8o":"하나(한 개)","1inkyod":"하나(한 개)","1fuz98z":"하나(한 개)","1a08zd5":"하나(한 개)","1rub26w":"하나(한 개)","jp0qmh":"하나(한 개)","1nz1fnv":"하나(한 개)","1vm4sd8":"하나(한 개)","51vib6":"하나(한 개)","1ejna3v":"하나(한 개)","1fjki62":"하나(한 개)","162j9m6":"하나(한 개)","1fwzdoq":"하나(한 개)","k127e":"하나(한 개)","5k5n0y":"하나(한 개)","1svy303":"1(one twenty = 1분 20초)","zsx38f":"1(one twenty = 1분 20초)"}},"open":{"d":"벌린(넓게 퍼진)","s":{"12i3q8n":"시작하다(open the song with = ~로 곡을 시작하다)","g1zofy":"시작하다(open the song with = ~로 곡을 시작하다)","16gzv4t":"열다(파일)","1awv4rd":"열다(파일)","1q1gqpm":"열려 있는(open to = ~에 열려 있는)","8fxxdj":"시작하다(open the song with = ~로 곡을 시작하다)","10v636z":"시작하다(open the song with = ~로 곡을 시작하다)"}},"out":{"d":"밖으로","s":{"14q4h4r":"(stand out = 돋보이다)","12iv50c":"(stand out = 돋보이다)","lo1o70":"(stand out = 돋보이다)","drsnny":"(stand out = 돋보이다)","rk6k70":"(stand out = 돋보이다)","164jtn2":"(stand out = 돋보이다)","ga9jli":"(stand out = 돋보이다)","17pusb0":"(stand out = 돋보이다)","1bv2t9s":"나오다(came out = 나왔다)","1lxvp1r":"나오다(came out = 나왔다)","12tozmc":"(out of ~ range = 음역 밖)","y73f41":"(out of ~ range = 음역 밖)","d9w8zr":"(out of ~ range = 음역 밖)","9i14v4":"(fade out = 점점 작아지며 끝내다)","2ev4bd":"(fade out = 점점 작아지며 끝내다)","amav05":"빼다(take out = 빼다)","1t20k67":"빼다(take out = 빼다)","frz83z":"나오다(comes out = 발매되다)","1qjzjnx":"나오다(comes out = 발매되다)","1f1w96":"내보내다(send it out = 내보내다)","1pp0b9n":"내보내다(send it out = 내보내다)","16vi1ck":"다 적어(write out = 적어 주다)","80wdch":"다 적어(write out = 적어 주다)","ig4bxj":"(stand out = 돋보이다)","1vwz4gl":"(stand out = 돋보이다)","189p28n":"(even out = 고르게 맞추다)","1cros3p":"(even out = 고르게 맞추다)"}},"over":{"d":"다시(start over = 처음부터 다시)","s":{"abck0m":"~보다(pick A over B = B 말고 A를 고르다)","quhoo7":"~보다(pick A over B = B 말고 A를 고르다)","1cwrzjy":"~ 동안(over time = 시간이 지나면)","1eooeoq":"~ 동안(over time = 시간이 지나면)","3sq2p":"보내 주다(send over = 보내 주다)","1iqm8l7":"보내 주다(send over = 보내 주다)","ig4bxj":"~보다(over the guitars = 기타보다 위로)","1vwz4gl":"~보다(over the guitars = 기타보다 위로)"}},"play":{"d":"연주하다(치다)","s":{"14q4h4r":"(play it safe = 무난하게 가다)","12iv50c":"(play it safe = 무난하게 가다)","8szpwc":"틀다","1af2y63":"틀다","1m1i15z":"들려주다","76wupu":"들려주다","1nieur7":"들려주다","9ln0z0":"들려주다"}},"point":{"d":"요점(하려는 말)","s":{"5svxvy":"정점(high point = 가장 높은 지점)","1dzmhgi":"정점(high point = 가장 높은 지점)"}},"points":{"d":"=단어장"},"push":{"d":"올리다","s":{"cn85ek":"더 키우다","1sua82s":"더 키우다","1f8d0ju":"미루다(push back = 미루다)","1d8txuc":"미루다(push back = 미루다)","18sl2":"미루다(push back = 미루다)","1t2dgt2":"미루다(push back = 미루다)"}},"put":{"d":"두다(넣다)","s":{"1qxxtpo":"쓰다(put on = 쓰다 · 끼다)","npompz":"쓰다(put on = 쓰다 · 끼다)","1orkff7":"걸다(효과를)","1j5m4si":"걸다(효과를)","nmjc80":"걸다(put a hold on = 홀드를 걸다)","102xghl":"걸다(put a hold on = 홀드를 걸다)","46mrs0":"걸다(put a hold on = 홀드를 걸다)","1n4btpu":"(put ~ on hold = 보류하다)","qrq7na":"(put ~ on hold = 보류하다)"}},"record":{"d":"녹음하다","s":{"o5lq8w":"음반","wt1q2i":"음반","f0joyc":"음반","bkoars":"음반","12jhu7":"음반","gt7exe":"음반"}},"right":{"d":"바로(곧)","s":{"xq8kqe":"맞게(제대로)","1skgklw":"맞게(제대로)","hv3wi2":"맞게(제대로)","61yxb2":"맞게(제대로)","n31tb9":"맞게(제대로)","pppn5h":"맞게(제대로)","b0po90":"맞게(제대로)","x6geoi":"맞게(제대로)","ru74se":"오른쪽","48gfi7":"오른쪽","1oyoays":"오른쪽","od6hgj":"오른쪽"}},"set":{"d":"잡힌(정해진)","s":{"mdxwih":"셋리스트(공연 곡 묶음)","1u1lwgz":"셋리스트(공연 곡 묶음)","1v5bwz5":"맞추다(레벨)","ojykli":"맞추다(레벨)"}},"so":{"d":"~하도록","s":{"ge8fcj":"그래서","xpv6t1":"그래서","jq1zqd":"그래서","5vvnv":"그래서","xq8kqe":"그래서","1skgklw":"그래서","z01142":"그래서","bq9yf1":"그래서","18792bk":"그래서","1dsrp4v":"그래서","1p7mynk":"그래서","16hdhs":"그래서","e79fcv":"그래서","tmklh1":"그래서","1li9udc":"그래서","al14np":"그래서","auj8bm":"그래서","1xea880":"그래서","1ej2gzi":"그래서","1xnxrei":"그래서","xupslw":"그래서","1jn5c0z":"그래서","1nooj4v":"그래서","ovurgq":"그래서","ccutit":"그래서","6ee70o":"그래서","1msc3hn":"그래서","1wancm4":"그래서","1lyz2vx":"그래서","1620tny":"그래서","139kcel":"그래서","1055gpe":"그래서","1k91eqk":"그래서","oxo0xa":"그래서","1d89g25":"그래서","1cjz51l":"아주(그렇게)","f82j71":"아주(그렇게)","1djn8gw":"아주(그렇게)","1glm2jj":"아주(그렇게)","11fsy04":"아주(그렇게)","1mqq7up":"아주(그렇게)","ub5z4d":"아주(그렇게)","cl9gqn":"아주(그렇게)","1ykf02q":"아주(그렇게)","1uz1i6v.2":"그렇게(아주)","173sc0l.2":"그렇게(아주)","1nieur7":"(so far = 지금까지)","9ln0z0":"(so far = 지금까지)","7gem9q":"그럼(말을 꺼낼 때)"}},"sound":{"d":"소리","s":{"1yewtpn":"~하게 들리다","vnpq3h":"~하게 들리다","16yipeq":"~하게 들리다","18docit":"~하게 들리다","1cx3hih":"~하게 들리다","1pkg9t1":"~하게 들리다","1ghv94d":"~하게 들리다","u7tso7":"~하게 들리다","5u025":"~하게 들리다","u606x3":"~하게 들리다","1lflyz2":"~하게 들리다","45f0j4":"~하게 들리다","h352n":"~하게 들리다","e0t9vi":"~하게 들리다","1uap878":"~하게 들리다","8747bz":"~하게 들리다","3075hv":"~하게 들리다","nhn9i4":"~하게 들리다","1x29wog":"~하게 들리다","13uta62":"~하게 들리다","6exrfk":"~하게 들리다","kcmzaq":"~하게 들리다","1fa756g":"~하게 들리다","e3ua8x":"~하게 들리다","apa3oe":"~하게 들리다","18rjvmd":"~하게 들리다","1qkr7r8":"~하게 들리다","zz7ym3":"~하게 들리다","vxxy6o":"~하게 들리다","5eqaav":"~하게 들리다","117bj7k":"~하게 들리다","1p0qlgx":"~하게 들리다","xm8vqb":"~하게 들리다","mw2hzs":"~하게 들리다"}},"sounds":{"d":"~하게 들린다","s":{"1artkkp":"소리들(\"s\" sounds = ㅅ 소리들)","ekupb3":"소리들(\"s\" sounds = ㅅ 소리들)","vcwm4f":"~하게 들린다(Sounds good = 좋아요)","hxyljq":"~하게 들린다(Sounds good = 좋아요)"}},"still":{"d":"아직","s":{"1bzqz7u":"여전히","1i8m9dm":"여전히","ahus7w":"여전히","142w7wg":"여전히"}},"that":{"d":"그(그것)","s":{"1jioad4":"~라는 것(문장을 이음)","1tv3mqg":"~라는 것(문장을 이음)","e3xca4":"~라는 것(문장을 이음)","1lzty4i":"~라는 것(문장을 이음)","1ygij6h":"그렇게(that much = 그렇게 많이)","i25l1l":"그렇게(that much = 그렇게 많이)"}},"then":{"d":"그다음에","s":{"1p7mynk":"그때","16hdhs":"그때"}},"third":{"d":"3도(음 사이 거리)","s":{"1ha5x9o":"세 번째","1bx3gyv":"세 번째"}},"to":{"d":"~하기(to go = 가기)","s":{"2aey4y":"~에","aizb3c":"~에","wii4qu":"~에","1dnh5ep":"~에","fvoyg5":"~에","107s1i9":"~에","5f1iq7":"~에","1bq8gih":"~에","1gyt6rb":"~에","68hovb":"~에","fn9bdn":"~에","pcpkly":"~에","1bkw9h9":"~에","7ryrx2":"~에","1rt22xd":"~로(~까지)","1lccpim":"~로(~까지)","eh70gz":"~로(~까지)","a2kx46":"~로(~까지)","1cyr91":"~로(~까지)","hcbn66":"~로(~까지)","5djnl2":"~로(~까지)","q6y2g7":"~로(~까지)","74xth":"~로(~까지)","gwdpue":"~로(~까지)","jrfr0j":"~로(~까지)","h8bef8":"~로(~까지)","a0navg":"~로(~까지)","mk8fqx":"~로(~까지)","e79fcv":"~로(~까지)","tmklh1":"~로(~까지)","pvy5yb":"~로(~까지)","1m9u39t":"~로(~까지)","hwkonl":"~로(~까지)","hyy473":"~로(~까지)","1uww31x":"~로(~까지)","g0il3b":"~로(~까지)","zsnkgy":"~로(~까지)","1hwlhna":"~로(~까지)","108yus1":"~로(~까지)","142ugog":"~로(~까지)","1mgju44":"~로(~까지)","ve2wrv":"~로(~까지)","5k5n0y":"~로(~까지)","84uev1":"~로(~까지)","i2l78r":"~에 맞춰(sing along to = 따라 부르다)","1c4vptj":"~에 맞춰(sing along to = 따라 부르다)","1lwis2b":"~와(compare to = ~와 비교하다)","1p5xb7b":"~와(compare to = ~와 비교하다)","62x0de":"~에게","c2tg2p":"~에게","13q2r4t":"~에게","5ox1lh":"~에게","f4nq8z":"~에게","1mxb163":"~에게","f5k8go":"~에게","kqyqvd":"~에게","1a0wssg":"~에게","1kxf6ym":"~에게","1qzh8g7":"~에게","vj4tuk":"~에게","1m0bc7f":"(look forward to = ~를 기다리다)","7f2112":"(look forward to = ~를 기다리다)","1q1gqpm":"~에(open to = ~에 열려 있는)","1rzok36":"~로(~까지)","rsypry":"~로(~까지)","lwymw3":"~로(~까지)","6lwe62":"~로(~까지)","nspq8e":"~를(listen back to = ~를 다시 듣다)","1d8vvy":"~를(listen back to = ~를 다시 듣다)","1bt8k1u":"~를(listen back to = ~를 다시 듣다)","6j9gte":"~를(listen back to = ~를 다시 듣다)","mcchx9":"~에","93ey42":"~에","1y9kon8":"~에","1r1t8jd":"~에","1sz7ss5":"~에","ucw83r":"~에","vcwm4f":"~에게(to me = 저한테는)","hxyljq":"~에게(to me = 저한테는)"}},"up":{"d":"올려(위로)","s":{"swblbq":"(tighten up = 조이다)","gzmk3y":"(tighten up = 조이다)","sl1f8e":"(tighten up = 조이다)","1uqi6va":"(tighten up = 조이다)","ua2iij":"(tighten up = 조이다)","1ynjg03":"(tighten up = 조이다)","95c8ah":"(clean up = 정리하다)","vab6nn":"(clean up = 정리하다)","14g8ec6":"(pick it up = 이어서 하다)","1htpesh":"(pick it up = 이어서 하다)","52lyk8":"(warm up = 목을 풀다)","16yr7ng":"(warm up = 목을 풀다)","1j1abuq":"(warm up = 목을 풀다)","15qb6fa":"(warm up = 목을 풀다)","1al0loc":"(warm up = 목을 풀다)","lzzzi8":"(warm up = 목을 풀다)","1boama3":"열려(opens up = 확 열리다)","1m77c9u":"열려(opens up = 확 열리다)","1xl9iru":"(vocal up = 보컬을 키운 버전)","xxo7mj":"(vocal up = 보컬을 키운 버전)","1cwrzjy":"(add up = 쌓여 커지다)","1eooeoq":"(add up = 쌓여 커지다)","raagn0":"(follow up = 다시 연락하다)","kezsro":"(follow up = 다시 연락하다)","15szg80":"(follow up = 다시 연락하다)","5ba6ns":"(follow up = 다시 연락하다)","1vnzyu6":"(follow up = 다시 연락하다)","1jvmj2e":"(follow up = 다시 연락하다)","1itqur1":"(follow up = 다시 연락하다)","zezvgc":"(follow up = 다시 연락하다)","pesz5f":"(break things up = 분위기를 바꾸다)","1aqfb5y":"(break things up = 분위기를 바꾸다)"}},"voicing":{"d":"=단어장"},"way":{"d":"방식(쪽)","s":{"ym78xb":"길(get in the way = 방해가 되다)","pp6jw6":"길(get in the way = 방해가 되다)","1tywgse":"훨씬(way too = 너무너무)","xb2rbi":"훨씬(way too = 너무너무)","1f8d0ju":"방법","1d8txuc":"방법"}},"went":{"d":"갔다(잘됐다)","s":{"1o8opf":"~해졌다(went sharp = 샤프 났다)","urx175":"~해졌다(went sharp = 샤프 났다)","ccutit":"진행됐다(went fast = 빨리 끝났다)","6ee70o":"진행됐다(went fast = 빨리 끝났다)"}},"with":{"d":"~와 함께","s":{"1op3ubu":"~이 있는(~한)","xfm24w":"~이 있는(~한)","awku3c":"~이 있는(~한)","16rmag6":"~이 있는(~한)","1a2hw3l":"~이 있는(~한)","558qbc":"~이 있는(~한)","xhbfbf":"~이 있는(~한)","16zglga":"~이 있는(~한)","1jypkq7":"~이 있는(~한)","1r0p4u8":"~이 있는(~한)","1sj3yzu":"~이 있는(~한)","1o6hgo2":"~이 있는(~한)","16pmmqs":"~이 있는(~한)","xkkw64":"~에게(~한테)","1p2xoyj":"~에게(~한테)","19apxj7":"~으로","167b1qz":"~으로","1hdicgw":"~으로","4jyg83":"~으로","105uy17":"~으로","1tzb8d":"~으로","12i3q8n":"~으로","g1zofy":"~으로","mleff2":"~으로","1wqdx73":"~으로","1j1abuq":"~으로","15qb6fa":"~으로","1xkwkor":"~으로","sq7l7u":"~으로","16d04nv":"~으로","17f6n6x":"~으로","1kpa3v8":"~으로","sjg28j":"~에 맞춰","5qrsl5":"~에 맞춰","1ygij6h":"~을 걸어서(~ 때문에)","i25l1l":"~을 걸어서(~ 때문에)","186rwje":"~ 소속(Which PRO are you with? = 어느 협회 소속이에요?)","3x5oh5":"~ 소속(Which PRO are you with? = 어느 협회 소속이에요?)","10wlwnb":"~에(~에게)","rel60o":"~에(~에게)","raagn0":"~에(~에게)","kezsro":"~에(~에게)","kelglj":"~에(happy with = ~가 마음에 드는)","ls7n7q":"~이 있으니(~ 때문에)","14eantv":"~이 있으니(~ 때문에)","8fxxdj":"~으로","10v636z":"~으로","29wgdd":"~ 때문에(with the difference = 차이 때문에)","10xpak":"~ 때문에(with the difference = 차이 때문에)"}},"clear":{"d":"=단어장","s":{"1x1fmjr":"또렷한(loud and clear = 아주 잘 들리는)"}},"cleared":{"d":"=단어장"},"hold":{"d":"=단어장","s":{"wnhl6c":"(on hold = 보류된)","hrweig":"(on hold = 보류된)","1n4btpu":"(on hold = 보류된)","qrq7na":"(on hold = 보류된)","c7nrpj":"(on hold = 보류된)","uiev0r":"(on hold = 보류된)"}},"master":{"d":"=단어장","s":{"1jvps66":"마스터(최종 음원)"}},"mastered":{"d":"=단어장"},"mastering":{"d":"=단어장"},"safe":{"d":"=단어장","s":{"1fwzdoq":"(to be safe = 혹시 모르니, 안전하게)"}},"split":{"d":"=단어장","s":{"17ml12w":"나누다"}},"splits":{"d":"=단어장"},"take":{"d":"=단어장","s":{"ahta2y":"걸리다(시간이)","6rvpj7":"걸리다(시간이)","amav05":"빼다(take out = 빼다)","1t20k67":"빼다(take out = 빼다)","145lwl7":"하다(take it from the top = 처음부터 하다)","1p586by":"하다(take it from the top = 처음부터 하다)","109f67j":"하다(take it from the top = 처음부터 하다)","1ehimuh":"쉬다(take five = 5분 쉬다)","75142b":"쉬다(take five = 5분 쉬다)","js53wo":"(take your time = 천천히 하다)","p0l9a1":"(take your time = 천천히 하다)"}},"takes":{"d":"=단어장","s":{"d5xk0i":"걸린다(시간이)","ekzbmf":"걸린다(시간이)"}},"tune":{"d":"=단어장","s":{"d4mqx9":"음정(in tune = 음정이 맞는)","1eh3gkg":"음정(in tune = 음정이 맞는)","1tlfpjq":"음정(in tune = 음정이 맞는)","1s1lb2b":"음정(in tune = 음정이 맞는)","plekn5":"음정(in tune = 음정이 맞는)","178v5e6":"음정(in tune = 음정이 맞는)"}},"warm":{"d":"=단어장","s":{"52lyk8":"(warm up = 목을 풀다, 몸을 풀다)","16yr7ng":"(warm up = 목을 풀다, 몸을 풀다)","1j1abuq":"(warm up = 목을 풀다, 몸을 풀다)","15qb6fa":"(warm up = 목을 풀다, 몸을 풀다)","1al0loc":"(warm up = 목을 풀다, 몸을 풀다)","lzzzi8":"(warm up = 목을 풀다, 몸을 풀다)"}},"work":{"d":"=단어장","s":{"1k91eqk":"(work for hire = 권리 양도 작업)","oxo0xa":"(work for hire = 권리 양도 작업)","ndw7c":"(work for hire = 권리 양도 작업)","1rl67hy":"(work for hire = 권리 양도 작업)","1w7ij1m":"(work for hire = 권리 양도 작업)","vwdccc":"(work for hire = 권리 양도 작업)","3ojiaz":"(work for hire = 권리 양도 작업)","87sma9":"작업(지금까지 한 작업들)","kfj8zg":"작업(지금까지 한 작업들)"}},"works":{"d":"=단어장"},"making":{"d":"만들다"},"working":{"d":"작업하다(work on = ~을 작업하다)"},"beats":{"d":"비트(반주 트랙)"},"sign":{"d":"=단어장","s":{"n7h0or":"(sign off = 최종 승인하다)","oihulj":"(sign off = 최종 승인하다)","zsnkgy":"(sign off = 최종 승인하다)","1hwlhna":"(sign off = 최종 승인하다)","qvbimf":"(sign off = 최종 승인하다)","dkabgz":"(sign off = 최종 승인하다)","ll2kqz":"계약하다(서명하다)","6q9dqx":"계약하다(서명하다)"}},"signed":{"d":"서명된"},"solo":{"d":"=단어장","s":{"4yhi38":"솔로(혼자 하는 연주)","1g6tvlp":"솔로(혼자 하는 연주)","1e02xdb":"솔로(혼자 하는 연주)","1o0z02c":"솔로(혼자 하는 연주)"}}};
+var SENSE = {"about":{"d":"~에 대해","s":{"1xxvqkf":"대략(~쯤)","1bg2afi":"대략(~쯤)","1lniq2u":"대략(~쯤)","3mh0hk":"대략(~쯤)","16d04nv":"(How about ~? = ~하는 거 어때요?)","17f6n6x":"(How about ~? = ~하는 거 어때요?)","g201jj":"(not sure about ~ = ~는 잘 모르겠다)","jixt8w":"(not sure about ~ = ~는 잘 모르겠다)","1lrra2j":"(not sure about ~ = ~는 잘 모르겠다)"}},"add":{"d":"넣다(더하다)","s":{"1cwrzjy":"쌓이다(add up = 쌓여 커지다)","1eooeoq":"쌓이다(add up = 쌓여 커지다)"}},"as":{"d":"~로(서)","s":{"l5kl41":"~만큼(as hard as = ~만큼 세게)","14x8lty":"~만큼(as hard as = ~만큼 세게)","ry4sio":"~로(~ 역할로)","1v5sz4h":"~로(~ 역할로)","1xlvyoh":"~와(same ~ as = ~와 같은)","1ao7mvd":"~와(same ~ as = ~와 같은)","19kesah":"(as long as = ~만 되면)","1oju8uh":"(as long as = ~만 되면)","19kesah.2":"(as long as = ~만 되면)","1oju8uh.2":"(as long as = ~만 되면)"}},"back":{"d":"다시(되돌려)","s":{"1dmz63j":"(dial back = 살짝 줄이다)","1xxdzpm":"(dial back = 살짝 줄이다)","a3l0f2":"(dial back = 살짝 줄이다)","1njakib":"(dial back = 살짝 줄이다)","cn9orz":"(dial back = 살짝 줄이다)","1ewmhj8":"(dial back = 살짝 줄이다)","12zknro":"(dial back = 살짝 줄이다)","1lccpim":"(strip back = 덜어 내다)","1rt22xd":"(strip back = 덜어 내다)","eh70gz":"(strip back = 덜어 내다)","a2kx46":"(strip back = 덜어 내다)","1lhzbal":"(strip back = 덜어 내다)","12nizka":"(strip back = 덜어 내다)","a7e0kl":"(laid back = 느긋한)","1fqtube":"(laid back = 느긋한)","e5ti6t":"(laid back = 느긋한)","1dt600a":"(laid back = 느긋한)","85em0z":"(laid back = 느긋한)","wnf27s":"(laid back = 느긋한)","dhdp6k":"다시(come back = 다시 들어오다)","8bj4av":"다시(come back = 다시 들어오다)","1616ikj":"(back off the mic = 마이크에서 떨어지다)","1bu6999":"(back off the mic = 마이크에서 떨어지다)","62vy4n":"(back off the mic = 마이크에서 떨어지다)","8iemsh":"(back off the mic = 마이크에서 떨어지다)","13q2v7p":"(back off the mic = 마이크에서 떨어지다)","1u7efcv":"(back off the mic = 마이크에서 떨어지다)","1f8d0ju":"뒤로(push back = 미루다)","1d8txuc":"뒤로(push back = 미루다)","1jcaxjx":"돌아와(came back = 작업물이 들어왔다)","1i51e0h":"돌아와(came back = 작업물이 들어왔다)","1gdk4tk":"(circle back = 나중에 다시 얘기하다)","2p4y3e":"(circle back = 나중에 다시 얘기하다)","1kxf6ym":"(get back to you = 다시 연락드리다)","1a0wssg":"(get back to you = 다시 연락드리다)","1d8vvy":"(listen back = 다시 들어 보다)","nspq8e":"(listen back = 다시 들어 보다)","1qqq5e9":"(listen back = 다시 들어 보다)","p6yzg1":"(listen back = 다시 들어 보다)","1bt8k1u":"(listen back = 다시 들어 보다)","6j9gte":"(listen back = 다시 들어 보다)","18sl2":"뒤로(push back = 미루다)","1t2dgt2":"뒤로(push back = 미루다)"}},"by":{"d":"~까지(마감)","s":{"1h75oz1":"~에게(run it by = ~에게 확인받다)","2hm0hu":"~에게(run it by = ~에게 확인받다)","igz2wi":"~라는 말로(mean by ~ = ~가 무슨 뜻이다)","1otumsz":"~라는 말로(mean by ~ = ~가 무슨 뜻이다)"}},"cans":{"d":"=단어장"},"chops":{"d":"=단어장"},"clean":{"d":"정리하다(clean up)"},"close":{"d":"가까운","s":{"fmvyon":"거의 다 된(It's close = 거의 다 왔다)","ipcgn5":"거의 다 된(It's close = 거의 다 왔다)"}},"comes":{"d":"들어온다(come in)","s":{"1usok3z":"온 것이다(comes from = ~에서 가져왔다)","whuoct":"온 것이다(comes from = ~에서 가져왔다)","1qjzjnx":"나온다(comes out = 발매된다)","frz83z":"나온다(comes out = 발매된다)"}},"could":{"d":"~해 줄 수 있어요(부탁)","s":{"1v1yvqj":"~할 수도 있다","1iavdqv":"~할 수도 있다","crchbz":"~해 볼 수 있을까요(Could we ~?)","1yawsj":"~해 볼 수 있을까요(Could we ~?)","buhev9":"~해 볼 수 있을까요(Could we ~?)","1bsac85":"(I was wondering if you could ~ = 혹시 ~해 주실 수 있을까 해서요)"}},"count":{"d":"세다","s":{"1xlvyoh":"수(syllable count = 음절 수)","1ao7mvd":"수(syllable count = 음절 수)"}},"cut":{"d":"자르다(줄이다)","s":{"173sc0l":"깎다(소리를 줄이다)","1uz1i6v":"깎다(소리를 줄이다)","175zsiz":"깎다(소리를 줄이다)","91jm6":"깎다(소리를 줄이다)","1tzb8d":"끊다(cut it off = 딱 끊다)","105uy17":"끊다(cut it off = 딱 끊다)","1popdwf":"뚫다(cut through = 뚫고 나오다)","ycle35":"뚫다(cut through = 뚫고 나오다)"}},"dated":{"d":"=단어장"},"did":{"d":"했다","s":{"hdny4s":"(과거 질문에 붙는 말)","1edcqy3":"(과거 질문에 붙는 말)","16cfooc":"(과거 질문에 붙는 말)","7fafqz":"(과거 질문에 붙는 말)","78m6iw":"(과거 질문에 붙는 말)","rpla34":"(과거 질문에 붙는 말)","1m9bv78":"(과거 질문에 붙는 말)","a4wjqf":"(과거 질문에 붙는 말)","i2x8gw":"(과거 질문에 붙는 말)","1o5k9f":"(과거 질문에 붙는 말)","vzvk95":"(과거 질문에 붙는 말)"}},"do":{"d":"(질문에 붙는 말)","s":{"f9nga1":"하다(do one more = 한 번 더 하다)","rvzxac":"하다(do one more = 한 번 더 하다)","1fwzdoq":"하다(do one more = 한 번 더 하다)","1776rog":"하다(do one more = 한 번 더 하다)","1f9g08p":"되다(I can do Tuesday = 화요일은 돼요)","7gem9q.2":"하다(무슨 일을 하다)","5k5n0y":"하다(I can do that = 그렇게 해 드릴게요)"}},"does":{"d":"(질문에 붙는 말)"},"doing":{"d":"하는","s":{"5m2n0g":"지내는(Hope you're doing well = 잘 지내시죠)","15hr0j5":"지내는(Hope you're doing well = 잘 지내시죠)"}},"even":{"d":"훨씬","s":{"t9iilm":"~조차(~인데도)","1v6u94n":"~조차(~인데도)","4c9lc2":"똑같은(even split = 똑같이 나누기)","lwv23y":"똑같은(even split = 똑같이 나누기)","1776rog":"똑같은(even split = 똑같이 나누기)","189p28n":"(even out = 고르게 맞추다)","1cros3p":"(even out = 고르게 맞추다)"}},"fan":{"d":"팬(좋아하는 사람)","s":{"w6u8fi":"선풍기","zhc3o2":"선풍기"}},"feel":{"d":"느껴지다","s":{"bvpcos":"느낌","o6eaw2":"느낌","1j9np1s":"느낌","12tqdd9":"느낌","105jae6":"느낌","18x8n6c":"느낌","h7xaru":"느낌","pey8j":"느낌","rpfsx":"느끼다","mwxctv":"느끼다","9ufcow":"(Feel free to ~ = 편하게 ~해요)","1l4c66v":"(Feel free to ~ = 편하게 ~해요)","9ufcow.2":"느낌이 오다","1l4c66v.2":"느낌이 오다","tdea2y":"(Feel free to ~ = 편하게 ~해요)","iyplhk":"(Feel free to ~ = 편하게 ~해요)"}},"for":{"d":"~을 위해(~용으로)","s":{"kql3rt":"~에 비해","1yuz4k3":"~에 비해","131ispg":"~에 비해","vfuzzw":"~에 비해","lx45hv":"~에게(~한테는)","1hrid9y":"~에게(~한테는)","12y7mzm":"~에게(~한테는)","1noqj3z":"~에게(~한테는)","1yxb6n9":"~에게(~한테는)","vu1dag":"~에게(~한테는)","1kbzwru":"~에게(~한테는)","1mghrn":"~에게(~한테는)","71l34z":"(go for = 노리다 · 그 느낌으로 가다)","1aisesg":"(go for = 노리다 · 그 느낌으로 가다)","t740g":"(go for = 노리다 · 그 느낌으로 가다)","1cbc759":"(go for = 노리다 · 그 느낌으로 가다)","vks4ji":"(go for = 노리다 · 그 느낌으로 가다)","1a8rvp7":"(go for = 노리다 · 그 느낌으로 가다)","1kpa3v8":"(go for = 노리다 · 그 느낌으로 가다)","rpfsx":"~ 동안","mwxctv":"~ 동안","1i0i6a1":"~치고(~에 비해)","1r2osec":"~치고(~에 비해)","xal66c":"~치고(~에 비해)","1ceechj":"~치고(~에 비해)","4zs2gp":"~치고(~에 비해)","kdutt1":"~치고(~에 비해)","7uu8pl":"(ask for = 요청하다)","12daykw":"(ask for = 요청하다)","1r0p4u8":"(ask for = 요청하다)","1jypkq7":"(ask for = 요청하다)","dapp9d":"(ask for = 요청하다)","5837a6":"(ask for = 요청하다)","179si3q":"(ask for = 요청하다)","1azq6ir":"(ask for = 요청하다)","1sj3yzu":"(ask for = 요청하다)","1o6hgo2":"(ask for = 요청하다)","vwjs8c":"~에 맞출(~와 짝이 될)","15rk7o1":"~에 맞출(~와 짝이 될)","1wuontr":"(for now = 지금은 · 일단은)","1mul802":"(for now = 지금은 · 일단은)","wnhl6c":"(for now = 지금은 · 일단은)","hrweig":"(for now = 지금은 · 일단은)","1fmehrp":"(done for the day = 오늘은 끝)","35z9m9":"(done for the day = 오늘은 끝)","1vcsyrd":"(aim for = 목표로 하다)","rffylv":"(aim for = 목표로 하다)","42u557":"(Thanks for ~ = ~해서 고마워요)","1qwt044":"(Thanks for ~ = ~해서 고마워요)","1v9y9tz":"(Thanks for ~ = ~해서 고마워요)","fx5n1g":"(Thanks for ~ = ~해서 고마워요)","cl9gqn":"(Thanks for ~ = ~해서 고마워요)","ub5z4d":"(Thanks for ~ = ~해서 고마워요)","1eqma5h":"(Thanks for ~ = ~해서 고마워요)","106azjk":"(Thanks for ~ = ~해서 고마워요)","1frq2rk":"~로(날짜)","1b4lg2n":"~로(날짜)","kjw2kg":"~로(날짜)","oxo0xa":"(work for hire = 권리 양도 작업)","1k91eqk":"(work for hire = 권리 양도 작업)","ndw7c":"(work for hire = 권리 양도 작업)","1rl67hy":"(work for hire = 권리 양도 작업)","1w7ij1m":"(work for hire = 권리 양도 작업)","vwdccc":"(work for hire = 권리 양도 작업)","3ojiaz":"(work for hire = 권리 양도 작업)","11v88i":"(Sorry for ~ = ~해서 죄송해요)","1thlsim":"(Sorry for ~ = ~해서 죄송해요)","ihmxfw":"(look for = 찾다)","1mrckr6":"(look for = 찾다)","1gwxcr7":"(for today = 오늘은)","gn1dki":"~하러(~ 때문에)","1jt9jdb":"~에(~에 맞을 만큼)","62xnta":"~ 동안(for a second = 잠깐)","1dvvsvf":"~ 동안(for a second = 잠깐)","v3zrxz":"~ 동안(for a second = 잠깐)","4c2u0i":"~ 동안(for a second = 잠깐)","17s2yme":"~ 동안(for too long = 너무 오래)","5lo5s3":"~ 동안(for too long = 너무 오래)","ngi6l6":"~ 동안","3njw0v":"~ 동안","1ejrvk2":"~마다(for each = ~마다)","1quhpw1":"~마다(for each = ~마다)","hs77xb":"(Thanks for ~ = ~해서 고마워요)","11pvf1k":"(Thanks for ~ = ~해서 고마워요)"}},"get":{"d":"받다(얻다)","s":{"f82j71":"빼다(get it out of my head = 머리에서 떨쳐 내다)","1cjz51l":"빼다(get it out of my head = 머리에서 떨쳐 내다)","16ltv91":"~해지다(get boring = 지루해지다)","2s3tam":"~해지다(get boring = 지루해지다)","1jwh15s":"~해지다","s8cgwf":"~해지다","1pqnpyc":"~해지다","1g4c19e":"~해지다","16q6r3":"~해지다","gbe2wi":"~해지다","ym78xb":"(get in the way = 방해가 되다)","pp6jw6":"(get in the way = 방해가 되다)","19y6vdt":"받다(Can I get ~? = ~ 좀 주실래요?)","c45unb":"받다(Can I get ~? = ~ 좀 주실래요?)","feifsu":"받다(Can I get ~? = ~ 좀 주실래요?)","1sydhlf":"받다(Can I get ~? = ~ 좀 주실래요?)","1x1fmjr":"받다(Can I get ~? = ~ 좀 주실래요?)","f5k8go":"보내 주다(get it back to me = 다시 보내 주다)","kqyqvd":"보내 주다(get it back to me = 다시 보내 주다)","vj4tuk":"보내 주다(get it back to me = 다시 보내 주다)","1kxf6ym":"(get back to you = 다시 연락드리다)","1a0wssg":"(get back to you = 다시 연락드리다)","ekzbmf":"(get going = 시작되다)","d5xk0i":"(get going = 시작되다)"}},"gets":{"d":"~해진다","s":{"1pok37l":"들어간다","4n8qpu":"들어간다","12jhu7":"받는다","gt7exe":"받는다"}},"goes":{"d":"바뀐다(~해진다)"},"got":{"d":"받았다(따냈다)","s":{"1ihyv8o":"해냈다(got it = 끝냈다)","1inkyod":"해냈다(got it = 끝냈다)","axk9a9":"끝냈다(got ~ done = ~을 끝냈다)","2b4wc":"(Got it = 알겠어요)","49kf3p":"(Got it = 알겠어요)"}},"had":{"d":"있었다(가졌다)","s":{"10wunsj":"~해 왔다(I've had ~ = 계속 ~해 있었다)","zgabcm":"~해 왔다(I've had ~ = 계속 ~해 있었다)","qvbimf":"있었다(had time = 시간이 있었다)","dkabgz":"있었다(had time = 시간이 있었다)","10oacpe":"~해야 했다(had to)","1c5g3ie":"~해야 했다(had to)","115o84o":"(had a chance to = ~해 볼 틈이 있었다)","2v66ys":"(had a chance to = ~해 볼 틈이 있었다)"}},"hard":{"d":"세게","s":{"a7e0kl":"애써(trying too hard = 너무 애쓰다)","1fqtube":"애써(trying too hard = 너무 애쓰다)","48gfi7":"끝까지(hard left = 왼쪽 끝)","ru74se":"끝까지(hard left = 왼쪽 끝)"}},"has":{"d":"가지고 있다","s":{"xq8kqe":"~해야 하다(has to)","1skgklw":"~해야 하다(has to)","z01142":"~해야 하다(has to)","bq9yf1":"~해야 하다(has to)"}},"have":{"d":"가지다(있다)","s":{"9btmqc":"걸려 있다(have demoitis = 데모 병에 걸리다)","183iyia":"걸려 있다(have demoitis = 데모 병에 걸리다)","tcjepn":"잡혀 있다(I have a co-write = 공동 작곡이 잡혀 있다)","1s00npz":"잡혀 있다(I have a co-write = 공동 작곡이 잡혀 있다)","pwf4gs":"~해야 하다(have to)","xwm4mi":"~해야 하다(have to)","115o84o":"(Have you had a chance to ~? = 혹시 ~해 보셨어요?)","84uev1":"(have sent = 보냈어요 · 지금 그 상태)"}},"if":{"d":"만약 ~라면","s":{"xbmu0p":"(What if we ~? = ~해 보면 어때요?)","tyo8td":"(What if we ~? = ~해 보면 어때요?)","1guwr51":"(What if we ~? = ~해 보면 어때요?)","1k6lb91":"(What if we ~? = ~해 보면 어때요?)","17ohrj7":"(if possible = 가능하면)","1bsac85":"(I was wondering if ~ = 혹시 ~할 수 있을까 해서요)","13iigha":"(I was wondering if ~ = 혹시 ~할 수 있을까 해서요)","15ca9yh":"~인지(see if = ~인지 보다)","1oj5lrm":"~인지(see if = ~인지 보다)"}},"in":{"d":"~에(때, 곳)","s":{"26518m":"~로(방향 · 쪽)","uxgnlz":"~로(방향 · 쪽)","1w61rvi":"~로(방식: in a fun way = 재밌는 쪽으로)","d8hy7x":"~로(방식: in a fun way = 재밌는 쪽으로)","15fq1im":"(in the pocket = 그루브에 딱 붙은)","fgfln4":"(in the pocket = 그루브에 딱 붙은)","1tfpoit":"(in the pocket = 그루브에 딱 붙은)","le7ih3":"(in the pocket = 그루브에 딱 붙은)","1xdrlbv":"(in the pocket = 그루브에 딱 붙은)","4wbno9":"(in the pocket = 그루브에 딱 붙은)","1qaot79":"(in the box = 컴퓨터 안에서만)","17aq8lw":"(in the box = 컴퓨터 안에서만)","1jmxvw9":"(in the box = 컴퓨터 안에서만)","1dx3vtk":"(in the box = 컴퓨터 안에서만)","hdny4s":"(in the box = 컴퓨터 안에서만)","1edcqy3":"(in the box = 컴퓨터 안에서만)","1xmby7g":"(punch in = 그 부분만 다시 녹음하다)","1dkaz2i":"(punch in = 그 부분만 다시 녹음하다)","1lst0i4":"(punch in = 그 부분만 다시 녹음하다)","1kisvp3":"(punch in = 그 부분만 다시 녹음하다)","1nexy4x":"(punch in = 그 부분만 다시 녹음하다)","1pm85l2":"(punch in = 그 부분만 다시 녹음하다)","ovurgq":"(punch in = 그 부분만 다시 녹음하다)","1nooj4v":"(punch in = 그 부분만 다시 녹음하다)","1wofcvh":"(punch in = 그 부분만 다시 녹음하다)","13di51b":"들어오다(come in = 들어오다)","1mn62ic":"들어오다(come in = 들어오다)","13sg3qc":"들어오다(come in = 들어오다)","1piuhyg":"들어오다(come in = 들어오다)","sg6jc4":"들어오다(come in = 들어오다)","1egg7ee":"들어오다(come in = 들어오다)","hv3wi2":"들어오다(come in = 들어오다)","61yxb2":"들어오다(come in = 들어오다)","16q6r3":"들어오다(come in = 들어오다)","gbe2wi":"들어오다(come in = 들어오다)","m9krpg":"들어오다(come in = 들어오다)","1fbyyqo":"들어오다(come in = 들어오다)","12jh1ib":"~로 된(키 · 박자: in C = C키로 된)","106kgss":"~로 된(키 · 박자: in C = C키로 된)","19ru9f0":"~로 된(키 · 박자: in C = C키로 된)","1g9iw2d":"~로 된(키 · 박자: in C = C키로 된)","8uu751":"~로 된(키 · 박자: in C = C키로 된)","zp6vt8":"~로 된(키 · 박자: in C = C키로 된)","qxxhyo":"~로 된(키 · 박자: in C = C키로 된)","3z2r1n":"~로 된(키 · 박자: in C = C키로 된)","1dgketz":"~로 된(키 · 박자: in C = C키로 된)","pwd5qu":"~로 된(키 · 박자: in C = C키로 된)","1dsrp4v":"~로 된(키 · 박자: in C = C키로 된)","18792bk":"~로 된(키 · 박자: in C = C키로 된)","1jv340d":"~로 된(키 · 박자: in C = C키로 된)","phops4":"~로 된(키 · 박자: in C = C키로 된)","1bxba9e":"~로 된(키 · 박자: in C = C키로 된)","10vnq67":"~로 된(키 · 박자: in C = C키로 된)","d4mqx9":"(in tune = 음정이 맞는)","1eh3gkg":"(in tune = 음정이 맞는)","1s1lb2b":"(in tune = 음정이 맞는)","1tlfpjq":"(in tune = 음정이 맞는)","178v5e6":"(in tune = 음정이 맞는)","plekn5":"(in tune = 음정이 맞는)","ym78xb":"(get in the way = 방해가 되다)","pp6jw6":"(get in the way = 방해가 되다)","1isktvw":"~ 만에(in one take = 한 번에)","1c18vk2":"~ 만에(in one take = 한 번에)","1ihyv8o":"~ 만에(in one take = 한 번에)","1inkyod":"~ 만에(in one take = 한 번에)","axk9a9":"~ 만에(in one take = 한 번에)","1xea880":"~로(언어: in Korean = 한국어로)","auj8bm":"~로(언어: in Korean = 한국어로)","68hovb":"~로(언어: in Korean = 한국어로)","1gyt6rb":"~로(언어: in Korean = 한국어로)","1fubpuz":"넣다(throw in = 툭 넣다)","am14le":"넣다(throw in = 툭 넣다)","1qjzjnx":"~ 뒤에(in two weeks = 2주 뒤에)","frz83z":"~ 뒤에(in two weeks = 2주 뒤에)","tpk917":"~ 뒤에(in two weeks = 2주 뒤에)","15s5gq":"~ 뒤에(in two weeks = 2주 뒤에)","jl7l1v":"(loop in = 메일 · 대화에 넣다)","1xph3vo":"(loop in = 메일 · 대화에 넣다)","19ahg3m":"(loop in = 메일 · 대화에 넣다)","10r9zcj":"(loop in = 메일 · 대화에 넣다)","1p5cfqp":"(loop in = 메일 · 대화에 넣다)","xu1w0y":"(loop in = 메일 · 대화에 넣다)","1ijxiyp":"직접(in person = 직접 만나서)","o10ij0":"직접(in person = 직접 만나서)","1cyjlmu":"(based in = ~에서 활동하는)","15k1j5x":"(based in = ~에서 활동하는)","dvcn7p":"(meet in the middle = 중간에서 맞추다)","1era1hy":"(meet in the middle = 중간에서 맞추다)","vahcsl":"(lock in = 확정하다)","11dnnoy":"(lock in = 확정하다)","qol19l.2":"들어오다(kicks in = 터지며 들어오다)","r4azoh.2":"들어오다(kicks in = 터지며 들어오다)","1mjiag5":"~에서(프로그램 안에서)","hdsu75":"~에서(프로그램 안에서)","1joj5u0":"~ 기준(어느 시간대로 된)","1ea6h6l":"~ 기준(어느 시간대로 된)","1ayeup6":"들어오다(come in = 들어오다)","1b8zhud":"들어오다(come in = 들어오다)"}},"just":{"d":"그냥","s":{"1lccpim":"~만","1rt22xd":"~만","eh70gz":"~만","a2kx46":"~만","1xmby7g":"~만","1dkaz2i":"~만","awku3c":"~만","16rmag6":"~만","1njrdrb":"~만","sgei8u":"~만","q16547":"~만","14shri1":"~만","12zknro":"~만","k127e":"~만","1668sxp":"~만","7uu8pl":"딱(just one semitone = 딱 반음)","12daykw":"딱(just one semitone = 딱 반음)","l6yvv3":"방금","15o3a8a":"방금","gqpay8":"방금","ogxs53":"방금","8fxxdj":"~만","10v636z":"~만"}},"keep":{"d":"두다(유지하다)","s":{"46ndz7":"살리다(그대로 쓰다 · 가지다)","1xmk8wx":"살리다(그대로 쓰다 · 가지다)","11fsy04":"살리다(그대로 쓰다 · 가지다)","1mqq7up":"살리다(그대로 쓰다 · 가지다)","ndw7c":"살리다(그대로 쓰다 · 가지다)","1rl67hy":"살리다(그대로 쓰다 · 가지다)","1tjhlrj":"살리다(그걸로 쓰다)","1wr0gus":"살리다(그걸로 쓰다)","5k5n0y":"(keep it to ~ = ~로 맞추다)","1qqq5e9":"살리다(그대로 쓰다 · 가지다)","p6yzg1":"살리다(그대로 쓰다 · 가지다)"}},"label":{"d":"레이블(음반사)","s":{"1zmaf8":"이름을 붙이다","76xc0o":"이름을 붙이다","1xl9iru":"이름을 붙이다","xxo7mj":"이름을 붙이다"}},"last":{"d":"마지막의","s":{"76wupu":"지난(last night = 어젯밤)","1m1i15z":"지난(last night = 어젯밤)","1jcaxjx":"지난(last night = 어젯밤)","1i51e0h":"지난(last night = 어젯밤)","1m9bv78":"지난(last month = 지난달)","a4wjqf":"지난(last month = 지난달)"}},"leave":{"d":"두다","s":{"1rjggr0":"남기다","16h0hx9":"남기다"}},"left":{"d":"왼쪽","s":{"1620tny":"남은","1lyz2vx":"남은"}},"like":{"d":"~처럼(~ 같은)","s":{"17edlg3":"좋아하다","1kfj1zm":"좋아하다","3qzn0k":"좋아하다","i4w3pf":"좋아하다","1ryaw8f":"좋아하다","1nc4pfi":"좋아하다","1bwr7or":"좋아하다","zss3zz":"좋아하다","pxkk9a":"좋아하다","1guwr51":"좋아하다","vzvk95":"좋아하다","14auusa":"(I'd like = ~하고 싶어요)","paeqe9":"(I'd like = ~하고 싶어요)","kjw2kg":"(I'd like = ~하고 싶어요)","1fubpuz":"~ 같은(예를 들어)","am14le":"~ 같은(예를 들어)","1zmaf8":"~ 같은(예를 들어)","76xc0o":"~ 같은(예를 들어)","1xl9iru":"~ 같은(예를 들어)","xxo7mj":"~ 같은(예를 들어)","10hbnsq":"(What does ~ look like? = ~는 어느 정도예요?)","njqnrz":"(What does ~ look like? = ~는 어느 정도예요?)","1xwatpi":"~ 같은(예를 들어)","i3uvth":"~ 같은(예를 들어)"}},"look":{"d":"(What does ~ look like? = ~는 어느 정도예요?)"},"looking":{"d":"기다리는(looking forward to)","s":{"ihmxfw":"찾는(look for)","1mrckr6":"찾는(look for)"}},"lower":{"d":"낮추다","s":{"gi6fwy":"더 낮게","k4zcxg":"더 낮게","15ca9yh":"더 낮게","1oj5lrm":"더 낮게"}},"make":{"d":"~하게 하다","s":{"178v5e6":"(make sure = 꼭 확인하다)","plekn5":"(make sure = 꼭 확인하다)","1eta6bf":"(make sure = 꼭 확인하다)","l3xlki":"(make sure = 꼭 확인하다)","11dz9w9":"(make sure = 꼭 확인하다)","15cngmu":"(make sure = 꼭 확인하다)","1m9u39t":"(make sure = 꼭 확인하다)","pvy5yb":"(make sure = 꼭 확인하다)","b0po90":"(make sure = 꼭 확인하다)","x6geoi":"(make sure = 꼭 확인하다)","1issuuf":"(make sure = 꼭 확인하다)","10x9rzm":"(make sure = 꼭 확인하다)","10wlwnb":"(make sure = 꼭 확인하다)","rel60o":"(make sure = 꼭 확인하다)","1pqwo07":"(make sure = 꼭 확인하다)","bcyt73":"(make sure = 꼭 확인하다)","1rcxtqx":"만들다","1t39ahy":"만들다","mwj3cz":"만들다","106azjk":"만들다","1juiihp":"(make sense = 말이 되다 · 이해되다)","ni6fdr":"(make sense = 말이 되다 · 이해되다)","10lzkt0":"되게 하다(make Monday work = 월요일로 맞추다)","j26cpn":"되게 하다(make Monday work = 월요일로 맞추다)"}},"makes":{"d":"~하게 한다","s":{"1pkel9t":"만든다","35mhja":"만든다","i74fwl":"(make sense = 말이 되다 · 이해되다)","679m1g":"(make sense = 말이 되다 · 이해되다)"}},"miss":{"d":"그리워하다","s":{"1dq02tq":"놓치다","1j9byc":"놓치다"}},"mix":{"d":"믹스(섞어 완성한 소리)","s":{"1uqi6va":"믹스하다","sl1f8e":"믹스하다","1qaot79":"믹스하다","17aq8lw":"믹스하다","hdny4s":"믹스하다","1edcqy3":"믹스하다","6ee70o":"믹스하다","ccutit":"믹스하다","1mjiag5":"믹스하다","hdsu75":"믹스하다"}},"moving":{"d":"올리는(moving up)","s":{"108yus1":"옮기는","142ugog":"옮기는"}},"notes":{"d":"음들(음표)","s":{"1njrdrb":"=단어장","sgei8u":"=단어장","10zd02d":"=단어장","18i4opq":"=단어장","42u557":"=단어장","1qwt044":"=단어장","r7fgye":"=단어장"}},"off":{"d":"안 맞는(어긋난)","s":{"1tzb8d":"끊어(cut it off = 딱 끊다)","105uy17":"끊어(cut it off = 딱 끊다)","1616ikj":"떨어져(back off = 떨어지다)","1bu6999":"떨어져(back off = 떨어지다)","62vy4n":"떨어져(back off = 떨어지다)","8iemsh":"떨어져(back off = 떨어지다)","13q2v7p":"떨어져(back off = 떨어지다)","1u7efcv":"떨어져(back off = 떨어지다)","n7h0or":"(sign off = 최종 승인하다)","oihulj":"(sign off = 최종 승인하다)","1hwlhna":"(sign off = 최종 승인하다)","zsnkgy":"(sign off = 최종 승인하다)","qvbimf":"(sign off = 최종 승인하다)","dkabgz":"(sign off = 최종 승인하다)"}},"on":{"d":"~에","s":{"je7t5w.2":"~ 위(on stage = 무대 위)","1n25nyy.2":"~ 위(on stage = 무대 위)","1ke3fdp":"~에 대해(agree on = ~를 맞추다)","15xmxek":"~에 대해(agree on = ~를 맞추다)","npompz":"(put on = 쓰다 · 끼다)","1qxxtpo":"(put on = 쓰다 · 끼다)","19zb8il":"위쪽(on top = 위에)","1y7zspt":"위쪽(on top = 위에)","3qzn0k":"~로(악기: on the piano = 피아노로)","i4w3pf":"~로(악기: on the piano = 피아노로)","1bv2t9s":"~로(악기: on the piano = 피아노로)","1lxvp1r":"~로(악기: on the piano = 피아노로)","at2dk4":"~로(악기: on the piano = 피아노로)","99mwpg":"~로(악기: on the piano = 피아노로)","1onfvp9":"~로(악기: on the piano = 피아노로)","1rynu24":"~로(악기: on the piano = 피아노로)","1026q6p":"~로(악기: on the piano = 피아노로)","ihxxb4":"~로(악기: on the piano = 피아노로)","w6u8fi":"켜다(turn on = 켜다)","zhc3o2":"켜다(turn on = 켜다)","2g7to8":"(go easy on = 살살 하다)","1lujvbe":"(go easy on = 살살 하다)","1njrdrb":"~에 대해(~에 관한)","sgei8u":"~에 대해(~에 관한)","10zd02d":"~에 대해(~에 관한)","18i4opq":"~에 대해(~에 관한)","1nz1fnv":"~에 대해(~에 관한)","1vm4sd8":"~에 대해(~에 관한)","n7h0or":"~에 대해(~에 관한)","oihulj":"~에 대해(~에 관한)","qvbimf":"~에 대해(~에 관한)","dkabgz":"~에 대해(~에 관한)","11w421x":"~에 대해(~에 관한)","d9dw0n":"~에 대해(~에 관한)","1uwrgcv":"~에 대해(~에 관한)","1fdzzbx":"~에 대해(~에 관한)","19xx15d":"~에 대해(~에 관한)","fnzzwd":"~에 대해(~에 관한)","1lrnn1v":"~에 대해(~에 관한)","6zq6an":"~에 대해(~에 관한)","3m5iaf":"~에 대해(~에 관한)","1icshia":"~에 대해(~에 관한)","eh672u":"~에 대해(~에 관한)","1bzl0qa":"~에 대해(~에 관한)","r7fgye":"~에 대해(~에 관한)","atxpxo":"~에 대해(~에 관한)","nmjc80":"걸다(put a hold on = 홀드를 걸다)","102xghl":"걸다(put a hold on = 홀드를 걸다)","46mrs0":"걸다(put a hold on = 홀드를 걸다)","1tq4x7n":"(pass on = 거절하다)","l9xsbb":"(pass on = 거절하다)","4iogjj":"(pass on = 거절하다)","hcksdv":"(pass on = 거절하다)","10oacpe":"(pass on = 거절하다)","1c5g3ie":"(pass on = 거절하다)","sb1elp":"(pass on = 거절하다)","1me8fxg":"(pass on = 거절하다)","1vnzyu6":"~에 대해(follow up on = ~ 건으로)","1jvmj2e":"~에 대해(follow up on = ~ 건으로)","zezvgc":"~에 대해(follow up on = ~ 건으로)","1itqur1":"~에 대해(follow up on = ~ 건으로)","wnhl6c":"(on hold = 보류된)","hrweig":"(on hold = 보류된)","qrq7na":"(on hold = 보류된)","1n4btpu":"(on hold = 보류된)","uiev0r":"(on hold = 보류된)","c7nrpj":"(on hold = 보류된)","5eqaav":"(on your end = 그쪽에서는)","vxxy6o":"(on your end = 그쪽에서는)","17ryomb":"(on the same page = 생각이 같은)","8h9z34":"(on the same page = 생각이 같은)","1wn6r08":"~에 대해(sleep on it = 하룻밤 자고 생각하다)","1uszhjl":"~에 대해(sleep on it = 하룻밤 자고 생각하다)","17xw7b8":"(hop on a call = 잠깐 통화하다)","1189582":"(hop on a call = 잠깐 통화하다)","zdhmmq":"(hop on a call = 잠깐 통화하다)","1gqw41x":"~을 쓰는(Which DAW are you on? = 무슨 프로그램 써요?)","1i5f5l4.2":"~마다(on every beat = 박마다)","8s0ldj.2":"~마다(on every beat = 박마다)","1x7l8wq":"~ 위를(step on = 덮다)","1olzbuz":"~ 위를(step on = 덮다)","tex6lc":"~에 대해(~ 건)","na72wq":"~에 대해(~ 건)","nzft9h":"~에 대해(~ 건)","ir3z7j":"~에 대해(~ 건)"}},"one":{"d":"그것(앞에 나온 것: 그 곡, 그 테이크)","s":{"hri6hg":"하나(한 개)","13ouq03":"하나(한 개)","13di51b":"하나(한 개)","1mn62ic":"하나(한 개)","urli0m":"하나(한 개)","sx2u11":"하나(한 개)","ez7u6i":"하나(한 개)","de341d":"하나(한 개)","1isktvw":"하나(한 개)","1c18vk2":"하나(한 개)","131ispg":"하나(한 개)","vfuzzw":"하나(한 개)","f9nga1":"하나(한 개)","rvzxac":"하나(한 개)","1ihyv8o":"하나(한 개)","1inkyod":"하나(한 개)","1a08zd5":"하나(한 개)","1fuz98z":"하나(한 개)","jp0qmh":"하나(한 개)","1rub26w":"하나(한 개)","1nz1fnv":"하나(한 개)","1vm4sd8":"하나(한 개)","51vib6":"하나(한 개)","1ejna3v":"하나(한 개)","162j9m6":"하나(한 개)","1fjki62":"하나(한 개)","1fwzdoq":"하나(한 개)","k127e":"하나(한 개)","5k5n0y":"하나(한 개)","1svy303":"1(one twenty = 1분 20초)","zsx38f":"1(one twenty = 1분 20초)"}},"open":{"d":"벌린(넓게 퍼진)","s":{"12i3q8n":"시작하다(open the song with = ~로 곡을 시작하다)","g1zofy":"시작하다(open the song with = ~로 곡을 시작하다)","1awv4rd":"열다(파일)","16gzv4t":"열다(파일)","1q1gqpm":"열려 있는(open to = ~에 열려 있는)","8fxxdj":"시작하다(open the song with = ~로 곡을 시작하다)","10v636z":"시작하다(open the song with = ~로 곡을 시작하다)"}},"out":{"d":"밖으로","s":{"14q4h4r":"(stand out = 돋보이다)","12iv50c":"(stand out = 돋보이다)","lo1o70":"(stand out = 돋보이다)","drsnny":"(stand out = 돋보이다)","164jtn2":"(stand out = 돋보이다)","rk6k70":"(stand out = 돋보이다)","17pusb0":"(stand out = 돋보이다)","ga9jli":"(stand out = 돋보이다)","1bv2t9s":"나오다(came out = 나왔다)","1lxvp1r":"나오다(came out = 나왔다)","y73f41":"(out of ~ range = 음역 밖)","12tozmc":"(out of ~ range = 음역 밖)","d9w8zr":"(out of ~ range = 음역 밖)","9i14v4":"(fade out = 점점 작아지며 끝내다)","2ev4bd":"(fade out = 점점 작아지며 끝내다)","1t20k67":"빼다(take out = 빼다)","amav05":"빼다(take out = 빼다)","1qjzjnx":"나오다(comes out = 발매되다)","frz83z":"나오다(comes out = 발매되다)","1f1w96":"내보내다(send it out = 내보내다)","1pp0b9n":"내보내다(send it out = 내보내다)","16vi1ck":"다 적어(write out = 적어 주다)","80wdch":"다 적어(write out = 적어 주다)","ig4bxj":"(stand out = 돋보이다)","1vwz4gl":"(stand out = 돋보이다)","189p28n":"(even out = 고르게 맞추다)","1cros3p":"(even out = 고르게 맞추다)"}},"over":{"d":"다시(start over = 처음부터 다시)","s":{"quhoo7":"~보다(pick A over B = B 말고 A를 고르다)","abck0m":"~보다(pick A over B = B 말고 A를 고르다)","1cwrzjy":"~ 동안(over time = 시간이 지나면)","1eooeoq":"~ 동안(over time = 시간이 지나면)","3sq2p":"보내 주다(send over = 보내 주다)","1iqm8l7":"보내 주다(send over = 보내 주다)","ig4bxj":"~보다(over the guitars = 기타보다 위로)","1vwz4gl":"~보다(over the guitars = 기타보다 위로)"}},"play":{"d":"연주하다(치다)","s":{"14q4h4r":"(play it safe = 무난하게 가다)","12iv50c":"(play it safe = 무난하게 가다)","8szpwc":"틀다","1af2y63":"틀다","76wupu":"들려주다","1m1i15z":"들려주다","1nieur7":"들려주다","9ln0z0":"들려주다"}},"point":{"d":"요점(하려는 말)","s":{"5svxvy":"정점(high point = 가장 높은 지점)","1dzmhgi":"정점(high point = 가장 높은 지점)"}},"points":{"d":"=단어장"},"push":{"d":"올리다","s":{"cn85ek":"더 키우다","1sua82s":"더 키우다","1f8d0ju":"미루다(push back = 미루다)","1d8txuc":"미루다(push back = 미루다)","18sl2":"미루다(push back = 미루다)","1t2dgt2":"미루다(push back = 미루다)"}},"put":{"d":"두다(넣다)","s":{"npompz":"쓰다(put on = 쓰다 · 끼다)","1qxxtpo":"쓰다(put on = 쓰다 · 끼다)","1j5m4si":"걸다(효과를)","1orkff7":"걸다(효과를)","nmjc80":"걸다(put a hold on = 홀드를 걸다)","102xghl":"걸다(put a hold on = 홀드를 걸다)","46mrs0":"걸다(put a hold on = 홀드를 걸다)","qrq7na":"(put ~ on hold = 보류하다)","1n4btpu":"(put ~ on hold = 보류하다)"}},"record":{"d":"녹음하다","s":{"wt1q2i":"음반","o5lq8w":"음반","f0joyc":"음반","bkoars":"음반","12jhu7":"음반","gt7exe":"음반"}},"right":{"d":"바로(곧)","s":{"xq8kqe":"맞게(제대로)","1skgklw":"맞게(제대로)","hv3wi2":"맞게(제대로)","61yxb2":"맞게(제대로)","n31tb9":"맞게(제대로)","pppn5h":"맞게(제대로)","b0po90":"맞게(제대로)","x6geoi":"맞게(제대로)","48gfi7":"오른쪽","ru74se":"오른쪽","1oyoays":"오른쪽","od6hgj":"오른쪽"}},"set":{"d":"잡힌(정해진)","s":{"1u1lwgz":"셋리스트(공연 곡 묶음)","mdxwih":"셋리스트(공연 곡 묶음)","ojykli":"맞추다(레벨)","1v5bwz5":"맞추다(레벨)"}},"so":{"d":"~하도록","s":{"xpv6t1":"그래서","ge8fcj":"그래서","5vvnv":"그래서","jq1zqd":"그래서","xq8kqe":"그래서","1skgklw":"그래서","z01142":"그래서","bq9yf1":"그래서","1dsrp4v":"그래서","18792bk":"그래서","16hdhs":"그래서","1p7mynk":"그래서","e79fcv":"그래서","tmklh1":"그래서","1li9udc":"그래서","al14np":"그래서","1xea880":"그래서","auj8bm":"그래서","1ej2gzi":"그래서","1xnxrei":"그래서","1jn5c0z":"그래서","xupslw":"그래서","ovurgq":"그래서","1nooj4v":"그래서","6ee70o":"그래서","ccutit":"그래서","1wancm4":"그래서","1msc3hn":"그래서","1620tny":"그래서","1lyz2vx":"그래서","139kcel":"그래서","1055gpe":"그래서","oxo0xa":"그래서","1k91eqk":"그래서","1d89g25":"그래서","f82j71":"아주(그렇게)","1cjz51l":"아주(그렇게)","1glm2jj":"아주(그렇게)","1djn8gw":"아주(그렇게)","11fsy04":"아주(그렇게)","1mqq7up":"아주(그렇게)","cl9gqn":"아주(그렇게)","ub5z4d":"아주(그렇게)","1ykf02q":"아주(그렇게)","173sc0l.2":"그렇게(아주)","1uz1i6v.2":"그렇게(아주)","1nieur7":"(so far = 지금까지)","9ln0z0":"(so far = 지금까지)","7gem9q":"그럼(말을 꺼낼 때)"}},"sound":{"d":"소리","s":{"vnpq3h":"~하게 들리다","1yewtpn":"~하게 들리다","18docit":"~하게 들리다","16yipeq":"~하게 들리다","1pkg9t1":"~하게 들리다","1cx3hih":"~하게 들리다","1ghv94d":"~하게 들리다","u7tso7":"~하게 들리다","u606x3":"~하게 들리다","5u025":"~하게 들리다","1lflyz2":"~하게 들리다","45f0j4":"~하게 들리다","e0t9vi":"~하게 들리다","h352n":"~하게 들리다","8747bz":"~하게 들리다","1uap878":"~하게 들리다","nhn9i4":"~하게 들리다","3075hv":"~하게 들리다","1x29wog":"~하게 들리다","13uta62":"~하게 들리다","6exrfk":"~하게 들리다","kcmzaq":"~하게 들리다","e3ua8x":"~하게 들리다","1fa756g":"~하게 들리다","18rjvmd":"~하게 들리다","apa3oe":"~하게 들리다","1qkr7r8":"~하게 들리다","zz7ym3":"~하게 들리다","5eqaav":"~하게 들리다","vxxy6o":"~하게 들리다","1p0qlgx":"~하게 들리다","117bj7k":"~하게 들리다","mw2hzs":"~하게 들리다","xm8vqb":"~하게 들리다"}},"sounds":{"d":"~하게 들린다","s":{"ekupb3":"소리들(\"s\" sounds = ㅅ 소리들)","1artkkp":"소리들(\"s\" sounds = ㅅ 소리들)","vcwm4f":"~하게 들린다(Sounds good = 좋아요)","hxyljq":"~하게 들린다(Sounds good = 좋아요)"}},"still":{"d":"아직","s":{"1i8m9dm":"여전히","1bzqz7u":"여전히","142w7wg":"여전히","ahus7w":"여전히"}},"that":{"d":"그(그것)","s":{"1tv3mqg":"~라는 것(문장을 이음)","1jioad4":"~라는 것(문장을 이음)","1lzty4i":"~라는 것(문장을 이음)","e3xca4":"~라는 것(문장을 이음)","1ygij6h":"그렇게(that much = 그렇게 많이)","i25l1l":"그렇게(that much = 그렇게 많이)"}},"then":{"d":"그다음에","s":{"16hdhs":"그때","1p7mynk":"그때"}},"third":{"d":"3도(음 사이 거리)","s":{"1bx3gyv":"세 번째","1ha5x9o":"세 번째"}},"to":{"d":"~하기(to go = 가기)","s":{"2aey4y":"~에","aizb3c":"~에","1dnh5ep":"~에","wii4qu":"~에","fvoyg5":"~에","107s1i9":"~에","5f1iq7":"~에","1bq8gih":"~에","68hovb":"~에","1gyt6rb":"~에","pcpkly":"~에","fn9bdn":"~에","1bkw9h9":"~에","7ryrx2":"~에","1lccpim":"~로(~까지)","1rt22xd":"~로(~까지)","eh70gz":"~로(~까지)","a2kx46":"~로(~까지)","1cyr91":"~로(~까지)","hcbn66":"~로(~까지)","q6y2g7":"~로(~까지)","5djnl2":"~로(~까지)","74xth":"~로(~까지)","gwdpue":"~로(~까지)","jrfr0j":"~로(~까지)","h8bef8":"~로(~까지)","mk8fqx":"~로(~까지)","a0navg":"~로(~까지)","e79fcv":"~로(~까지)","tmklh1":"~로(~까지)","1m9u39t":"~로(~까지)","pvy5yb":"~로(~까지)","hyy473":"~로(~까지)","hwkonl":"~로(~까지)","1uww31x":"~로(~까지)","g0il3b":"~로(~까지)","1hwlhna":"~로(~까지)","zsnkgy":"~로(~까지)","108yus1":"~로(~까지)","142ugog":"~로(~까지)","ve2wrv":"~로(~까지)","1mgju44":"~로(~까지)","5k5n0y":"~로(~까지)","84uev1":"~로(~까지)","i2l78r":"~에 맞춰(sing along to = 따라 부르다)","1c4vptj":"~에 맞춰(sing along to = 따라 부르다)","1p5xb7b":"~와(compare to = ~와 비교하다)","1lwis2b":"~와(compare to = ~와 비교하다)","c2tg2p":"~에게","62x0de":"~에게","5ox1lh":"~에게","13q2r4t":"~에게","f4nq8z":"~에게","1mxb163":"~에게","f5k8go":"~에게","kqyqvd":"~에게","1kxf6ym":"~에게","1a0wssg":"~에게","1qzh8g7":"~에게","vj4tuk":"~에게","1m0bc7f":"(look forward to = ~를 기다리다)","7f2112":"(look forward to = ~를 기다리다)","1q1gqpm":"~에(open to = ~에 열려 있는)","rsypry":"~로(~까지)","1rzok36":"~로(~까지)","6lwe62":"~로(~까지)","lwymw3":"~로(~까지)","1d8vvy":"~를(listen back to = ~를 다시 듣다)","nspq8e":"~를(listen back to = ~를 다시 듣다)","1bt8k1u":"~를(listen back to = ~를 다시 듣다)","6j9gte":"~를(listen back to = ~를 다시 듣다)","93ey42":"~에","mcchx9":"~에","1r1t8jd":"~에","1y9kon8":"~에","1sz7ss5":"~에","ucw83r":"~에","vcwm4f":"~에게(to me = 저한테는)","hxyljq":"~에게(to me = 저한테는)"}},"up":{"d":"올려(위로)","s":{"swblbq":"(tighten up = 조이다)","gzmk3y":"(tighten up = 조이다)","1uqi6va":"(tighten up = 조이다)","sl1f8e":"(tighten up = 조이다)","ua2iij":"(tighten up = 조이다)","1ynjg03":"(tighten up = 조이다)","95c8ah":"(clean up = 정리하다)","vab6nn":"(clean up = 정리하다)","1htpesh":"(pick it up = 이어서 하다)","14g8ec6":"(pick it up = 이어서 하다)","52lyk8":"(warm up = 목을 풀다)","16yr7ng":"(warm up = 목을 풀다)","1j1abuq":"(warm up = 목을 풀다)","15qb6fa":"(warm up = 목을 풀다)","1al0loc":"(warm up = 목을 풀다)","lzzzi8":"(warm up = 목을 풀다)","1boama3":"열려(opens up = 확 열리다)","1m77c9u":"열려(opens up = 확 열리다)","1xl9iru":"(vocal up = 보컬을 키운 버전)","xxo7mj":"(vocal up = 보컬을 키운 버전)","1cwrzjy":"(add up = 쌓여 커지다)","1eooeoq":"(add up = 쌓여 커지다)","kezsro":"(follow up = 다시 연락하다)","raagn0":"(follow up = 다시 연락하다)","15szg80":"(follow up = 다시 연락하다)","5ba6ns":"(follow up = 다시 연락하다)","1vnzyu6":"(follow up = 다시 연락하다)","1jvmj2e":"(follow up = 다시 연락하다)","zezvgc":"(follow up = 다시 연락하다)","1itqur1":"(follow up = 다시 연락하다)","1aqfb5y":"(break things up = 분위기를 바꾸다)","pesz5f":"(break things up = 분위기를 바꾸다)"}},"voicing":{"d":"=단어장"},"way":{"d":"방식(쪽)","s":{"ym78xb":"길(get in the way = 방해가 되다)","pp6jw6":"길(get in the way = 방해가 되다)","1tywgse":"훨씬(way too = 너무너무)","xb2rbi":"훨씬(way too = 너무너무)","1f8d0ju":"방법","1d8txuc":"방법"}},"went":{"d":"갔다(잘됐다)","s":{"urx175":"~해졌다(went sharp = 샤프 났다)","1o8opf":"~해졌다(went sharp = 샤프 났다)","6ee70o":"진행됐다(went fast = 빨리 끝났다)","ccutit":"진행됐다(went fast = 빨리 끝났다)"}},"with":{"d":"~와 함께","s":{"1op3ubu":"~이 있는(~한)","xfm24w":"~이 있는(~한)","awku3c":"~이 있는(~한)","16rmag6":"~이 있는(~한)","1a2hw3l":"~이 있는(~한)","558qbc":"~이 있는(~한)","16zglga":"~이 있는(~한)","xhbfbf":"~이 있는(~한)","1r0p4u8":"~이 있는(~한)","1jypkq7":"~이 있는(~한)","1sj3yzu":"~이 있는(~한)","1o6hgo2":"~이 있는(~한)","16pmmqs":"~이 있는(~한)","xkkw64":"~에게(~한테)","1p2xoyj":"~에게(~한테)","167b1qz":"~으로","19apxj7":"~으로","4jyg83":"~으로","1hdicgw":"~으로","1tzb8d":"~으로","105uy17":"~으로","12i3q8n":"~으로","g1zofy":"~으로","mleff2":"~으로","1wqdx73":"~으로","1j1abuq":"~으로","15qb6fa":"~으로","1xkwkor":"~으로","sq7l7u":"~으로","16d04nv":"~으로","17f6n6x":"~으로","1kpa3v8":"~으로","5qrsl5":"~에 맞춰","sjg28j":"~에 맞춰","1ygij6h":"~을 걸어서(~ 때문에)","i25l1l":"~을 걸어서(~ 때문에)","186rwje":"~ 소속(Which PRO are you with? = 어느 협회 소속이에요?)","3x5oh5":"~ 소속(Which PRO are you with? = 어느 협회 소속이에요?)","10wlwnb":"~에(~에게)","rel60o":"~에(~에게)","kezsro":"~에(~에게)","raagn0":"~에(~에게)","kelglj":"~에(happy with = ~가 마음에 드는)","14eantv":"~이 있으니(~ 때문에)","ls7n7q":"~이 있으니(~ 때문에)","8fxxdj":"~으로","10v636z":"~으로","10xpak":"~ 때문에(with the difference = 차이 때문에)","29wgdd":"~ 때문에(with the difference = 차이 때문에)"}},"clear":{"d":"=단어장","s":{"1x1fmjr":"또렷한(loud and clear = 아주 잘 들리는)"}},"cleared":{"d":"=단어장"},"hold":{"d":"=단어장","s":{"wnhl6c":"(on hold = 보류된)","hrweig":"(on hold = 보류된)","qrq7na":"(on hold = 보류된)","1n4btpu":"(on hold = 보류된)","uiev0r":"(on hold = 보류된)","c7nrpj":"(on hold = 보류된)"}},"master":{"d":"=단어장","s":{"1jvps66":"마스터(최종 음원)"}},"mastered":{"d":"=단어장"},"mastering":{"d":"=단어장"},"safe":{"d":"=단어장","s":{"1fwzdoq":"(to be safe = 혹시 모르니, 안전하게)"}},"split":{"d":"=단어장","s":{"17ml12w":"나누다"}},"splits":{"d":"=단어장"},"take":{"d":"=단어장","s":{"ahta2y":"걸리다(시간이)","6rvpj7":"걸리다(시간이)","1t20k67":"빼다(take out = 빼다)","amav05":"빼다(take out = 빼다)","145lwl7":"하다(take it from the top = 처음부터 하다)","1p586by":"하다(take it from the top = 처음부터 하다)","109f67j":"하다(take it from the top = 처음부터 하다)","75142b":"쉬다(take five = 5분 쉬다)","1ehimuh":"쉬다(take five = 5분 쉬다)","p0l9a1":"(take your time = 천천히 하다)","js53wo":"(take your time = 천천히 하다)"}},"takes":{"d":"=단어장","s":{"ekzbmf":"걸린다(시간이)","d5xk0i":"걸린다(시간이)"}},"tune":{"d":"=단어장","s":{"d4mqx9":"음정(in tune = 음정이 맞는)","1eh3gkg":"음정(in tune = 음정이 맞는)","1s1lb2b":"음정(in tune = 음정이 맞는)","1tlfpjq":"음정(in tune = 음정이 맞는)","178v5e6":"음정(in tune = 음정이 맞는)","plekn5":"음정(in tune = 음정이 맞는)"}},"warm":{"d":"=단어장","s":{"52lyk8":"(warm up = 목을 풀다, 몸을 풀다)","16yr7ng":"(warm up = 목을 풀다, 몸을 풀다)","1j1abuq":"(warm up = 목을 풀다, 몸을 풀다)","15qb6fa":"(warm up = 목을 풀다, 몸을 풀다)","1al0loc":"(warm up = 목을 풀다, 몸을 풀다)","lzzzi8":"(warm up = 목을 풀다, 몸을 풀다)"}},"work":{"d":"=단어장","s":{"oxo0xa":"(work for hire = 권리 양도 작업)","1k91eqk":"(work for hire = 권리 양도 작업)","ndw7c":"(work for hire = 권리 양도 작업)","1rl67hy":"(work for hire = 권리 양도 작업)","1w7ij1m":"(work for hire = 권리 양도 작업)","vwdccc":"(work for hire = 권리 양도 작업)","3ojiaz":"(work for hire = 권리 양도 작업)","kfj8zg":"작업(지금까지 한 작업들)","87sma9":"작업(지금까지 한 작업들)"}},"works":{"d":"=단어장"},"making":{"d":"만들다"},"working":{"d":"작업하다(work on = ~을 작업하다)"},"beats":{"d":"비트(반주 트랙)"},"sign":{"d":"=단어장","s":{"n7h0or":"(sign off = 최종 승인하다)","oihulj":"(sign off = 최종 승인하다)","1hwlhna":"(sign off = 최종 승인하다)","zsnkgy":"(sign off = 최종 승인하다)","qvbimf":"(sign off = 최종 승인하다)","dkabgz":"(sign off = 최종 승인하다)","ll2kqz":"계약하다(서명하다)","6q9dqx":"계약하다(서명하다)"}},"signed":{"d":"서명된"},"solo":{"d":"=단어장","s":{"4yhi38":"솔로(혼자 하는 연주)","1g6tvlp":"솔로(혼자 하는 연주)","1o0z02c":"솔로(혼자 하는 연주)","1e02xdb":"솔로(혼자 하는 연주)"}}};
 
 </script>
 <script>
@@ -2065,7 +2066,7 @@ var Core = (function () {
     // 그 말의 '그날 첫 문제'만 셈(유령 · 새 말 다시는 방금 답을 본 뒤라 거의 맞아서 정답률이 부풀려짐)
     var since = Math.round(now() / 60000) - 7 * 1440, ok = 0, n = 0, seen = {};
     (S.log || []).forEach(function (e) {
-      if (e[0] < since || (e[6] !== 'go' && e[6] !== 'cat') || e[2] === 'intro') return;
+      if (e[0] < since || (e[6] !== 'go' && e[6] !== 'cat') || e[2] === 'intro' || e[2] === 'mix') return;
       var k = e[1] + '@' + dayOf(e[0] * 60000); if (seen[k]) return; seen[k] = 1;
       n++; if (e[3]) ok++;
     });
@@ -3217,7 +3218,7 @@ var Core = (function () {
     else if (mode === 'cat') { cats = [opt.cat]; list = null; }
     else if (mode === 'wrong') { list = Core.pickWrong(S, ROUND_N); if (!list.length) { toast('오답 노트가 비어 있어요 👍'); return home(); } }
     else if (mode === 'mix') list = Core.pickRandom(S, cats, ROUND_N, true);
-    else if (mode === 'exam') { list = Core.pickExam(S, 30); if (list.length < 10) { toast('시험은 하루 이상 지난 말이 10개 넘으면 볼 수 있어요'); return home(); } }
+    else if (mode === 'exam') { list = opt.list || Core.pickExam(S, 30); if (list.length < 10) { toast('시험은 하루 이상 지난 말이 10개 넘으면 볼 수 있어요'); return home(); } }
     else if (mode === 'blitz') list = Core.pickRandom(S, cats, 80, true);
     else if (mode === 'extra') list = Core.extraList(S, ROUND_N);
     else if (mode === 'today') list = Core.todayList(S, 20);
@@ -3704,6 +3705,54 @@ var Core = (function () {
   if (TOPIC.speedCtl === undefined) TOPIC.speedCtl = true;
   if (TOPIC.newPerDefault && !S.newPer) { S.newPer = TOPIC.newPerDefault; save(true); }
   TOPIC.canListen = function () { return S.sound !== false && canSpeak(); };
+  /* ── 디자인 2(11-13 · 사용자 "Ui ux 적으로 월등한 개선" · "상용 앱 수준" · "복잡해졌다는 인식 X") — 공장 공통 · 끄려면 TOPIC.design: false ──
+     학습 흐름 · 기록 · 기능은 그대로, 보이는 것만: ① 테두리 대신 옅은 그림자 · 눌리는 느낌의 단추(아래 두꺼운 모서리) ② 홈 = 오늘의 공부(큰 카드) → 오늘 한 것 → 다른 연습 → 내 실력(단계 막대 + 목록) → 달력
+     ③ 넘기는 큰 단추(다음 · 알겠어요 · 끝)는 화면 아래 줄 오른쪽 한자리(찾으러 내려가지 않게 · navPrimary) ④ 맨 위 줄에서 XP 뺌(쉬운 화면엔 XP가 어디에도 없음) ⑤ 끝 화면 = 점수 동그라미
+     ⑥ 구조 아이콘은 그림 글자 대신 선 그림(SVG) — 🔊 · 🐢 · 😀🤔🙈는 그대로(이미 익숙한 단추 · 안내 글에 나옴)
+     UI2 = 진짜 화면에서만(화면 시험 t_ui의 가짜 화면은 글자만 봄 → 원래 글 그대로 지나감) */
+  var UI2 = TOPIC.easy && TOPIC.design !== false && !!(app && app.querySelector && app.insertAdjacentHTML && document.head && document.createElement);
+  function svg(p, fill) { return '<svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="' + (fill ? 'currentColor' : 'none') + '" stroke="' + (fill ? 'none' : 'currentColor') + '" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + p + '</svg>'; }
+  var IC = {
+    play: svg('<path d="M8 5.6v12.8a1 1 0 0 0 1.52.85l10.4-6.4a1 1 0 0 0 0-1.7L9.52 4.75A1 1 0 0 0 8 5.6z"/>', 1),
+    chev: svg('<path d="m9 18 6-6-6-6"/>'), x: svg('<path d="M18 6 6 18M6 6l12 12"/>'), check: svg('<path d="M20 6 9 17l-5-5"/>'), arrow: svg('<path d="M5 12h14M13 6l6 6-6 6"/>'),
+    gear: svg('<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>'),
+    book: svg('<path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/>'),
+    badge: svg('<circle cx="12" cy="12" r="9"/><path d="m8.2 12.4 2.6 2.6 5-5.4"/>'),
+    flame: svg('<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>'),
+    cap: svg('<path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2.7 9 2.7 12 0v-5"/><path d="M22 10v6"/>'),
+    ear: svg('<path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>'),
+    vol: svg('<path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.6 5.4a9.5 9.5 0 0 1 0 13.2"/>'), gauge: svg('<path d="M12 14l4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0"/>'),
+    mic: svg('<rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v1a7 7 0 0 0 14 0v-1M12 18v4"/>'), cal: svg('<rect x="3" y="4" width="18" height="18" rx="2.5"/><path d="M16 2v4M8 2v4M3 10h18"/>'),
+    blocks: svg('<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M17.5 14v7M14 17.5h7"/>'),
+    compass: svg('<circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/>'), send: svg('<path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/>')
+  };
+  // 목록 줄 하나(홈 '다른 연습' · '내 실력' · 설정이 같이 씀): [아이콘 칸] 제목 + 작은 설명 · 오른쪽 값 · 누르는 줄이면 › (plain = 누르면 그 자리에서 값이 바뀌는 줄 → › 없음)
+  function row(ic, t, s, val, attr, tone, plain) {
+    return '<' + (attr ? 'button type="button"' : 'div') + ' class="lrow' + (attr ? ' lgo" ' + attr : '"') + '><span class="lic' + (tone ? ' ' + tone : '') + '" aria-hidden="true">' + ic + '</span><span class="ltx"><b>' + t + '</b>' + (s ? '<small>' + s + '</small>' : '') + '</span>' +
+      (val ? '<span class="lval">' + val + '</span>' : '') + (attr && !plain ? '<span class="lgo2" aria-hidden="true">' + IC.chev + '</span>' : '') + '</' + (attr ? 'button' : 'div') + '>';
+  }
+  // 설정 화면(디자인 2 · 사용자 11-14 "메인화면은 눈에 딱딱 들어오게 구조화가 되어 있는데 설정에서는 좀 난잡해 보여서"): 묶음 카드 넷 + 홈과 같은 목록 줄 · 긴 설명은 한 줄로
+  //   단추 이름(data-fs · data-spd · data-go)은 엔진 설정 화면 그대로(누르면 일어나는 일 같음) · 쉬운 화면에서 숨기던 '이미 아는 말 빼기 · 따로 풀기' 묶음은 그리지 않음
+  function setHtml() {
+    var fz = parseInt(rawLoad(KEY + '_fs'), 10); fz = fz >= 90 && fz <= 150 ? fz : Math.round((TOPIC.fontScaleDefault || 1) * 100);
+    var snd = S.sound !== false, sp = canSpeak(), np = S.newPer || Core.NEW_PER_DAY;
+    function grp(t, rows) { rows = rows.filter(Boolean); return rows.length ? '<div class="card setc"><div class="cardh">' + t + '</div>' + rows.join('') + '</div>' : ''; }
+    return '<div class="pgset"><div class="qtop"><button class="back" data-go="homex" style="padding:0">← 홈</button></div><h1>설정</h1>' +
+      grp('화면 · 소리', [
+        TOPIC.fontSlider ? row('<b class="ica">가</b>', '글씨 크기', '', '<small>' + fz + '%</small>', 'data-fs="open"') : '',
+        TOPIC.speedCtl && sp ? row(IC.gauge, '읽기 속도', '보통 ' + SPD.n + '% · 천천히 ' + SPD.s + '%', '', 'data-spd="open"') : '',
+        row(IC.vol, '듣기 단추', !sp ? '이 화면에선 소리가 안 나요' : snd ? '🔊 · 🐢 단추가 보여요' : '🔊 · 🐢 단추를 숨겼어요', '<span class="sw' + (snd ? ' on' : '') + '"></span>', 'data-go="sound"', '', 1),
+        sp && Android.voices ? row(IC.mic, '목소리 고르기', '들어 보고 골라요', '', 'data-go="voice"') : ''
+      ]) +
+      grp('공부', [row(IC.cal, '새 말 하루', '누르면 5 · 10 · 15개로 바뀌어요', '<b class="pillv">' + np + '개</b>', 'data-go="newper"', '', 1)]) +
+      grp('찾아보기', [
+        row(IC.book, '단어장', '', '', 'data-go="words"'),
+        GRAMMAR.length ? row(IC.blocks, esc(TOPIC.grammarTitle || '문법 한 입'), '', '', 'data-go="grammar"') : '',
+        ROADMAP.length ? row(IC.compass, esc(TOPIC.roadmapTitle || '로드맵'), '', '', 'data-go="road"') : ''
+      ]) +
+      grp('기록', [row(IC.send, TOPIC.simpleSend ? '기록 보내기' : '내 기록 · Claude에게 보내기', TOPIC.simpleSend ? '단어 업데이트가 필요할 때 보내 주세요' : '틀린 것 · 헷갈린 짝 · 날짜별 정답률', '', 'data-go="stats"')]) +
+      '<div class="soft setn">맞힌 말은 1일 → 3일 → 1주 → 2주 → 한 달 뒤에 다시 나오고, 틀린 말은 몇 문제 뒤와 다음 날 다시 나와요.</div></div>';
+  }
   // 읽기 속도(1.0 = 휴대폰 보통 속도 = 100%) — 폰에 저장 · speak()가 씀(RULES '읽기 속도')
   var SPK = KEY + '_spd', SPD = (function () { var o = null; try { o = JSON.parse(rawLoad(SPK) || 'null'); } catch (e) {} o = o || {}; return { n: o.n >= 50 && o.n <= 150 ? o.n : 100, s: o.s >= 20 && o.s <= 100 ? o.s : 50 }; })();
   function spdRate(slow) { return TOPIC.speedCtl ? (slow ? SPD.s : SPD.n) / 100 : 0; }
@@ -3755,6 +3804,120 @@ var Core = (function () {
       '<div class="hnavr"><button class="hnb" data-hist="prev" aria-label="이전 화면"' + (canPrev ? '' : ' disabled') + '>‹ 이전</button>' +
       '<button class="hnb" data-hist="next" aria-label="다음 화면"' + (past ? '' : ' disabled') + '>다음 ›</button></div></div></div>');
   }
+  // 넘기는 큰 단추를 아래 줄 오른쪽 한자리에(디자인 2): 화면 안의 진짜 단추(#next · 알겠어요 · 듣고 대답하기의 다음/끝)는 그대로 두고 숨김(pxh) → 아래 줄 단추가 대신 눌러 줌
+  //   진짜 단추를 옮기지 않는 까닭 = 지난 화면을 보고 돌아올 때 담아 둔 화면(R.live · L.live)에 단추가 남아 있어야 함 · 답하기 전엔 예전처럼 꺼진 '다음 ›'
+  function navPrimary() {
+    if (!UI2) return;
+    var bar = app.querySelector('.hnavw:not(.past) .hnavr'); if (!bar) return;
+    var real = app.querySelector('#next,[data-intro],[data-lr="next"]'), px = bar.querySelector('[data-px]'), nx = bar.querySelector('[data-hist="next"],[data-lrh="next"]');
+    if (!real) { if (px) px.parentNode.removeChild(px); if (nx) nx.hidden = false; return; }
+    var tx = String(real.textContent || '').replace(/\s*→\s*$/, '').trim(), fresh = !px;
+    if (fresh) { bar.insertAdjacentHTML('beforeend', '<button type="button" class="hnb hgo" data-px="1"></button>'); px = bar.querySelector('[data-px]'); }
+    if (px.getAttribute('data-t') !== tx) { px.setAttribute('data-t', tx); px.innerHTML = '<span>' + esc(tx) + '</span>' + IC.arrow; }
+    if (nx) nx.hidden = true;
+    if (!real.classList.contains('pxh')) {
+      real.classList.add('pxh');
+      var last = real.previousElementSibling, bt = app.querySelector('.hnavbar');   // 방금 뜬 설명의 끝이 아래 줄에 가리지 않게
+      if (fresh && real.id === 'next' && last && bt) { var d = last.getBoundingClientRect().bottom - bt.getBoundingClientRect().top + 12; if (d > 0) window.scrollBy(0, d); }
+    }
+  }
+  if (UI2) app.addEventListener('click', function (ev) {
+    var t = ev.target.closest && ev.target.closest('[data-px]'); if (!t) return;
+    var real = app.querySelector('#next,[data-intro],[data-lr="next"]'); if (real) real.click();
+  });
+  // ── 섞은 문장(페이블 지시서 6-3 · 11-13 · 켜는 칸 TOPIC.mix = { perDay, every, again } · 내용 = 주제 mix.js) ──
+  //   배운 틀 + 배운 낱말로 된 새 문장 — 외우게 하는 항목이 아님: ITEMS · S.items · 오답 노트 · 익힌 말 · 공부한 말 · 사다리에 안 넣음
+  //   기록 = S.mx[id] = { n: 본 횟수, d: 마지막 날, r: 마지막 결과(s · u · n / 듣기 1 · 0), f: 첫 만남 결과 } · dq · XP · 풀이 기록(유형 mix · 어디서 go)엔 문제 하나로(새 말 쉬는 기준 계산에선 뺌 · sync_engine RULES)
+  //   줄 = mix.js의 빈 줄이 아닌 줄(id = mix:<번호> · '#'으로 시작 = 꺼 둔 줄 · 번호 지킴) · 상대 질문 없는 줄 = '이어서 하기' · 있는 줄 = 듣고 대답하기(listenLab)
+  var MXL = (function () {
+    if (!TOPIC.mix || typeof MIX !== 'string') return [];
+    var W = {}; Core.items().forEach(function (it) { if (it.cat !== 'grammar' && it.cat !== 'qa' && it.en) W[String(it.en).trim()] = it.id; });
+    return MIX.split('\n').map(function (l) { return l.replace(/\r$/, ''); }).filter(function (l) { return l.trim(); }).map(function (l, i) {
+      var off = l.charAt(0) === '#', p = (off ? l.slice(1) : l).split('||');
+      var need = String(p[3] || '').split(',').map(function (x) { return x.trim(); }).filter(Boolean).map(function (x) { return /^g\d+$/.test(x) ? { g: x } : { id: W[x] || null }; });
+      return { id: 'mix:' + i, off: off || p.length !== 4 || need.some(function (x) { return !x.g && !x.id; }), q: String(p[0] || '').trim(), en: String(p[1] || '').trim(), ko: String(p[2] || '').trim(), need: need };
+    });
+  })();
+  function mxOk(r) { return !!r && r.st >= 1 && r.intro !== Core.today(); }   // '배웠다' = 기록이 있고 1칸 이상 · 오늘 처음 들어온 말이 아님
+  function mxPart(x) {   // 필요한 말 하나 → 배운 항목(말 틀 = 그 단원의 배운 문제 중 칸이 가장 낮은 것) · 안 배웠으면 null
+    if (x.id) return mxOk(S.items[x.id]) ? x.id : null;
+    var b = null; Core.byCat('grammar').forEach(function (it) { var r = S.items[it.id]; if (it.lesson && it.lesson.id === x.g && mxOk(r) && (!b || r.st < S.items[b].st)) b = it.id; });
+    return b;
+  }
+  function mxReady(m) { return !m.off && m.need.every(function (x) { return !!mxPart(x); }); }
+  function mxCan(m, rec, t) { return !rec || (rec.n === 1 && rec.d + ((TOPIC.mix && TOPIC.mix.again) || 30) <= t); }   // 두 번 본 줄은 다시 안 냄
+  function mxPull(m) {   // 못 했을 때: 필요한 말의 다음 날짜가 내일보다 뒤면 내일로(칸 · 익힘 날짜는 그대로)
+    var tm = Core.today() + 1; m.need.forEach(function (x) { var id = mxPart(x), r = id && S.items[id]; if (r && r.due > tm) r.due = tm; });
+  }
+  function mxDone(m, res) { S.mx = S.mx || {}; var r = S.mx[m.id] || (S.mx[m.id] = { n: 0 }); if (!r.n) r.f = res; r.n++; r.d = Core.today(); r.r = res; }
+  function koBig(s) { s = String(s).replace(/[^가-힣]/g, ''); var b = {}; for (var i = 0; i < s.length - 1; i++) b[s.substr(i, 2)] = 1; return b; }
+  function koSim(a, b) { var x = koBig(a), y = koBig(b), nx = 0, ny = 0, n = 0, k; for (k in x) { nx++; if (y[k]) n++; } for (k in y) ny++; return Math.min(nx, ny) ? n / Math.min(nx, ny) : 0; }   // 짧은 쪽 뜻이 긴 쪽에 든 정도(듣고 대답하기와 같은 셈)
+  window.__mx = { list: MXL, ready: mxReady };   // 검사용
+  if (TOPIC.mix && MXL.length && app && app.querySelector && app.insertAdjacentHTML) (function () {
+    var C = TOPIC.mix, A = MXL.filter(function (m) { return !m.q; });
+    function todayN() { var t = Core.today(), n = 0, o = S.mx || {}; Object.keys(o).forEach(function (k) { if (o[k].d === t) n++; }); return n; }
+    function pick() {
+      var t = Core.today(), o = S.mx || {}, ok = A.filter(function (m) { return mxCan(m, o[m.id], t) && mxReady(m); });
+      return ok.filter(function (m) { return !o[m.id]; })[0] || ok[0] || null;   // 안 본 줄을 줄 번호 순으로 → 없으면 다시 볼 줄
+    }
+    function show(m) {
+      var t = Core.today(), rec = (S.mx || {})[m.id], lsn = !!rec && TOPIC.canListen && TOPIC.canListen();
+      R.mxm = m; R.done = false; R.conf = ''; R.pendingReveal = null; R.t0 = Date.now();
+      if (lsn) {   // 두 번째 만남(30일 뒤): 지금 '듣고 뜻 고르기' 화면 그대로 · 오답 뜻 = 다른 섞은 문장의 뜻
+        var qm = function (s) { return /\?\s*$/.test(s); }, L0 = m.ko.length, seen = {}; seen[m.ko] = 1;
+        var c = Core.shuffle(A.filter(function (x) { return x !== m && !x.off && x.ko !== m.ko && koSim(x.ko, m.ko) < 0.5; }));
+        c.sort(function (a, b) { return ((qm(a.ko) === qm(m.ko) ? 0 : 100) + Math.floor(Math.abs(a.ko.length - L0) / 6)) - ((qm(b.ko) === qm(m.ko) ? 0 : 100) + Math.floor(Math.abs(b.ko.length - L0) / 6)); });
+        var w = []; c.forEach(function (x) { if (w.length < 3 && !seen[x.ko]) { seen[x.ko] = 1; w.push(x.ko); } });
+        var opts = Core.shuffle([m.ko].concat(w));
+        return showQ({ mix: 1, id: m.id, type: 'listen', listen: true, small: true, smallOpts: true, label: '처음 듣는 문장 · 듣고 뜻 고르기', prompt: m.en,
+          sub: '잘 듣고 무슨 뜻인지 골라요 (🐢 천천히 · 👀 글자로 보기)', options: opts, answer: opts.indexOf(m.ko), item: { id: m.id, cat: '' } });   // 엔진 듣기 문구의 '보기들이 비슷하게 시작해서'는 섞은 문장 보기엔 사실이 아님(페이블 재검토 11-13)
+      }
+      R.q = { mix: 1, id: m.id, type: 'mix', say: 1, item: { id: m.id, cat: '' } }; glClose();   // 첫 만남: 지금 말해 보기 화면 그대로(확인 문제는 안 붙임)
+      app.innerHTML = head() + '<div class="qlabel"><span class="pill">처음 보는 문장 · 배운 말로 말해 보기</span></div><div class="prompt">' + esc(m.ko) + '</div>' +
+        '<div class="soft">배운 말들로 된 새 문장이에요. 소리 내어 영어로 말해 본 뒤 눌러요</div><div id="opts">' +
+        '<button class="opt" data-mxs="s"><span class="n">😀</span>확실히 떠올렸어요</button><button class="opt" data-mxs="u"><span class="n">🤔</span>애매하게 떠올렸어요</button>' +
+        '<button class="opt" data-mxs="n"><span class="n">🙈</span>못 떠올렸어요</button></div><div id="after"></div>';
+      window.scrollTo(0, 0);
+    }
+    function done(ok, res, picked) {   // 채점 대신: 문제 하나로 셈(dq · XP · 풀이 기록) · 섞은 문장 기록 · 못 했으면 부품 날짜만 당김
+      var m = R.mxm, q = R.q; R.done = true; R.graded = (R.graded || 0) + 1;
+      mxDone(m, res); if (!ok) mxPull(m);
+      Core.logAnswer(S, { id: m.id, type: 'mix', say: 1, ei: 0 }, undefined, ok, (Date.now() - R.t0) / 1000, R.mode, q.say ? { conf: res } : {});
+      Core.tick(S);
+      if (ok) { R.ok++; R.combo++; R.maxCombo = Math.max(R.maxCombo, R.combo); var g = (q.say ? 14 : 10) + 2 * Math.min(R.combo - 1, 5); R.xp += g; gainXP(g); } else R.combo = 0;
+      var bs = app.querySelectorAll('#opts .opt');
+      for (var i = 0; i < bs.length; i++) { bs[i].disabled = true; if (!q.say && i === q.answer) bs[i].classList.add('ok'); else if (!q.say && i === picked) bs[i].classList.add('bad'); else if (!q.say && picked === -1 && bs[i].getAttribute('data-k') === '-1') bs[i].classList.add('picked'); }   // '모르겠어요'도 고른 표시(3-1절 15)
+      if (q.say) { var oe = document.getElementById('opts'); if (oe) oe.innerHTML = ''; }
+      var pr = app.querySelector('.prompt.lsn'); if (pr) pr.classList.remove('lsn');
+      save(true);
+      document.getElementById('after').innerHTML = '<div class="card explain"><div class="w" style="margin:0" lang="en">' + esc(m.en) + speakBtn(m.en) + '</div><div>' + esc(m.ko) + '</div></div><button class="btn big" id="next">다음 →</button>';
+      var nb = document.getElementById('next'); if (nb) nb.scrollIntoView({ block: 'end' });
+    }
+    ask = (function (orig) {   // '이어서 하기'만: 오늘 낸 수 < perDay · 오늘 푼 문제 ≥ every × (낸 수 + 1) → 섞은 문장 / 오늘 몫이 끝날 때(다음 말 없음) 아직 몫이 남았으면 끝내기 전에
+      return function () {
+        if (!R || R.stopped || R.mode !== 'go' || !R.dyn || R.i >= ROUND_N) return orig.apply(this, arguments);
+        R.mxm = null; if (R.q && R.q.mix) R.q = null;
+        var t = Core.today(), dq = (S.dq || {})[t] || 0, n = todayN(), capped = dq >= Core.DAY_MAX && S.over !== t;
+        if (!capped && n < C.perDay && dq >= C.every * (n + 1)) { var m1 = pick(); if (m1) return show(m1); }
+        var nx = Core.nextItem(S, R.cats, R.lastId);   // 다음 말을 미리 한 번만 뽑아 원래 차례에 그대로 넘김(두 번 뽑지 않음)
+        if (!nx && !capped && dq >= 1 && n < C.perDay) { var m2 = pick(); if (m2) return show(m2); }
+        var real = Core.nextItem; Core.nextItem = function () { Core.nextItem = real; return nx; };
+        try { return orig.apply(this, arguments); } finally { Core.nextItem = real; }
+      };
+    })(ask);
+    app.addEventListener('click', function (ev) {   // 먼저 받음(capture): 섞은 문장 화면의 단추는 원래 채점(S.items)으로 가지 않게
+      if (!R || !R.q || !R.q.mix || R.hv != null || R.done) return;
+      var t = ev.target.closest && ev.target.closest('[data-mxs],[data-k]'); if (!t || t.disabled) return;
+      ev.stopImmediatePropagation(); ev.preventDefault();
+      if (t.hasAttribute('data-mxs')) { var c = t.getAttribute('data-mxs'); return done(c !== 'n', c); }
+      var k = +t.getAttribute('data-k'); done(k === R.q.answer, k === R.q.answer ? 1 : 0, k);
+    }, true);
+    var rep = Core.report; Core.report = function (S0) {   // 기록 보내기에 한 줄
+      var o = S0.mx || {}, a = 0, f = { s: 0, u: 0, n: 0 };
+      A.forEach(function (m) { var r = o[m.id]; if (r && r.n) { a++; if (f[r.f] !== undefined) f[r.f]++; } });
+      return rep.apply(this, arguments) + '\n\n■ 섞은 문장: 본 줄 ' + a + ' / 전체 ' + A.filter(function (m) { return !m.off; }).length + ' · 첫 만남 확실 ' + f.s + ' · 애매 ' + f.u + ' · 못 함 ' + f.n;
+    };
+  })();
   // 진짜 화면에서만 켬(화면 시험 t_ui의 가짜 화면은 querySelector가 없고 클릭 처리기를 하나만 기억 — 덮어쓰면 원래 단추가 안 먹음)
   if (app && app.querySelector && app.insertAdjacentHTML) {
   ask = (function (orig) {   // 다음 화면을 그리기 직전, 방금 끝낸 화면(카드 · 푼 문제)을 담아 둠
@@ -3793,17 +3956,201 @@ var Core = (function () {
     var lv = level(k.mast), ti = Core.todayInfo(S), nd = (S.nd || {})[Core.today()] || 0, tap = !!TOPIC.skillTap;
     // 누르면 보이는 줄(사용자 11-06 skillTap: '익힌 말이 뭔지 보고 싶은데 안 눌러짐') — 뒤에 볼 말이 있을 때만 › (0개 · 연속 공부한 날은 그대로)
     //   표시 이름 = data-skrow(11-07 정정: 처음엔 data-sk였는데 원본 엔진이 이미 '낱말 뜻 보기'의 문장 열쇠로 쓰는 이름이라, 밑줄 낱말을 누르면 '오늘 공부한 말' 창이 덮음 → sync_engine 이름 겹침 검사로 막음)
-    function kv(lab, val, go) { return '<div class="kv' + (go ? ' kvt" role="button" data-skrow="' + go : '') + '"><span>' + lab + '</span><b>' + val + (go ? '<i class="kvgo" aria-hidden="true">›</i>' : '') + '</b></div>'; }
-    // 오늘 새로 배운 말(사용자 10-22 밤: 첫날엔 '익힌 말'이 0이라 오늘 한 게 안 보임 — 익힌 말은 며칠에 걸쳐 맞혀야 오르는 게 맞음)
-    return '<div class="card"><div class="soft" style="margin-bottom:4px"><b>내 실력</b></div>' +
-      kv('오늘 새로 배운 말', nd + '개', tap && nd ? 'today' : '') +
-      kv('오늘 푼 문제', ti.doneQ + '개', tap && ti.doneQ ? 'today' : '') +
-      kv('익힌 말', k.mast + '<small> / ' + k.all + '</small>', tap && k.mast ? 'mast' : '') +
-      kv('연속 공부한 날', '🔥 ' + streakNow() + '일', '') +
-      '<div style="margin-top:8px">' + bar(k.all ? 100 * k.mast / k.all : 0) + '</div>' +
-      '<div class="soft" style="margin-top:6px">며칠에 걸쳐 여러 번 맞히면 \'익힌 말\'이 돼요</div>' +
-      (lv.next ? '<div class="soft" style="margin-top:4px">' + (lv.next[0] - k.mast) + '개 더 익히면 \'' + esc(lv.next[2]) + '\' 단계예요</div>' : '') + '</div>' +
+    // 디자인 2(11-13): '오늘 한 것'은 내 실력 카드 밖 한 줄(한 게 있을 때만 · 아침 홈이 비어 보이지 않고 깔끔하게) · 내 실력 = 단계 막대(다음 단계까지 얼마나 왔나 — 전체 275개 막대는 몇 달이 지나도 거의 비어 보여 힘이 빠짐) + 목록 줄
+    //   공부한 말 · 익힌 말은 0개여도 눌림(창에 '아직 없어요' 안내가 있음 — 눌러도 아무 일 없는 줄을 없앰) · 숫자 · 이름은 예전 그대로
+    var num = function (a, b) { return a + '<small> / ' + b + '</small>'; }, full = k.all && k.intro >= k.all, best = TOPIC.skillCheck && skcBest();
+    var today = nd || ti.doneQ ? '<' + (tap ? 'button type="button"' : 'div') + ' class="tdy"' + (tap ? ' data-skrow="today"' : '') + '><span class="tdx"><span class="tdl">오늘</span><span>새로 배운 말 <b>' + nd + '개</b></span><span>푼 문제 <b>' + ti.doneQ + '개</b></span></span>' +
+      (tap ? '<span class="lgo2" aria-hidden="true">' + IC.chev + '</span>' : '') + '</' + (tap ? 'button' : 'div') + '>' : '';
+    var pct = lv.next ? Math.max(0, Math.min(100, 100 * (k.mast - lv.L[0]) / (lv.next[0] - lv.L[0]))) : 100;
+    return today + '<div class="card mys"><div class="cardh">내 실력</div>' +
+      '<div class="lvl"><div class="lvt"><b>' + esc(lv.L[2]) + '</b>' + (lv.next ? '<span>다음 단계 · ' + esc(lv.next[2]) + '</span>' : '') + '</div>' +
+      '<div class="bar"><i style="width:' + pct + '%"></i></div>' +
+      '<div class="lvn">' + (lv.next ? (lv.next[0] - k.mast) + '개 더 익히면 \'' + esc(lv.next[2]) + '\' 단계예요' : '모든 단계를 마쳤어요') + '</div></div>' +
+      // 공부한 말(페이블 지시서 6-1 · 11-13): N = 들어온 말(Core.skill intro · 기록 보내기의 '들어온 말'과 같은 수) / M = 익힌 말 줄의 분모
+      row(IC.book, '공부한 말', full ? '준비된 말을 다 공부했어요' : '', num(k.intro, k.all), tap ? 'data-skrow="intro"' : '') +
+      row(IC.badge, '익힌 말', k.mast ? '' : '며칠에 걸쳐 여러 번 맞히면 \'익힌 말\'이 돼요', num(k.mast, k.all), tap ? 'data-skrow="mast"' : '') +
+      row(IC.flame, '연속 공부한 날', '', streakNow() + '일', '', 'amb') +
+      (best ? row(IC.cap, '실력 확인', '', '<small>최고 </small>' + skcPt(best) + '<small>점</small>', 'data-skc="open"') : '') + '</div>' +
       '<div class="card cal" id="cal">' + calInner() + '</div>';
+  }
+  // ── 실력 확인(켜는 칸 TOPIC.skillCheck · 쉬운 화면) — 11-14 고쳐 씀(사용자: "누르면 몇문제풀고싶은지 기본값 10에서 -5 +5 … 하루에 한번 푸는게아니라 … 다른 연습으로써
+  //   그야말로 그 랜덤문제를 좀 풀어보고싶을때 쓸수있는 옵션 … 여러번도 풀수있는 … 다 안 풀고 종료했으면 … 이어서 풀기도 할수있고 새로 풀기도") ──
+  //   사용자 11-14 뒤이어: "지금 시스템 구조에는 뭔가 도전정신을 요구하게 되는 컨텐츠가 전혀 없다 … 자기 수준을 평가를 받긴 받으면서 거부감 들지 않고 … 복잡하지 않아야 하며 … 몇 점 나올지 궁금은 하잖아 여러 번 보면서 오기 생겨서"
+  //   왜 있나 = '이어서 하기'(차례대로 끝없이)에는 '지금 내가 얼마나 하나'를 스스로 재 보고 다시 도전하는 자리가 없음 → 배운 말 전체에서 뽑은 시험 한 판 · 점수 · 최고 점수 넘기(설계 = 페이블_뼈대검토.md 9절)
+  //   · 한 판 = 20문제 고정(SKQ) · 100점 만점(5점씩) — 문제 수 · 종류를 고르게 하지 않음(점수를 서로 견주려면 길이가 같아야 하고, 이 앱은 '누르기만 하면 되는' 앱) · 공부한 말이 20개가 되면 열림
+  //   · 고르기: 공부한 말 전체에서 묶음별 비례로 고르게(skcPick · 가중치 없음) · 문제 유형 = 고르기 문제(낱말 뜻 · 빈칸 · 대화 대답 · 말 틀) + 익은 한마디는 가끔 듣기 · 빈칸 예문은 엔진이 낱말마다 여러 예문을 돌려 냄(새 문장에서도 아는지)
+  //   · 채점 = '전체 랜덤 확인'(mode hist)과 같은 규칙: 틀리면 진짜 틀림(내일 이어서 하기에 다시 · 익힌 말이었어도 다시 연습) · 맞혀도 칸은 그대로(몇 번이든 볼 수 있고 고르기 문제라 찍었을 수도 — 하루 한 번이던 11-13 판은 졸업 시험 채점이었음)
+  //   · 기록 = 끝까지 푼 판만 S.exams에 { n, ok, sc:1 } → 점수 = 100 × ok / n(예전 30문제 기록도 같은 식) · 최고 · 지난번 · 본 횟수 · 최근 7번 막대 · 끝까지 풀면 그날 '연속 공부한 날'에 셈(달력은 이어서 하기 기준 그대로)
+  //   · 멈춘 판 = 폰에 따로(KEY_sk: 낸 말 id 전부 · 몇 번째까지 · 맞힌 수 · 틀린 말) → 다음에 '이어서 풀기' 또는 '처음부터 새로 풀기'(새로 풀면 멈춘 판은 없어짐) · 하루 제한 없음
+  var SKK = KEY + '_sk', SKQ = 20;   // 한 판 = 20문제 고정(점수를 서로 견줄 수 있게 · 5점씩 100점 만점)
+  function skcRecs() { return (S.exams || []).filter(function (e) { return e && e.sc; }); }
+  function skcPool() { return Core.items().filter(function (it) { return !!S.items[it.id]; }); }   // 공부한 말 전부(홈 '공부한 말' 수와 같음)
+  function skcPt(e) { return e && e.n ? Math.round(100 * e.ok / e.n) : 0; }   // 점수(100점 만점 · 예전 30문제 기록도 같은 식)
+  function skcBest() { var b = null; skcRecs().forEach(function (e) { if (!b || skcPt(e) > skcPt(b)) b = e; }); return b; }
+  function skcPick(n) {   // 묶음(낱말 묶음들 · 한마디 · 대화 · 말 틀)마다 공부한 수에 비례해 고르게 뽑아 섞음 — 운으로 한쪽에 쏠려 점수가 출렁이지 않게 · 틀린 말 먼저 같은 가중치는 없음(그건 이어서 하기가 함)
+    var G = {}, pool = skcPool(), out = [];
+    pool.forEach(function (it) { (G[it.cat] = G[it.cat] || []).push(it); });
+    var ks = Object.keys(G).map(function (c) { var q = n * G[c].length / pool.length; return { L: Core.shuffle(G[c].slice()), k: Math.floor(q), f: q - Math.floor(q) }; });
+    var left = n - ks.reduce(function (a, g) { return a + g.k; }, 0);
+    ks.slice().sort(function (a, b) { return b.f - a.f; }).forEach(function (g) { if (left > 0 && g.k < g.L.length) { g.k++; left--; } });
+    ks.forEach(function (g) { out = out.concat(g.L.slice(0, g.k)); });
+    return Core.shuffle(out);
+  }
+  function skcPaused() { var o = null; try { o = JSON.parse(rawLoad(SKK) || 'null'); } catch (e) {} return o && o.ids && o.i > 0 && o.i < o.ids.length ? o : null; }
+  function skcKeep() {   // 지금 판을 '멈춘 판'으로 적어 둠(문제가 뜰 때 · 답한 직후) — 답한 문제까지 셈
+    if (!R || !R.opt || !R.opt.skc || R.stopped) return;
+    var b = R.opt.base;
+    rawSave(SKK, JSON.stringify({ ids: b.ids, i: b.i + R.i + (R.done ? 1 : 0), ok: b.ok + R.ok, w: b.w.concat(R.wrongs.map(function (it) { return it.id; })), t: Date.now() }));
+  }
+  function skcSub() {
+    var p = skcPaused(), L = skcRecs(), last = L[L.length - 1];
+    return p ? '풀다 멈춘 문제가 있어요 · ' + p.ids.length + '문제 중 ' + p.i + '문제' : last ? '최고 ' + skcPt(skcBest()) + '점 · 지난번 ' + skcPt(last) + '점' : '배운 말에서 ' + SKQ + '문제 · 점수가 나와요';
+  }
+  // ── 다른 연습(사용자 11-13: "듣고대답하기랑 실력확인이 … 서브 컨텐츤데 너무 있는지도 모르게 … 그냥 '배경'같아보이는" · "실력 확인 30문제는 왜 혼자 아래쪽에 동떨어져있어") ──
+  //   주 단추(또는 오늘 몫 끝 묶음) 바로 아래 · '내 실력' 위에 흰 카드 하나 = 목록 줄(아이콘 칸 · 제목 · 작은 설명 · ›) — 주 단추보다 약하고 바탕과는 구별
+  //   🎧 듣고 대답하기(소리를 못 내는 폰이면 없음) · 🎓 실력 확인(볼 말 5개 미만이면 없음 · 누르면 문제 수 고르는 화면) · 줄이 없으면 카드도 없음
+  function subCard() {   // 줄 모양 = '내 실력'과 같은 목록 줄(row · 디자인 2)
+    var rows = [];
+    if (TOPIC.listenLab && canSpeak()) rows.push(row(IC.ear, '듣고 대답하기', '외국인 말을 듣고 대답해 봐요', '', 'data-lr="start"'));
+    // 공부한 말이 20개가 되기 전: 줄은 보이되 눌리지 않음(› 없음) + 언제 열리는지(목표가 보이게 · 적은 문제로 본 점수가 기록에 섞이지 않게)
+    if (TOPIC.skillCheck) { var pn = skcPool().length; if (pn >= SKQ) rows.push(row(IC.cap, '실력 확인', skcSub(), '', 'data-skc="open"')); else if (pn) rows.push(row(IC.cap, '실력 확인', '공부한 말이 ' + SKQ + '개가 되면 열려요 · 지금 ' + pn + '개', '', '')); }
+    return rows.length ? '<div class="card subc"><div class="cardh">다른 연습</div>' + rows.join('') + '</div>' : '';
+  }
+  // 홈 다듬기(디자인 2 · 진짜 화면에서만): 엔진이 그린 홈의 머리 줄 · 큰 단추 · 오늘 몫 끝 카드를 같은 단추(data-go 그대로) 위에 새 모양으로 — 누르면 일어나는 일은 그대로
+  function heroSub(ti) {   // 오늘 할 것: 보통 날은 작은 알약(복습 · 새 말 · 다시 볼 말) · 그 밖(복습 밀린 날 · 새 말 더 받는 중)은 원래 문장 그대로
+    if (ti.backlog || (!ti.due && ti.newLeft && (S.ndx || {})[Core.today()])) return '<small class="hs">' + esc(easyTodo(ti)) + '</small>';
+    var c = [];
+    if (ti.due) c.push('복습 <b>' + ti.due + '개</b>'); if (ti.newLeft) c.push('새 말 <b>' + ti.newLeft + '개</b>'); if (!c.length && ti.ghosts) c.push('다시 볼 말 <b>' + ti.ghosts + '개</b>');
+    return '<small class="hs hc">' + c.map(function (x) { return '<i>' + x + '</i>'; }).join('') + '</small>';
+  }
+  function homeDress() {
+    var hd = app.querySelector('.row'), h1 = hd && hd.querySelector('h1');
+    if (h1) {
+      var lv = level(Core.skill(S).mast);
+      hd.className = 'hhead'; hd.removeAttribute('style');
+      hd.innerHTML = '<div class="hname"><h1>' + esc(TOPIC.name) + '</h1><span class="pill">' + lv.L[1] + ' · ' + lv.L[2] + '</span></div><div class="hbtns">' +
+        (TOPIC.fontSlider ? '<button type="button" class="hbtn" data-fs="open"><b>가</b>글씨</button>' : '') + '<button type="button" class="hbtn" data-go="settings">' + IC.gear + '설정</button></div>';
+    }
+    heroDress(); doneDress();
+  }
+  function heroDress() {   // '▶ 이어서 하기' 큰 단추(홈 · 끝 화면) → 오늘의 공부 카드
+    var go = app.querySelector('.btn.big[data-go="go"]');
+    if (go && !go.classList.contains('hero')) { go.classList.add('hero'); go.innerHTML = '<span class="hk">오늘의 공부</span><span class="ht">이어서 하기</span>' + heroSub(Core.todayInfo(S)) + '<span class="hp" aria-hidden="true">' + IC.play + '</span>'; }
+  }
+  function bigIcons() {   // 큰 단추 글 앞의 '▶' 글자 → 선 그림(폰마다 그림 글자로 바뀌어 보이는 것을 막음) · 화면을 그릴 때마다(onDraw)
+    if (!UI2) return;
+    var bs = app.querySelectorAll('.btn.big:not(.hero):not([data-bi])');
+    for (var i = 0; i < bs.length; i++) {
+      var b = bs[i], t = b.firstChild; b.setAttribute('data-bi', '1');
+      if (t && t.nodeType === 3 && /^▶\s*/.test(t.nodeValue)) { t.nodeValue = t.nodeValue.replace(/^▶\s*/, ''); b.insertAdjacentHTML('afterbegin', '<span class="bi" aria-hidden="true">' + IC.play + '</span>'); }
+    }
+  }
+  function doneDress() {   // '✓ 오늘 몫 끝' 카드 · 제목의 ✓ 글자 → 초록 동그라미 표시
+    var b = app.querySelector('.card.done>b'); if (b && !b.querySelector('.ddb')) b.innerHTML = '<span class="ddb">' + IC.check + '</span>' + esc(String(b.textContent).replace(/^✓\s*/, ''));
+    var h = app.querySelector('h1'); if (h && /^✓\s/.test(h.textContent) && !h.querySelector('.ddb')) { h.className = 'dd'; h.innerHTML = '<span class="ddb">' + IC.check + '</span>' + esc(String(h.textContent).replace(/^✓\s*/, '')); }
+  }
+  if (app && app.querySelector && app.insertAdjacentHTML && document.head && document.createElement) {
+    home = (function (orig) { return function () {
+      var r = orig.apply(this, arguments);
+      if (UI2) homeDress();
+      var h = TOPIC.listenLab || TOPIC.skillCheck ? subCard() : ''; if (!h || app.querySelector('.subc')) return r;
+      var cd = app.querySelector('.mys');   // '내 실력' 카드 바로 위
+      if (cd) cd.insertAdjacentHTML('beforebegin', h); else { var bb = app.querySelectorAll('.btn.big'); if (bb.length) bb[bb.length - 1].insertAdjacentHTML('afterend', h); }
+      return r;
+    }; })(home);
+    if (UI2) {
+      dayDone = (function (orig) { return function () { var r = orig.apply(this, arguments); doneDress(); return r; }; })(dayDone);
+      settingsPage = (function (orig) { return function () { var r = orig.apply(this, arguments); app.innerHTML = setHtml(); return r; }; })(settingsPage);   // 엔진이 할 일(뒤로 가기 자리 등)은 그대로 하고, 화면만 묶음 카드로 다시 그림
+      // 맨 위 줄: ✕ 그만 · 몇 번째 · (연속) · 가 — XP는 쉬운 화면 어디에도 안 쓰는 숫자라 뺌(기록 · 계산은 그대로)
+      head = (function (orig) { return function () {
+        if (!R || R.mode === 'blitz') return orig.apply(this, arguments);
+        var b = R.opt && R.opt.skc ? R.opt.base : null, tot = b ? b.ids.length : R.dyn ? ROUND_N : R.list.length, at = (b ? b.i : 0) + R.i;   // 실력 확인을 이어서 풀 때는 멈춘 자리부터 셈
+        return '<div class="qtop"><button class="back" data-go="home">' + IC.x + '그만</button><span class="qcnt">' + (at + 1) + ' / ' + tot + '</span>' + (R.combo >= 2 ? '<span class="combo">🔥 ' + R.combo + ' 연속</span>' : '') +
+          (TOPIC.fontSlider ? '<button class="fsq" data-fs="open" aria-label="글씨 크기">가</button>' : '') + '</div>' + bar(100 * at / tot);
+      }; })(head);
+      // 끝 화면: 점수 동그라미 + 한마디 + 작은 숫자(XP 칸은 뺌) — 저장 · 계산은 원래 finish 그대로, 그려진 맨 위만 바꿈
+      finish = (function (orig) { return function () {
+        var r = orig.apply(this, arguments), h1 = app.querySelector('h1'), cd = h1 && h1.nextElementSibling;
+        if (!R || !h1 || !cd || !cd.querySelector || !cd.querySelector('.stat')) return r;
+        var n = R.mode === 'blitz' ? R.i : R.dyn ? (R.graded || 0) : R.list.length;
+        h1.insertAdjacentHTML('beforebegin', '<div class="fin">' + ring(R.ok, n) + '<h1>' + h1.innerHTML + '</h1><div class="finst">' + (R.maxCombo >= 2 ? '<span>최고 연속<b>' + R.maxCombo + '</b></span>' : '') + (R.newMast ? '<span>새로 익힌 말<b>' + R.newMast + '개</b></span>' : '') + '</div></div>');
+        h1.parentNode.removeChild(h1); cd.parentNode.removeChild(cd); heroDress(); doneDress();
+        var wl = app.querySelectorAll('.wl'), seen = {};   // 틀린 것: 같은 말을 두 번 틀렸어도 한 줄만
+        for (var i = 0; i < wl.length; i++) { var k = wl[i].textContent; if (seen[k]) wl[i].parentNode.removeChild(wl[i]); else seen[k] = 1; }
+        return r;
+      }; })(finish);
+    }
+  }
+  function ring(ok, n) { return '<div class="finring" style="--p:' + (n ? Math.round(100 * ok / n) : 0) + '"><div><b>' + ok + '</b><span>/ ' + n + '</span></div></div>'; }
+  function skcPage() {   // 누르면 뜨는 화면: 내 점수(최고 · 지난번 · 본 횟수 · 최근 점수 막대) → 시작(멈춘 판이 있으면 이어서 풀기 / 처음부터) — 고를 것은 없음
+    R = null; glClose();
+    if (skcPool().length < SKQ) return home();
+    var p = skcPaused(), L = skcRecs(), last = L[L.length - 1], b = skcBest(), G = L.slice(-7);
+    var h = '<div class="qtop"><button class="back" data-go="home" style="padding:0">← 홈</button></div><h1>실력 확인</h1>' +
+      '<div class="soft">지금까지 공부한 말에서 ' + SKQ + '문제를 섞어서 내요. 몇 번이든 볼 수 있어요.</div>';
+    if (L.length) h += '<div class="card sks"><div class="skt"><div><span>최고</span><b>' + skcPt(b) + '<small>점</small></b></div><div><span>지난번</span><b>' + skcPt(last) + '<small>점</small></b></div><div><span>본 횟수</span><b>' + L.length + '<small>번</small></b></div></div>' +
+      (G.length > 1 ? '<div class="skg" aria-hidden="true">' + G.map(function (e, i) { var s = skcPt(e); return '<i' + (i === G.length - 1 ? ' class="on"' : '') + '><em>' + s + '</em><u style="height:' + Math.max(4, Math.round(s * 0.6)) + 'px"></u></i>'; }).join('') + '</div><div class="soft skgl">최근 ' + G.length + '번의 점수</div>' : '') + '</div>';
+    if (p) h += '<div class="card"><div class="cardh">풀다 멈춘 문제가 있어요</div><div class="skp">' + p.ids.length + '문제 중 <b>' + p.i + '문제</b>까지 풀었어요</div><button class="btn big" data-skc="resume">이어서 풀기</button><button class="btn" data-skc="go">처음부터 새로 풀기<small>멈춘 문제는 없어져요</small></button></div>';
+    else h += '<button class="btn big" data-skc="go">' + (L.length ? '한 번 더 풀기' : '시작') + '</button>';
+    app.innerHTML = h + '<div class="soft skr">틀린 말은 \'이어서 하기\'에 다시 나와요.</div>'; window.scrollTo(0, 0);
+  }
+  function skcRun(list, base) {   // '전체 랜덤 확인'(hist) 판으로 돌림 — 목록만 우리 것으로(엔진 줄은 안 건드림 · 섞은 문장의 nextItem과 같은 방법)
+    if (!list.length) return home();
+    var real = Core.histList; Core.histList = function () { Core.histList = real; return list; };
+    try { startRound('hist', { skc: 1, base: base }); } finally { Core.histList = real; }
+  }
+  function skcStart() {
+    if (skcPool().length < SKQ) return home();
+    var list = skcPick(SKQ);
+    rawSave(SKK, '');
+    skcRun(list, { ids: list.map(function (it) { return it.id; }), i: 0, ok: 0, w: [] });
+  }
+  function skcResume() {
+    var p = skcPaused(); if (!p) return skcPage();
+    skcRun(p.ids.slice(p.i).map(function (id) { return Core.byId(id); }).filter(Boolean), { ids: p.ids, i: p.i, ok: p.ok, w: p.w || [] });
+  }
+  function skcWord(it) {   // 다시 볼 말 한 줄의 영어 · 뜻('그날 공부한 말' 줄과 같은 기준)
+    if (it.cat === 'grammar') { var dd = it.tpl || {}, s0 = String(dd.s || ''), sp = s0.split('→'), en = (sp.length > 1 ? sp.slice(1).join('→') : s0).trim().replace(/_{2,}/, dd.a || ''); return [en || it.lesson.title, dd.ko || '']; }
+    if (it.cat === 'qa') { var kk = String(it.ko || '').split('→'); return [it.a, (kk.length > 1 ? kk.slice(1).join('→') : it.ko || '').trim()]; }
+    return [it.en, it.ko || ''];
+  }
+  function skcFinish() {
+    glClose(); R.stopped = true;
+    var b = R.opt.base, n = b.ids.length, ok = b.ok + R.ok, seen = {}, pt = Math.round(100 * ok / n);   // 이어서 푼 판은 멈추기 전 것까지 합쳐서
+    if (!R.saved) {   // 견줄 것(지난번 · 최고)은 이번 판을 적기 전에 잡아 둠 · 끝 화면을 다시 그려도 같은 말이 나오게 R에
+      var L0 = skcRecs(), l0 = L0[L0.length - 1], b0 = skcBest();
+      R.saved = 1; R.cmp = { last: l0 ? skcPt(l0) : null, best: b0 ? skcPt(b0) : null };
+      (S.exams = S.exams || []).push({ t: Date.now(), n: n, ok: ok, mast: Core.skill(S).mast, sc: 1 }); gainXP(0);   // gainXP(0) = 점수는 안 주고 '오늘 공부함'(연속 공부한 날)만
+    }
+    rawSave(SKK, ''); save(true);
+    var c = R.cmp || {}, chips = '';   // 사실만: 다 맞음 · 최고 점수 · 지난번과 견줌(처음 본 판이면 없음)
+    if (ok === n) chips += '<span class="hot">한 문제도 안 틀렸어요</span>';
+    if (c.best != null && pt > c.best) chips += '<span class="hot">지금까지 가장 높은 점수예요</span>';
+    if (c.last != null) chips += '<span>' + (pt > c.last ? '지난번보다 ' + (pt - c.last) + '점 올랐어요' : pt < c.last ? '지난번보다 ' + (c.last - pt) + '점 낮아요' : '지난번과 같은 점수예요') + '</span>';
+    var h = '<div class="fin"><div class="finring" style="--p:' + pt + '"><div><b>' + pt + '</b><span>점</span></div></div><h1>' + n + '문제 중 ' + ok + '개 맞혔어요</h1><div class="finst">' + chips + '</div></div>';
+    var W = b.w.map(function (id) { return Core.byId(id); }).filter(Boolean).concat(R.wrongs).filter(function (it) { if (seen[it.id]) return false; seen[it.id] = 1; return true; });
+    if (W.length) {
+      h += '<h2>다시 볼 말</h2>';
+      W.forEach(function (it) { var w = skcWord(it); h += '<div class="wl"><span class="e" lang="en">' + esc(w[0]) + '</span> <span class="soft">' + esc(w[1]) + '</span></div>'; });
+      h += '<div class="soft" style="margin-top:8px">틀린 말은 \'이어서 하기\'에 다시 나와요.</div>';
+    }
+    h += '<button class="btn big" data-skc="go">한 번 더 풀기</button><button class="btn" data-go="home">홈으로</button>';
+    app.innerHTML = h; window.scrollTo(0, 0);
+  }
+  if (TOPIC.skillCheck) {
+    finish = (function (orig) {   // 실력 확인 판만 자체 끝 화면(다른 판은 원래 그대로)
+      return function () { if (R && R.opt && R.opt.skc) return skcFinish(); return orig.apply(this, arguments); };
+    })(finish);
+    // 멈춘 판 적어 두기: 문제가 뜬 뒤 · 답한 뒤(그만 누르거나 앱이 꺼져도 거기서 이어서)
+    //   듣기도 섞음: 익은 한마디(칸 2 이상 · 이어서 하기의 듣기 문제와 같은 조건)는 셋에 하나꼴로 '듣고 뜻 고르기'(소리를 낼 수 있을 때만) — 낱말 · 문장 · 듣기가 알아서 섞여 나옴(고르는 칸 없음)
+    ask = (function (orig) { return function () {
+      if (!(R && R.opt && R.opt.skc)) return orig.apply(this, arguments);
+      var mk = Core.makeQuestion, r;
+      Core.makeQuestion = function (it, st, type, S0, obj) { if (!type && it.cat === 'phrase' && st >= 2 && TOPIC.listen && TOPIC.canListen && TOPIC.canListen() && Math.random() < 0.34) type = 'listen'; return mk.call(Core, it, st, type, S0, obj); };
+      try { r = orig.apply(this, arguments); } finally { Core.makeQuestion = mk; }
+      skcKeep(); return r;
+    }; })(ask);
+    settle = (function (orig) { return function () { var r = orig.apply(this, arguments); skcKeep(); return r; }; })(settle);
   }
   // 공부 달력(사용자 10-22 밤: '내가 얼마나 열심히 했나' 뿌듯함이 보이게 · 조잡하지 않게) — 한 달씩 넘김 · 날마다 새로 배운 말 수(+N) · 문제만 푼 날은 점 · 오늘은 테두리
   //   기록 = S.nd(날마다 새 말 수) · S.dq(날마다 이어서 하기로 푼 문제 수) — v1.0.1부터 쌓인 그대로(새 기록 칸 없음)
@@ -3819,8 +4166,10 @@ var Core = (function () {
     }
     return '<div class="calh"><button type="button" data-cal="-1" aria-label="지난달">‹</button><b>' + y + '년 ' + (m + 1) + '월</b><button type="button" data-cal="1" aria-label="다음 달"' + (CALM >= 0 ? ' disabled' : '') + '>›</button></div>' +
       '<div class="calw"><i>일</i><i>월</i><i>화</i><i>수</i><i>목</i><i>금</i><i>토</i></div><div class="calg">' + h + '</div>' +
-      '<div class="soft" style="margin-top:8px">' + (sumD ? (CALM ? '이 달' : '이번 달') + ' 공부한 날 ' + sumD + '일 · 새로 배운 말 ' + sumN + '개' : '이 달엔 아직 공부 기록이 없어요') + ' · <b>+숫자</b> = 그날 새로 배운 말</div>' +
-      (TOPIC.dayList && sumD ? '<div class="calhint">📖 날짜를 누르면 그날 배운 말을 봐요</div>' : '');
+      // 디자인 2: 이 달 숫자 둘은 알약(한눈에) · 설명은 그 아래 작은 글 한 줄씩(긴 한 줄을 나눔 · 글은 그대로)
+      '<div class="calsum">' + (sumD ? '<span>' + (CALM ? '이 달' : '이번 달') + ' 공부한 날<b>' + sumD + '일</b></span><span>새로 배운 말<b>' + sumN + '개</b></span>' : '<span>이 달엔 아직 공부 기록이 없어요</span>') + '</div>' +
+      '<div class="soft" style="margin-top:8px"><b>+숫자</b> = 그날 새로 배운 말</div>' +
+      (TOPIC.dayList && sumD ? '<div class="calhint">날짜를 누르면 그날 배운 말을 봐요</div>' : '');
   }
   // 그날 공부한 말(엄마영어 사용자 10-26: '달력에서 날짜를 누르면 그날 뭐 공부했는지 뜨면 재밌잖아' — 문제 풀기 X · 보면서 복습 · 일기장 넘겨 보듯) — 켜는 칸 TOPIC.dayList
   //   기록 = 풀이 기록(S.log: 그날 카드로 본 말 = 'intro' · 그날 문제로 다시 본 말) + 말마다 처음 배운 날(r.intro) — 새 기록 칸 없음 · 보기만(기록 안 바뀜)
@@ -3914,10 +4263,10 @@ var Core = (function () {
   //   '몰랐어요' 단추는 안 넣음: 익힌 말도 120일까지 간격을 두고 다시 나오고, 틀리면 엔진이 바로 익힘에서 빼 1일 칸으로 돌림(grade: okd = []) — 손으로 빼는 길은 중복
   function mastHtml() {
     var all = Core.items(), L = all.filter(function (it) { return Core.mastered(S, it.id); }), ck = Object.keys(CATS), tg = '<button type="button" class="dstg' + (S.dlHide ? ' on' : '') + '" data-dlhide="1" aria-pressed="' + (S.dlHide ? 'true' : 'false') + '">뜻 가리기</button>';
-    var h = '<div class="dshn"><b>익힌 말</b> <span>' + L.length + '개 · 전체 ' + all.length + '개 중</span></div><div class="dsb">' +
-      '<div class="dssum">며칠에 걸쳐 여러 번 다시 떠올린 말이에요</div>' +
-      '<div class="dstip" style="margin-top:4px">잊지 않게 가끔 다시 나와요. 그때 틀리면 다시 연습하는 말로 돌아가요.</div>';
-    if (!L.length) return h + '<div class="dsempty">아직 익힌 말이 없어요. 며칠에 걸쳐 여러 번 맞히면 여기에 모여요.</div></div>';
+    // 문구(사용자 11-14 "같은 말이 여러 번 나오고 … 설명이 간결하지 않고"): 0개일 때는 한 가지 말만 · 있을 때도 설명은 두 줄
+    var h = '<div class="dshn"><b>익힌 말</b> <span>' + L.length + '개 · 전체 ' + all.length + '개 중</span></div><div class="dsb">';
+    if (!L.length) return h + '<div class="dsempty">아직 익힌 말이 없어요.<br>며칠에 걸쳐 여러 번 맞힌 말이 여기에 모여요.</div></div>';
+    h += '<div class="dssum">며칠에 걸쳐 여러 번 맞힌 말이에요</div><div class="dstip" style="margin-top:4px">가끔 다시 나와요. 그때 틀리면 다시 연습해요.</div>';
     h += '<div class="dsbar"><span></span>' + tg + '</div>' + (S.dlHide ? '<div class="dstip">줄을 누르면 그 뜻이 보여요 — 먼저 떠올려 봐요</div>' : '');
     function grp(g, name) { return g.length ? (name ? '<div class="dscat">' + name + ' <span>' + g.length + '개</span></div>' : '') + '<div class="dsl">' + g.map(function (it) { return dayRow(it, 0, true); }).join('') + '</div>' : ''; }
     ck.forEach(function (c) { h += grp(L.filter(function (it) { return it.cat === c; }), CATS[c].icon + ' ' + esc(CATS[c].name)); });
@@ -3925,6 +4274,38 @@ var Core = (function () {
     return h + '</div>';
   }
   function mastOpen() { DAYV = 'm'; shOpen(mastHtml(), '익힌 말'); }
+  // 공부한 말(사용자 11-13: "공부한말은 눌러도 공부한말 안나와 … 허접하게 대충 쭉 나열하지 말고 … 구조 제대로") — 보기만(기록 안 바뀜)
+  //   목적 = '전체 중 어디까지 왔나'(사용자 11-13 Q4: 몇 개를 봤는지 · 업데이트 시점) → 위 = 공부한 수 · 익힌 / 연습 중 · 남은 새 말(다 배웠으면 기록 보내기 안내)
+  //   아래 = 묶음별 접힌 단추 '이름 n / 전체'(누르면 펼침 · 수백 줄을 한꺼번에 늘어놓지 않음) · 줄 = 익힌 말 창과 같은 줄(✓ 익힘 · 🔊🐢 · 누르면 예문 · 뜻 가리기) · 0개 묶음은 흐리게
+  var SKO = {};   // 이 창에서 펼친 묶음(뜻 가리기를 눌러 다시 그려도 그대로)
+  function studyHtml() {
+    var all = Core.items(), L = all.filter(function (it) { return !!S.items[it.id]; }), mast = L.filter(function (it) { return Core.mastered(S, it.id); }).length, left = all.length - L.length;
+    var tg = '<button type="button" class="dstg' + (S.dlHide ? ' on' : '') + '" data-dlhide="1" aria-pressed="' + (S.dlHide ? 'true' : 'false') + '">뜻 가리기</button>';
+    var h = '<div class="dshn"><b>공부한 말</b> <span>' + L.length + '개 · 전체 ' + all.length + '개 중</span></div><div class="dsb">';
+    if (!L.length) return h + '<div class="dsempty">아직 공부한 말이 없어요.<br>\'이어서 하기\'를 누르면 새 말부터 차례로 나와요.</div></div>';
+    h += '<div class="dssum">익힌 말 <b>' + mast + '개</b> · 아직 연습 중 <b>' + (L.length - mast) + '개</b></div>' +
+      '<div class="dstip" style="margin-top:4px">' + (left ? '아직 안 배운 말 ' + left + '개는 \'이어서 하기\'에서 차례로 나와요.' : '준비된 말을 다 공부했어요.' + (TOPIC.simpleSend ? ' 새 말이 필요하면 ⚙ 설정의 \'기록 보내기\'로 알려 주세요.' : '')) + '</div>';
+    h += '<div class="dsbar"><span></span>' + tg + '</div>' + (S.dlHide ? '<div class="dstip">줄을 누르면 그 뜻이 보여요 — 먼저 떠올려 봐요</div>' : '');
+    var ck = Object.keys(CATS), rest = all.filter(function (it) { return ck.indexOf(it.cat) < 0; });
+    function sec(key, name, g) {
+      if (!g.length) return '';
+      var s = g.filter(function (it) { return !!S.items[it.id]; }), n = '<span class="dsn">' + s.length + ' / ' + g.length + '</span>', op = !!SKO[key];
+      // 아직 하나도 안 배운 묶음: 흐리게 · 눌러도 한 줄 안내(눌렀는데 아무 일 없게 두지 않음 · 워커 11-13)
+      var body = s.length ? '<div class="dsl"' + (op ? '' : ' hidden') + '>' + s.map(dayRow).join('') + '</div>' : '<div class="dstip dsnone"' + (op ? '' : ' hidden') + '>아직 안 배웠어요 · \'이어서 하기\'에서 차례로 나와요</div>';
+      return '<button type="button" class="dsfold dscf' + (s.length ? '' : ' dsoff') + (op ? ' open' : '') + '" data-dlcat="' + key + '" aria-expanded="' + op + '"><span>' + name + '</span><span class="dsfr">' + n + '<span class="dlch">˅</span></span></button>' + body;
+    }
+    ck.forEach(function (c) { h += sec(c, CATS[c].icon + ' ' + esc(CATS[c].name), all.filter(function (it) { return it.cat === c; })); });
+    h += sec('_', '그 밖의 말', rest);   // 묶음 이름이 없는 말(혹시)도 빠지지 않게
+    return h + '</div>';
+  }
+  function studyOpen(keep) {
+    if (!keep) {   // 처음 열 때는 지금 배우는 묶음(가장 최근에 새 말이 들어온 묶음) 하나만 펼침(워커 11-13: 다 접혀 있으면 '눌렀는데 말이 안 나와'로 느낌)
+      SKO = {}; var b = null, bi = -1;
+      Core.items().forEach(function (it) { var r = S.items[it.id]; if (r && r.intro >= bi) { bi = r.intro; b = it; } });
+      if (b) SKO[Object.keys(CATS).indexOf(b.cat) >= 0 ? b.cat : '_'] = true;
+    }
+    DAYV = 'i'; shOpen(studyHtml(), '공부한 말');
+  }
   function dayClose() {
     var sh = document.getElementById('dsh'); if (!sh) return;
     if (typeof DAYV === 'number') {   // 달력도 마지막으로 본 날의 달로(익힌 말 창은 날짜 없음)
@@ -3941,7 +4322,8 @@ var Core = (function () {
     if (b.hasAttribute('data-say-slow')) return speak(b.getAttribute('data-say-slow'), true);
     if (b.hasAttribute('data-dlclose')) { ev.preventDefault(); return dayClose(); }
     if (b.hasAttribute('data-dln')) { var v = b.getAttribute('data-dln'); if (v !== '' && !b.disabled) dayOpen(+v); return; }
-    if (b.hasAttribute('data-dlhide')) { S.dlHide = !S.dlHide; save(true); var y = sh.querySelector('.dsb').scrollTop; if (DAYV === 'm') mastOpen(); else dayOpen(DAYV); sh.querySelector('.dsb').scrollTop = y; return; }
+    if (b.hasAttribute('data-dlhide')) { S.dlHide = !S.dlHide; save(true); var y = sh.querySelector('.dsb').scrollTop; if (DAYV === 'm') mastOpen(); else if (DAYV === 'i') studyOpen(true); else dayOpen(DAYV); sh.querySelector('.dsb').scrollTop = y; return; }
+    if (b.hasAttribute('data-dlcat')) { var cl = b.nextElementSibling; if (!cl) return; cl.hidden = !cl.hidden; b.classList.toggle('open', !cl.hidden); b.setAttribute('aria-expanded', String(!cl.hidden)); SKO[b.getAttribute('data-dlcat')] = !cl.hidden; return; }   // 공부한 말: 묶음 펼치기/접기
     if (b.hasAttribute('data-dlfold')) { var rv = sh.querySelector('.dsrv'); rv.hidden = !rv.hidden; b.classList.toggle('open', !rv.hidden); return; }
     if (b.hasAttribute('data-dlr')) {   // 줄 누르기: 가린 뜻 보이기 · 예문 펼치기/접기
       var k = b.querySelector('.dlk'), x = b.nextElementSibling;
@@ -3956,12 +4338,12 @@ var Core = (function () {
   }
   function easyDone(ti) {
     return ti.capped ? '오늘 ' + Core.DAY_MAX + '문제나 풀었어요! 정말 잘했어요. 더 하고 싶으면 아래 \'계속하기\'를 눌러요.'
-      : '오늘 공부 끝! 틀린 말은 내일 다시 나와요. 더 하고 싶은 날엔 아래 단추로 지금까지 배운 말을 복습하거나 새 말을 더 배워요.';
+      : '오늘 공부 끝! 틀린 말은 내일 다시 나와요. 더 하고 싶으면 아래에서 골라요.';
   }
   // 더 하고 싶은 날(사용자 10-22: 새 말 단추가 작아 안 보여 배운 말만 빙빙 돎) — 처음부터 끝까지 같은 구조(사용자 10-22):
   //   큰 단추 하나 '배운 말 전체 복습'(10-17: 큰 단추는 하나 · 10-22 밤: 오늘 배운 말까지 · 폰에서 본 말만) · 그 아래 보통 단추 '새 말 5개 더 배우기'(몇 번이든)
   function easyMoreNew(ti, h) {
-    return h + '<button class="btn" data-go="morenew">🆕 새 말 5개 더 배우기<small>' + (ti.backlog ? '복습이 밀린 날이라 쉬던 중이지만, 원하면 받아도 돼요' : '새 말을 배우고 몇 문제 뒤에 다시 풀어 바로 익혀요 · 몇 번이든 더 눌러도 돼요(내일부터 복습이 조금 늘어요)') + '</small></button>';
+    return h + '<button class="btn" data-go="morenew">🆕 새 말 5개 더 배우기<small>' + (ti.backlog ? '복습이 밀린 날이라 쉬던 중이지만, 원하면 받아도 돼요' : '몇 번이든 더 눌러도 돼요 · 내일부터 복습이 조금 늘어요') + '</small></button>';
   }
   (function () {
     var de = document.documentElement;
@@ -4040,27 +4422,153 @@ var Core = (function () {
     // 디자인(사용자 10-22 밤: '대충 만든 앱 같다 · 더 고급스럽게 · 따뜻한 느낌은 좋음' → 참고 시안 '유기적 곡선과 웜톤'(design_sample_selector · 에디토리얼 & 오가닉) 방향)
     //   흰 카드 · 따뜻한 종이 바탕 · 큰 둥근 모서리 · 위계 3단: 주 단추(이어서 하기 등 btn big) = 주제 색으로 꽉 채움 + 그림자 /
     //   선택 단추(새 말 더 · 설정 줄 등 btn) = 연한 모래색 / 정보 카드 = 흰색 — 끄려면 TOPIC.design: false(원래 결선 영어 모양)
-    if (TOPIC.design !== false) css = css.concat([
-      ':root{--bg:#F8F4EC;--card:#FFFFFF;--line:#ECE2D0;--ink:#2B2621;--soft:#6F665B;--sand:#F2E7D4;--sandline:#E2D1B3;--sandink:#3F352B;--ok:#3E885B;--okbg:#E8F3EB;--lift:0 1px 2px rgba(70,50,30,.05),0 6px 18px -10px rgba(70,50,30,.22)}',
-      '@media (prefers-color-scheme: dark){:root{--bg:#15181C;--card:#1F2329;--line:#333941;--ink:#ECEEF1;--soft:#A3ABB5;--sand:#2A2620;--sandline:#3E362C;--sandink:#EDE3D3;--ok:#5CCB8A;--okbg:#1C3326;--lift:none}}',
-      'html,body{background:var(--bg)}', 'body{letter-spacing:-0.01em}',
-      '#app h1{font-size:22px;letter-spacing:-0.02em}',
-      '#app h2{font-size:14px;color:var(--soft);font-weight:700;margin:22px 4px 8px}',
-      '#app .card{border-radius:20px;border:1px solid var(--line);box-shadow:var(--lift)}',
-      '#app .btn{border-radius:16px;background:var(--sand);border:1px solid var(--sandline);color:var(--sandink);font-weight:600;padding:14px 16px}',
-      '#app .btn small{font-weight:400}',
-      '#app .btn.big{border-radius:18px;background:var(--acc);color:#fff;border:none;box-shadow:0 10px 20px -10px var(--acc);padding:18px 16px;font-size:18px}',
-      '#app .btn.big small{color:rgba(255,255,255,.9)}',
-      '#app .opt{border-radius:14px}',
-      '#app .spk,#app .fsq{border:1px solid var(--sandline);background:var(--sand);color:var(--sandink)}',
-      '#app .bar{height:10px;border-radius:99px;background:var(--sand)}', '#app .bar>i{border-radius:99px}',
-      '#app .card.done{border:none;background:var(--okbg);box-shadow:none}',
-      '#app .explain{border-left:none;box-shadow:inset 4px 0 0 var(--acc),var(--lift)}',
-      '#app .flash.soft-miss{border-radius:14px}',
-      '#app .tabs button{border-color:var(--sandline);background:var(--sand);color:var(--sandink)}', '#app .tabs button.on{background:var(--acc);border-color:var(--acc);color:#fff}',
-      '#app input[type=search]{border-radius:14px;border-color:var(--sandline)}',
-      '#gl .glc{border-radius:20px}'
-    ]);
+    //   11-13 디자인 2(사용자 "월등한 개선 · 상용 앱 수준"): 같은 따뜻한 색 · 위계 3단은 그대로 두고 체계를 다시 짬 — 값은 맨 아래 DESIGN(다른 묶음 뒤에 넣어야 이김)
+    var DESIGN = TOPIC.design === false ? [] : [
+      // 색 · 그림자: 카드 테두리 대신 머리카락 선 + 옅은 그림자 · 단추는 아래 두꺼운 모서리(--edge)로 '눌리는 것'임을 보임
+      ':root{--bg:#F7F3EB;--card:#FFFFFF;--line:#EDE6D9;--ink:#221E1A;--soft:#6F665C;--sand:#F2EBDD;--sandline:#E4D9C5;--sandink:#3E352C;--ok:#24794A;--okbg:#E6F4EB;--miss:#86600F;--missbg:#FCF3DC;--amb:#D97A00;--ambbg:#FFF0D6;--onacc:#fff;' +
+        '--edge:rgba(70,50,30,.16);--hair:rgba(70,50,30,.07);--lift:0 0 0 1px var(--hair),0 10px 24px -16px rgba(70,50,30,.28);--lift2:0 0 0 1px var(--hair),0 1px 2px rgba(70,50,30,.06)}',
+      '@media (prefers-color-scheme: dark){:root{--bg:#131518;--card:#1D2126;--line:#2D3239;--ink:#EEF0F2;--soft:#A5ACB5;--sand:#272B31;--sandline:#3A4048;--sandink:#E7EAEE;--ok:#5CCB8A;--okbg:#17301F;--miss:#E8C987;--missbg:#33291A;--amb:#F2A84B;--ambbg:#3A2C14;--onacc:#1D1410;' +
+        '--edge:rgba(0,0,0,.4);--hair:rgba(255,255,255,.07);--lift:0 0 0 1px var(--hair);--lift2:0 0 0 1px var(--hair)}}',
+      'html,body{background:var(--bg)}', 'body{letter-spacing:-0.01em;padding:14px 16px 44px;-webkit-font-smoothing:antialiased}',
+      '#app .ic{display:block;flex:0 0 auto}',
+      '#app h1{font-size:24px;font-weight:800;letter-spacing:-0.03em;line-height:1.3;margin:6px 0 4px}',
+      '#app h2{font-size:14px;color:var(--soft);font-weight:800;margin:24px 4px 8px}',
+      '#app .soft{font-size:14px;line-height:1.5}',
+      '#app .pill{background:var(--acc2);color:var(--acc);font-size:13px;font-weight:700;padding:4px 10px}',
+      // 카드 · 단추(위계 3단: 주 단추 = 주제 색 꽉 채움 / 선택 단추 = 모래색 / 정보 = 흰 카드)
+      '#app .card{border-radius:22px;border:0;box-shadow:var(--lift);padding:18px;margin:12px 0}',
+      '#app .btn{border-radius:16px;background:var(--sand);border:0;border-bottom:3px solid var(--edge);color:var(--sandink);font-weight:700;font-size:16px;line-height:1.35;padding:14px 16px;margin:8px 0;transition:transform .08s,filter .08s}',
+      '#app .btn:active,#app .hnb:not(:disabled):active,.dsh button:active,.sheet button:active,.wn button:active{transform:translateY(2px);filter:brightness(.96)}',
+      '#app .btn small{font-weight:400;font-size:14px;line-height:1.45;margin-top:3px;color:var(--soft)}',
+      '#app .btn.big{border-radius:18px;background:var(--acc);color:#fff;border:0;border-bottom:4px solid rgba(0,0,0,.2);box-shadow:0 12px 22px -14px var(--acc);padding:16px 18px;font-size:18px;font-weight:800;text-align:center}',
+      '#app .btn.big small{color:rgba(255,255,255,.94)}',
+      '#app .pxh{display:none!important}',
+      // 홈 머리 · 오늘의 공부(큰 카드 = 단추 하나)
+      '#app .hhead{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:8px 10px;margin:4px 2px 2px}',
+      '#app .hname{flex:1 1 auto;min-width:0}', '#app .hname h1{margin:0;font-size:26px}', '#app .hname .pill{display:inline-block;margin-top:6px}',
+      '#app .hbtns{display:flex;gap:8px;margin-left:auto}',
+      '#app .hbtn{display:inline-flex;align-items:center;gap:5px;height:40px;padding:0 12px;border-radius:13px;border:0;background:var(--card);box-shadow:var(--lift2);color:var(--sandink);font-size:14.5px;font-weight:700;font-family:inherit;white-space:nowrap}',
+      '#app .hbtn .ic{width:18px;height:18px}', '#app .hbtn b{font-size:16px;font-weight:800}', '#app .hbtn:active{background:var(--sand)}',
+      '#app .btn.big.hero{position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:14px;text-align:left;padding:20px 20px 19px 22px;border-radius:24px;margin:14px 0 12px;' +
+        'background-image:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,0) 46%,rgba(0,0,0,.12))}',
+      '#app .hero::before{content:"";position:absolute;right:-46px;top:-70px;width:190px;height:190px;border-radius:50%;background:rgba(255,255,255,.09);pointer-events:none}',
+      '#app .hero .hk{grid-column:1;font-size:13.5px;font-weight:700;opacity:.92}', '#app .hero .ht{grid-column:1;font-size:27px;font-weight:800;letter-spacing:-.03em;line-height:1.25;margin-top:1px}',
+      '#app .hero .hs{grid-column:1;display:block;font-size:15px;font-weight:500;line-height:1.45;margin-top:8px;color:#fff}',
+      '#app .hero .hc{display:flex;flex-wrap:wrap;gap:6px}', '#app .hero .hc i{font-style:normal;background:rgba(255,255,255,.2);border-radius:99px;padding:3px 11px;white-space:nowrap}', '#app .hero .hc b{font-weight:800}',
+      '#app .hero .hp{grid-column:2;grid-row:1/span 3;position:relative;width:58px;height:58px;border-radius:50%;background:#fff;color:var(--acc);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 16px -8px rgba(0,0,0,.45)}',
+      '#app .hero .hp .ic{width:28px;height:28px;margin-left:3px}',
+      // 오늘 한 것(한 줄) · 카드 제목 · 목록 줄(다른 연습 · 내 실력 공통)
+      '#app .tdy{display:flex;align-items:center;gap:10px;width:100%;margin:12px 0;padding:13px 14px 13px 16px;border:0;border-radius:16px;background:var(--acc2);color:var(--ink);font-size:15px;line-height:1.4;font-family:inherit;text-align:left}',
+      '#app .tdx{flex:1 1 auto;min-width:0;display:flex;flex-wrap:wrap;gap:3px 12px}',
+      '#app .tdy .tdl{font-weight:800;color:var(--acc)}', '#app .tdy b{font-weight:800;white-space:nowrap}', '#app .tdy .lgo2{color:var(--acc)}', '#app button.tdy:active{filter:brightness(.97)}',
+      '#app .cardh{font-size:14px;font-weight:800;color:var(--soft);margin:0 0 8px}',
+      '#app .subc,#app .mys{padding:16px 18px 6px}', '#app .mys{padding-top:18px}',
+      '#app .lrow{display:flex;align-items:center;gap:12px;width:100%;min-height:62px;margin:0;padding:10px 0;border:0;border-top:1px solid var(--line);border-radius:0;background:none;color:var(--ink);text-align:left;font-family:inherit}',
+      '#app .cardh+.lrow{border-top:0}', '#app button.lrow:active{opacity:.6}',
+      '#app .lic{flex:0 0 auto;width:40px;height:40px;border-radius:13px;background:var(--acc2);color:var(--acc);display:flex;align-items:center;justify-content:center}', '#app .lic .ic{width:22px;height:22px}',
+      '#app .lic.amb{background:var(--ambbg);color:var(--amb)}',
+      '#app .ltx{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:2px}', '#app .ltx b{font-size:16.5px;font-weight:700;line-height:1.35}',
+      '#app .ltx small{font-size:14px;line-height:1.45;color:var(--soft);font-weight:400;zoom:var(--z-soft,1)}',
+      '#app .lval{flex:0 0 auto;font-size:21px;font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums;letter-spacing:-.01em}', '#app .lval small{font-size:14px;font-weight:500;color:var(--soft)}',
+      '#app .lgo2{flex:0 0 auto;display:flex;color:var(--soft);opacity:.75}', '#app .lgo2 .ic{width:18px;height:18px}',
+      '#app .lvl{padding:2px 0 16px}', '#app .lvt{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:2px 10px;margin-bottom:9px}',
+      '#app .lvt b{font-size:20px;font-weight:800;letter-spacing:-.02em}', '#app .lvt span{font-size:13.5px;color:var(--soft)}', '#app .lvn{font-size:14px;color:var(--soft);margin-top:9px;line-height:1.45;zoom:var(--z-soft,1)}',
+      '#app .bar{height:10px;border-radius:99px;background:var(--sand);overflow:hidden}', '#app .bar>i{border-radius:99px;background:var(--acc);transform-origin:0 50%;animation:u2bar .45s ease-out}',
+      // 오늘 몫 끝 · 끝 화면
+      '#app .card.done{border:0;background:var(--okbg);box-shadow:none}', '#app .card.done>b,#app h1.dd{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--ok)}',
+      '#app .ddb{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--ok);color:var(--okbg);display:inline-flex;align-items:center;justify-content:center}', '#app .ddb .ic{width:18px;height:18px;stroke-width:3.2}',
+      '#app .card.done .soft{color:var(--ink);font-size:15px;line-height:1.55;margin-top:8px}', '#app h1.dd{margin:10px 2px 12px;font-size:24px}',
+      '#app .fin{text-align:center;padding:8px 0 2px}', '#app .fin h1{font-size:21px;margin:0 0 12px}',
+      '#app .finring{--p:0;position:relative;width:136px;height:136px;margin:6px auto 16px;border-radius:50%;background:conic-gradient(var(--acc) calc(var(--p)*1%),var(--sand) 0);display:flex;align-items:center;justify-content:center}',
+      '#app .finring::before{content:"";position:absolute;top:11px;left:11px;right:11px;bottom:11px;border-radius:50%;background:var(--bg)}',
+      '#app .finring>div{position:relative;line-height:1.1}', '#app .finring b{display:block;font-size:42px;font-weight:800;letter-spacing:-.03em}', '#app .finring span{font-size:15px;color:var(--soft);font-weight:700}',
+      '#app .finst{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-bottom:8px}', '#app .finst:empty{display:none}',
+      '#app .finst span{background:var(--card);box-shadow:var(--lift2);border-radius:99px;padding:7px 14px;font-size:14.5px;color:var(--soft);white-space:nowrap}', '#app .finst b{color:var(--ink);font-weight:800;margin-left:5px}',
+      '#app .fincmp{text-align:center;font-size:16px;line-height:1.6}',
+      '#app .wl{padding:12px 2px;line-height:1.45}', '#app .wl .e{font-size:17px}', '#app .wl>.e{display:block}', '#app .wl>.soft{display:block;font-size:15px;margin-top:2px}',
+      '#app .btn.big .bi{display:inline-block;vertical-align:-3px;margin-right:7px}', '#app .btn.big .bi .ic{width:20px;height:20px}',
+      // 문제 화면: 맨 위 줄 · 이름표 · 문제 글 · 보기(아래 두꺼운 모서리 · 번호 칸) · 정답/오답 띠 · 설명 카드
+      '#app .qtop{display:flex;align-items:center;flex-wrap:wrap;gap:4px 10px;min-height:36px;font-size:14px;color:var(--soft);margin-bottom:8px}',
+      '#app .qtop .back{display:inline-flex;align-items:center;gap:3px;margin-left:-4px;padding:6px 8px 6px 4px;border-radius:10px;color:var(--soft);font-size:15px;font-weight:700}', '#app .qtop .back .ic{width:20px;height:20px}',
+      '#app .qtop .back:active{background:var(--sand)}', '#app .qcnt{margin-left:auto;font-size:14.5px;font-weight:700;font-variant-numeric:tabular-nums}', '#app .combo{font-size:13.5px}',
+      '#app .fsq{border:0;background:var(--card);box-shadow:var(--lift2);color:var(--sandink);border-radius:11px;min-width:36px;height:34px;padding:0 10px;font-size:15px;font-weight:800;font-family:inherit}',
+      '#app .qtop+.bar{height:8px}', '#app .qlabel{margin-top:14px;line-height:1.7}',
+      '#app .prompt{font-size:24px;font-weight:800;letter-spacing:-.02em;line-height:1.36;margin:14px 0 6px}', '#app .prompt.small{font-size:19px;font-weight:700}',
+      '#app .kom{font-size:16.5px}', '#app #opts{margin-top:12px}',
+      '#app .opt{border-radius:16px;border:1.5px solid var(--line);border-bottom-width:4px;background:var(--card);padding:13px 14px;margin:10px 0;font-size:17px;font-weight:600;line-height:1.4;transition:transform .08s,background-color .15s,border-color .15s}',
+      '#app .opt.small{font-size:15.5px}', '#app .opt:not(:disabled):active{transform:translateY(2px);background:var(--sand)}',
+      '#app .opt .n{display:inline-block;width:28px;height:28px;line-height:28px;margin-right:10px;border-radius:9px;background:var(--sand);color:var(--soft);text-align:center;font-size:14px;font-weight:800;vertical-align:1px}',
+      '#app .opt .n:empty{display:none}', '#app [data-say] .n,#app [data-mxs] .n,#app [data-lrs] .n,#app .opt.idk .n{background:none;font-size:20px;vertical-align:-1px;margin-right:6px}',
+      '#app .opt.ok{border-color:var(--ok);background:var(--okbg)}', '#app .opt.ok .n{background:var(--ok);color:var(--okbg)}',
+      '#app .opt.bad{border-color:var(--miss);background:var(--missbg)}', '#app .opt.bad .n{background:var(--miss);color:var(--missbg)}', '#app .opt.sel{border-color:var(--acc);background:var(--acc2)}',
+      '#app .opt.idk{border-style:dashed;border-width:1.5px;background:none;color:var(--soft);font-size:15px;font-weight:600;padding:10px 14px}',
+      '#app .opt.idk.picked{border-style:solid;border-bottom-width:1.5px}', '#app .mgrid .opt{border-bottom-width:3px;font-size:14.5px;font-weight:600}',
+      '#app .flash{display:flex;align-items:center;gap:10px;text-align:left;font-size:18px;font-weight:800;line-height:1.4;border-radius:16px;padding:12px 14px;margin:16px 0 10px}',
+      '#app .flash.ok{color:var(--ok);background:var(--okbg)}',
+      '#app .flash.ok::before{content:"";flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--ok) url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23fff%27 stroke-width=%273.4%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M20 6 9 17l-5-5%27/%3E%3C/svg%3E") center/15px no-repeat}',
+      '#app .flash.soft-miss{font-size:16px;font-weight:700;border-radius:16px;padding:12px 14px}', '#app .flash.big,#app .flash.bad{display:block}', '#app .flash.bad{background:var(--missbg);color:var(--miss);font-size:16px}',
+      '#app .explain{border-left:0;box-shadow:var(--lift);padding:16px 18px;line-height:1.5}', '#app .explain .w{font-size:22px;font-weight:800;letter-spacing:-.01em;line-height:1.35}',
+      '#app .explain .w~.ex{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}', '#app .explain .ex{font-size:17px;line-height:1.5}', '#app .explain .exko{font-size:15px;line-height:1.5}',
+      '#app .card[style*="border-left"]{border-left:0!important;background:var(--missbg);box-shadow:none}',
+      '#app mark.hl{background:linear-gradient(transparent 52%,rgba(255,196,50,.6) 52%);padding:0 2px;border-radius:0}', '#app .explain .w mark.hl{font-size:26px}',
+      '#app .goal{border:0;background:var(--acc2);padding:2px 9px;border-radius:99px;font-size:12.5px;line-height:1.6}',
+      '#app .qaLearn{border-left:3px solid var(--acc);padding-left:12px;margin-top:14px}', '#app .learnTip{border-radius:14px;padding:10px 12px}',
+      '#app .spk{border:0;background:var(--sand);color:var(--sandink);border-radius:99px;min-width:38px;height:32px;padding:0 9px;font-size:15px;line-height:1;font-family:inherit}', '#app .spk:active{filter:brightness(.94)}',
+      '#app .qabq{border:0;box-shadow:var(--lift);border-radius:20px 20px 20px 6px;padding:12px 16px}', '#app .qaba{border-radius:20px 20px 6px 20px;padding:12px 16px}',
+      '#app .lbox .btn.big{font-size:17px}', '#app .lbox .grid2 .btn{font-size:14.5px;padding:12px 8px;text-align:center}',
+      // 주제 색 위의 글자(--onacc): 밝은 화면 = 흰색 · 어두운 화면은 주제 색이 밝아져 어두운 글자
+      '#app .btn.big,#app .hnb.hgo,#app .hnow,#app .tabs button.on,.dsh .dsclose,.dsh .dstg.on,.sheet .fsrow button.fsok,.wn .wnok{color:var(--onacc)}', '#app .btn.big small,#app .hero .hs{color:var(--onacc)}',
+      // 접힌 묶음 화살표: 글자(˅) 대신 선 두 개로 그림(줄 가운데에 맞음)
+      '.dsh .dlch{font-size:0;width:10px;height:10px;margin:0 9px 5px 9px;border-right:2.5px solid var(--soft);border-bottom:2.5px solid var(--soft);transform:rotate(45deg)}',
+      '.dsh .open .dlch,.dsh .dsfold.open .dlch{transform:rotate(225deg);margin-bottom:-4px}',
+      // 화면 아래 줄: ‹ 이전(모래색) · 오른쪽 = 넘기는 단추(주제 색 · 넓게) — 답하기 전엔 꺼진 '다음 ›'
+      '#app .hnavbar{padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--line)}', '#app .hnavr{gap:10px}',
+      '#app .hnb{min-width:0;padding:0 18px;height:50px;border-radius:16px;border:0;border-bottom:3px solid var(--edge);background:var(--sand);color:var(--sandink);font-size:16px;font-weight:700;box-shadow:none;transition:transform .08s,filter .08s}',
+      '#app .hnb:disabled{opacity:.38;box-shadow:none}', '#app .hnb[hidden]{display:none}',
+      '#app .hnb.hgo{flex:1 1 0;min-width:0;margin-left:auto;display:inline-flex;align-items:center;justify-content:center;gap:6px;background:var(--acc);color:#fff;border-bottom:4px solid rgba(0,0,0,.2);font-size:18px;font-weight:800;box-shadow:0 10px 18px -12px var(--acc);animation:u2in .2s ease-out both}',
+      '#app .hnb.hgo .ic{width:20px;height:20px;stroke-width:2.6}', '#app .hnow{border-radius:14px;border-bottom:3px solid rgba(0,0,0,.2)}',
+      // 달력 · 설정 · 단어장
+      '#app .calh b{font-size:17px;font-weight:800}', '#app .calh button{border:0;background:var(--sand);color:var(--sandink);border-radius:12px;min-width:40px;height:40px}',
+      '#app .calw i{font-size:12.5px;font-weight:600}', '#app .calg{gap:5px 4px}', '#app .calg i{min-height:46px;border-radius:14px;font-size:14px;font-weight:600}',
+      '#app .calg i.on{color:var(--ink)}', '#app .calg b{font-size:11.5px}', '#app .calhint{font-size:14px;font-weight:700;margin-top:4px}',
+      '#app .calsum{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}', '#app .calsum span{background:var(--sand);color:var(--sandink);border-radius:99px;padding:6px 12px;font-size:14px;line-height:1.4}', '#app .calsum b{font-weight:800;margin-left:5px;white-space:nowrap}',
+      '#app .card.explain+.soft{margin:12px 4px 0}',
+      // 설정: 묶음 카드 + 목록 줄 · 켜고 끄는 줄은 스위치 · 그 자리에서 바뀌는 값은 알약
+      '#app .setc{padding:16px 18px 6px}', '#app .setc .lval small{font-size:16px;font-weight:700;color:var(--ink)}', '#app .ica{font-size:18px;font-weight:800;line-height:1}',
+      '#app .pillv{display:inline-block;background:var(--acc2);color:var(--acc);border-radius:99px;padding:4px 12px;font-size:15px;font-weight:800}',
+      '#app .sw{display:block;position:relative;width:46px;height:28px;border-radius:99px;background:var(--sandline);transition:background-color .15s}',
+      '#app .sw::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .15s}',
+      '#app .sw.on{background:var(--acc)}', '#app .sw.on::after{transform:translateX(18px)}', '#app .setn{margin:14px 4px 0}',
+      // 실력 확인: 내 점수 카드(최고 · 지난번 · 본 횟수) + 최근 점수 막대 · 끝 화면 알약
+      '#app .sks{padding:16px 18px}', '#app .skt{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;text-align:center}',
+      '#app .skt span{display:block;font-size:13.5px;font-weight:600;color:var(--soft)}', '#app .skt b{display:block;font-size:26px;font-weight:800;letter-spacing:-.03em;line-height:1.3;white-space:nowrap;font-variant-numeric:tabular-nums}',
+      '#app .skt small{font-size:14px;font-weight:600;color:var(--soft);margin-left:1px}', '#app .skt>div:first-child b{color:var(--acc)}',
+      '#app .skg{display:flex;align-items:flex-end;justify-content:center;gap:8px;height:88px;margin-top:14px;border-top:1px solid var(--line)}',
+      '#app .skg i{flex:0 1 30px;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;font-style:normal}',
+      '#app .skg em{font-style:normal;font-size:12px;font-weight:700;color:var(--soft);line-height:1.5}', '#app .skg u{display:block;width:100%;max-width:26px;border-radius:7px 7px 3px 3px;background:var(--acc2);text-decoration:none}',
+      '#app .skg i.on u{background:var(--acc)}', '#app .skg i.on em{color:var(--acc)}', '#app .skgl{text-align:center;margin-top:6px;font-size:13px}',
+      '#app .skp{font-size:16px;line-height:1.5;margin-bottom:12px}', '#app .skr{text-align:center;margin-top:10px}',
+      '#app .finst .hot{background:var(--acc2);color:var(--acc);font-weight:700;box-shadow:none}',
+      '#app .tabs button{border:0;background:var(--sand);color:var(--sandink);font-weight:600;padding:8px 13px}', '#app .tabs button.on{background:var(--acc);color:#fff}',
+      '#app input[type=search]{border-radius:14px;border-color:var(--sandline);padding:13px 14px;font-size:16px}',
+      '#app .kv{border-bottom:1px solid var(--line);padding:10px 0}', '#app .kv span{font-size:16px}',
+      // 아래에서 올라오는 창들
+      '#gl .glc{border-radius:22px;border:0;box-shadow:0 0 0 1px var(--hair),0 -8px 30px rgba(0,0,0,.2)}',
+      '.dsh .dshc,.sheet .fsc{border-radius:26px 26px 0 0}', '.dsh .dshc::before{content:"";flex:0 0 auto;width:40px;height:5px;border-radius:3px;background:var(--line);margin:9px auto 0}',
+      '.dsh .dshn{padding:12px 20px 14px}', '.dsh .dshn b{font-size:23px;font-weight:800;letter-spacing:-.02em}', '.dsh .dsb{padding:14px 18px 16px}',
+      '.dsh .dsfold{border:0;border-bottom:3px solid var(--edge);border-radius:16px;min-height:54px;padding:0 16px}', '.dsh .dsnb{border:0;border-bottom:3px solid var(--edge);border-radius:16px;min-height:50px}',
+      '.dsh .dsclose,.sheet .fsrow button.fsok,.wn .wnok{border-radius:16px;border-bottom:4px solid rgba(0,0,0,.2);font-weight:800}', '.dsh .dsclose{min-height:54px}',
+      '.dsh .dstg{border:0;background:var(--sand);color:var(--sandink);border-radius:99px;font-weight:700}', '.dsh .dstg.on{background:var(--acc);color:#fff}',
+      '.dsh .dlr{padding:13px 2px;min-height:56px}', '.dsh .dsgood{border-radius:14px;padding:11px 14px}',
+      '.dsh .spk{border:0;background:var(--sand);color:var(--sandink);border-radius:99px;font-family:inherit}',
+      '.sheet .fsrow button{border:0;background:var(--sand);color:var(--sandink);border-radius:16px;font-weight:700;border-bottom:3px solid var(--edge)}', '.sheet .fsrow button.fsok{background:var(--acc);color:#fff}',
+      '.sheet .fsr button{border:0;background:var(--sand);color:var(--sandink);border-radius:14px}', '.sheet .fsplay{border-radius:14px;font-weight:700}',
+      '.wn .wnc{border-radius:24px}',
+      // 움직임: 화면이 바뀔 때 살짝 떠오름(아래 줄 · 지난 화면은 빼고) · 줄이기 설정이면 끔
+      '@keyframes u2in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}', '@keyframes u2bar{from{transform:scaleX(.92)}to{transform:none}}',
+      '#app>*:not(.hnavw):not(.hview):not(.hpos),#app #after>*,#app #lrop>*,#app #lrlow>*{animation:u2in .22s ease-out both}',
+      '@media (prefers-reduced-motion:reduce){#app *,.dsh *{animation:none!important;transition:none!important}}'
+    ];
     if (TOPIC.fontSlider) css = css.concat([
       // 항목별 크기(전체 크기 위에 곱함) — #fsdemo = 글씨 크기 창 안의 실제 문제 화면 예시(같은 규칙)
       '#app .prompt,#fsdemo .prompt{zoom:var(--z-prompt,1)}',
@@ -4126,11 +4634,13 @@ var Core = (function () {
       '.dsh .dlch{flex:0 0 auto;width:26px;text-align:center;color:var(--soft);font-size:22px;font-weight:700;line-height:1;transition:transform .15s}', '.dsh .open .dlch,.dsh .dsfold.open .dlch{transform:rotate(180deg)}',
       '.dsh .dlx{padding:4px 2px 12px 12px;border-bottom:1px solid var(--line);box-shadow:inset 3px 0 0 var(--acc2)}',
       '.dsh .dlxl{font-size:13px;color:var(--soft);margin-top:6px}', '.dsh .dlxe{font-size:17px;line-height:1.45;margin-top:2px}', '.dsh .dlxe b{color:var(--acc)}', '.dsh .dlxk{font-size:15px;color:var(--soft);line-height:1.45;margin-top:2px}',
+      '.dsh .dsfold.dscf{margin-top:8px}', '.dsh .dsoff{opacity:.55}', '.dsh .dsnone{margin:6px 4px 0}', '.dsh .dsn{font-weight:400;font-size:14px;color:var(--soft);white-space:nowrap}', '.dsh .dsfr{display:flex;align-items:center;gap:4px;flex:0 0 auto}',   // 공부한 말 묶음 단추(11-13)
       '.dsh .dsfold{display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:18px;min-height:52px;padding:0 14px;border-radius:14px;border:1px solid var(--sandline,var(--line));background:var(--sand,var(--card));color:var(--sandink,var(--ink));font-size:16px;font-weight:700;font-family:inherit}',
       '.dsh .dsrv{margin-top:4px}',
       '.dsh .dshf{padding:10px 16px calc(12px + env(safe-area-inset-bottom,0px))}',
       '.dsh .dsclose{display:block;width:100%;min-height:52px;border:none;border-radius:16px;background:var(--acc);color:#fff;font-size:17px;font-weight:700;font-family:inherit}'
     ]);
+    css = css.concat(DESIGN);   // 디자인 2는 맨 끝(위 묶음들의 옛 모양을 덮음)
     // 기본 모양 바로 뒤에 넣음 → 주제 색(topic.js theme · 굽기 때 그 뒤에 들어감)이 이 값보다 먼저 이김
     var st = document.createElement('style'), s0 = document.head.querySelector('style'); st.textContent = css.join('\n');
     if (s0 && s0.nextSibling) document.head.insertBefore(st, s0.nextSibling); else document.head.appendChild(st);
@@ -4141,9 +4651,15 @@ var Core = (function () {
     if (TOPIC.dayList) app.addEventListener('click', function (ev) {   // 달력 날짜 누르기 → 그날 공부한 말
       var t = ev.target.closest && ev.target.closest('[data-day]'); if (t) dayOpen(+t.getAttribute('data-day'));
     });
-    if (TOPIC.skillTap) app.addEventListener('click', function (ev) {   // 내 실력 줄 누르기 → 익힌 말 · 오늘 공부한 말(11-06)
+    if (TOPIC.skillTap || TOPIC.skillCheck) app.addEventListener('click', function (ev) {   // 내 실력 줄 누르기 → 익힌 말 · 오늘 공부한 말(11-06) · 실력 확인 지난 점수(11-13)
       var t = ev.target.closest && ev.target.closest('[data-skrow]'); if (!t) return;
-      if (t.getAttribute('data-skrow') === 'mast') mastOpen(); else dayOpen(Core.today());
+      var g = t.getAttribute('data-skrow');
+      if (g === 'mast') mastOpen(); else if (g === 'intro') studyOpen(); else dayOpen(Core.today());
+    });
+    if (TOPIC.skillCheck) app.addEventListener('click', function (ev) {   // 실력 확인: open = 점수 · 시작 화면 / go = 새 판 / resume = 멈춘 판 이어서
+      var t = ev.target.closest && ev.target.closest('[data-skc]'); if (!t || t.disabled) return;
+      var a = t.getAttribute('data-skc');
+      if (a === 'go') skcStart(); else if (a === 'resume') skcResume(); else skcPage();
     });
     app.addEventListener('click', function (ev) {   // 듣기 문제의 '👀 글자로 보기'
       var t = ev.target.closest && ev.target.closest('[data-lsnshow]'); if (!t) return;
@@ -4211,7 +4727,7 @@ var Core = (function () {
       return w;
     }
     window.__refit = function () { var f = app.querySelectorAll('[data-fit]'); for (var i = 0; i < f.length; i++) { f[i].style.zoom = ''; f[i].removeAttribute('data-fit'); } fitWords(); };   // 글씨 크기를 바꾸면 다시 맞춤
-    function onDraw() { markEn(); tidyText(app); fitWords(); var g = document.getElementById('gl'); if (g) tidyText(g); spkFill(); histNav(); }
+    function onDraw() { markEn(); tidyText(app); fitWords(); var g = document.getElementById('gl'); if (g) tidyText(g); spkFill(); histNav(); navPrimary(); bigIcons(); }
     if (window.MutationObserver) { var mo = new MutationObserver(function () { mo.disconnect(); try { onDraw(); } finally { mo.observe(app, { childList: true, subtree: true }); } }); mo.observe(app, { childList: true, subtree: true }); }
     window.__spkFill = onDraw;   // 검사용(화면 점검은 그리자마자 바로 부름)
 
@@ -4315,7 +4831,7 @@ var Core = (function () {
     function keep() { rawSave(FSK, String(NOW)); rawSave(FXK, JSON.stringify(X)); }
     function set(v, k) { NOW = Math.max(MIN, Math.min(MAX, Math.round(v / STEP) * STEP)); apply(); show(); if (k) keep(); }
     function open() { document.getElementById('fsdemo').innerHTML = demoHtml(); apply(); show(); p.hidden = false; }
-    function close() { keep(); p.hidden = true; }
+    function close() { keep(); p.hidden = true; if (app.querySelector('.pgset')) settingsPage(); }   // 설정 화면에서 열었으면 '글씨 크기 115%' 숫자도 새로
     window.__fontSet = function (v, x) { if (x) FX.forEach(function (f) { if (x[f[0]]) X[f[0]] = x[f[0]]; }); set(v, false); };   // 검사용
     window.__fontOpen = open;
     apply();
@@ -4371,6 +4887,35 @@ var Core = (function () {
       });
       return ALL;
     }
+    // 알아듣기(지시서 6-2 · 11-13 · TOPIC.listenLab.hear): 낱말 묶음(wordCats) 말의 예문 전부 — 대답 단추 없이 듣고 뜻 고르기만
+    //   뺌 = skip · 큰따옴표가 든 문장(두 사람 말이 한 줄) · 영어 낱말 3개 미만 · reply에 쓰인 문장 · 대화 줄(이미 대답 문제) · id = ex:<말 id>#<예문 번호>
+    var HEAR = null, PLUS = null;
+    function hearAll() {
+      if (HEAR) return HEAR; HEAR = []; var seen = {}, cats = {}, RP = {}, QAS = {};
+      if (!TOPIC.listenLab.hear) return HEAR;
+      (TOPIC.wordCats || []).forEach(function (c) { cats[c] = 1; });
+      Object.keys(TOPIC.listenLab.reply || {}).forEach(function (qid) { TOPIC.listenLab.reply[qid].forEach(function (s) { RP[norm(s)] = 1; }); });
+      Core.byCat('qa').forEach(function (it) { QAS[norm(it.q)] = 1; QAS[norm(it.a)] = 1; });
+      Core.items().forEach(function (it) {
+        if (!cats[it.cat]) return;
+        (it.exs || []).forEach(function (e, j) {
+          var raw = String(e[0] || ''), en = raw.replace(/[{}]/g, '').replace(/\s+/g, ' ').trim(), k = norm(en), ko = String(e[1] || '').trim();
+          if (!en || !ko || seen[k] || SKIP[k] || RP[k] || QAS[k] || /["“”]/.test(raw) || (en.match(/[A-Za-z]+(?:'[A-Za-z]+)?/g) || []).length < 3) return;
+          seen[k] = 1; HEAR.push({ id: 'ex:' + it.id + '#' + j, src: it.id, en: en, ko: ko, hear: 1 });
+        });
+      });
+      return HEAR;
+    }
+    function plus() {   // 알아듣기 오답 뜻 후보 = 지금 재료 + 알아듣기 예문(같은 영어는 한 번만)
+      if (PLUS) return PLUS; var seen = {}; all().forEach(function (o) { seen[norm(o.en)] = 1; });
+      PLUS = all().concat(hearAll().filter(function (o) { return !seen[norm(o.en)]; })); return PLUS;
+    }
+    // 섞은 문장 B(지시서 6-3 · 상대 질문이 있는 줄): 필요한 말을 다 배웠고 이 연습에서 본 판 수 < 2(두 번째는 첫 번째 뒤 again일부터) · 한 판에 1개까지(대답 문제 칸 안)
+    function mixB() {
+      var t = Core.today(), ag = (TOPIC.mix && TOPIC.mix.again) || 30;
+      return MXL.filter(function (m) { return m.q && !m.off; }).map(function (m) { var k = m.ko.split(' → '); return { id: m.id, src: m.id, mixB: m, en: m.q, ko: k[0].trim(), a: m.en, aKo: k.slice(1).join(' → ').trim() }; })
+        .filter(function (o) { var r = LS.it[o.id]; return (!r || !r.sn || (r.sn < 2 && r.sd + ag <= t)) && mxReady(o.mixB); });
+    }
     // 문제 = 공부한 대답이 있는 질문만 · 메인에서 배운 말만(질문 쪽 말 + 대답 쪽 대화 줄 둘 다 — 사람마다 진도가 달라도 그 사람이 배운 것만)
     function pool() { return all().filter(function (o) { return o.a != null && !!S.items[o.src] && !!S.items[o.rsrc]; }); }
     // 오답 뜻(메인 엔진 오답과 같은 생각 — 아직 모르는 말은 쉽게 · 익은 말은 진짜 구별):
@@ -4388,29 +4933,42 @@ var Core = (function () {
     function wrongs(o) {
       // 함정은 이 연습에서 한 번이라도 맞힌 말부터(11-08 워커 풀어 보기: 처음 단계가 낱말 하나만 알아도 골라져 '답 주고 맞히기'처럼 쉬움)
       var r = LS.it[o.id], hard = !!r && r.b >= 1, kn = norm(o.ko), L0 = o.ko.length;
-      var c = Core.shuffle(all().filter(function (x) { return x.src !== o.src && norm(x.ko) !== kn && ksim(x.ko, o.ko) < 0.5 && !sameG(o, x); }));
+      var c = Core.shuffle((o.hear ? plus() : all()).filter(function (x) { return x.src !== o.src && norm(x.ko) !== kn && ksim(x.ko, o.ko) < 0.5 && !sameG(o, x); }));
       // 물음은 물음끼리 · 길이가 비슷한 것부터(짧은 정답만 홀로 짧아 길이로 답이 보이지 않게 — 메인 엔진 오답과 같은 생각) · 그 안에서 고르게
       function sc(x) { return (qm(x.ko) === qm(o.ko) ? 0 : 100) + Math.floor(Math.abs(x.ko.length - L0) / 6); }
       c.sort(function (a, b) { return sc(a) - sc(b); });
       var trap = Core.shuffle(c.filter(function (x) { return shared(o, x) > 0; }).slice(0, 3)), plain = Core.shuffle(c.filter(function (x) { return !shared(o, x); }).slice(0, 6));
       return (hard && trap.length ? [trap[0]].concat(plain.slice(0, 1)) : plain.slice(0, 2)).map(function (x) { return x.ko; });
     }
-    function build() {
-      var P = pool(), t = Core.today(), prev = LS.last || [], rn = {};
-      if (P.length < 4) return null;
+    function order(P, n) {   // 고르는 순서(날짜 된 말 · 처음인 말 · 날짜 안 된 말 · 바로 앞 판에 나온 말은 막힌 것만 절반까지) — n개까지
+      var t = Core.today(), prev = LS.last || [], rn = {};
       P.forEach(function (o) { rn[o.id] = Math.random(); });
       function key(o) { var r = LS.it[o.id]; return !r ? [1, 0, 0, rn[o.id]] : r.d <= t ? [0, r.b, -(r.x || 0), rn[o.id]] : [2, r.b, r.d, rn[o.id]]; }
       var srt = P.slice().sort(function (a, b) { var x = key(a), y = key(b); for (var i = 0; i < 4; i++) if (x[i] !== y[i]) return x[i] - y[i]; return 0; });
       // 바로 앞 판에 나온 말: 막혀서 날짜가 된 말만 절반까지 다시(막힌 말은 자주 · 같은 판 되풀이는 X) · 그래도 모자라면 나머지
       var back = srt.filter(function (o) { var r = LS.it[o.id]; return prev.indexOf(o.id) >= 0 && r && r.d <= t; }).slice(0, Math.floor(LN / 2)).map(function (o) { return o.id; });
-      var pick = srt.filter(function (o) { return prev.indexOf(o.id) < 0 || back.indexOf(o.id) >= 0; }).slice(0, LN), got = pick.map(function (o) { return o.id; });
-      if (pick.length < LN) pick = pick.concat(srt.filter(function (o) { return got.indexOf(o.id) < 0; }).slice(0, LN - pick.length));
-      return Core.shuffle(pick);
+      var pick = srt.filter(function (o) { return prev.indexOf(o.id) < 0 || back.indexOf(o.id) >= 0; }).slice(0, n), got = pick.map(function (o) { return o.id; });
+      if (pick.length < n) pick = pick.concat(srt.filter(function (o) { return got.indexOf(o.id) < 0; }).slice(0, n - pick.length));
+      return pick;
+    }
+    function build() {
+      var P = pool();
+      if (!TOPIC.listenLab.hear) { if (P.length < 4) return null; return Core.shuffle(order(P, LN)); }
+      // 알아듣기를 켠 주제(6-2): 대답 문제를 고르는 순서대로 먼저 4개까지(섞은 문장 B는 그 4칸 안에 1개까지) → 나머지 칸 = 알아듣기 · 알아듣기가 모자라면 대답 문제로 채움
+      //   한 판에 같은 낱말의 예문은 1개만 · 순서 = 대답 · 알아듣기 번갈아
+      var ans = order(P, LN), mb = mixB(), a4 = (mb.length ? [mb[0]] : []).concat(ans).slice(0, LN / 2), used = {};
+      a4.forEach(function (o) { used[o.src] = 1; });
+      var H = order(hearAll().filter(function (o) { return !!S.items[o.src]; }), hearAll().length).filter(function (o) { if (used[o.src]) return false; used[o.src] = 1; return true; }).slice(0, LN - a4.length);
+      if (a4.length + H.length < LN) { var more = ans.filter(function (o) { if (a4.indexOf(o) >= 0 || used[o.src]) return false; used[o.src] = 1; return true; }).slice(0, LN - a4.length - H.length); a4 = a4.concat(more); }
+      if (a4.length + H.length < 4) return null;
+      var x = Core.shuffle(a4), y = Core.shuffle(H), out = [];
+      for (var i = 0; out.length < x.length + y.length; i++) { if (i < x.length) out.push(x[i]); if (i < y.length) out.push(y[i]); }
+      return out;
     }
     function head() {
       var n = L.list.length;   // 위 숫자는 처음 정한 문제 수 그대로(틀려서 다시 나오는 말로 전체가 늘어 보이지 않게)
-      return '<div class="qtop"><button class="back" data-go="home" style="padding:0">✕ 그만</button><span>' + (L.cur && L.cur.re ? '다시 듣기' : L.u + ' / ' + L.n0) + '</span>' + (TOPIC.fontSlider ? '<button class="fsq" data-fs="open" aria-label="글씨 크기">가</button>' : '') + '</div>' + bar(100 * L.i / n) +
-        '<div class="qlabel"><span class="pill">🎧 듣고 대답하기</span>' + (L.cur && L.cur.re ? ' <span class="soft">아까 그 말 · 다시 들어 봐요</span>' : '') + '</div>';
+      return '<div class="qtop"><button class="back" data-go="home"' + (UI2 ? '>' + IC.x + '그만' : ' style="padding:0">✕ 그만') + '</button><span class="qcnt">' + (L.cur && L.cur.re ? '다시 듣기' : L.u + ' / ' + L.n0) + '</span>' + (TOPIC.fontSlider ? '<button class="fsq" data-fs="open" aria-label="글씨 크기">가</button>' : '') + '</div>' + bar(100 * L.i / n) +
+        '<div class="qlabel"><span class="pill">' + (L.cur && L.cur.o.hear ? '알아듣기' : L.cur && L.cur.o.mixB ? '처음 듣는 말' : '🎧 듣고 대답하기') + '</span>' + (L.cur && L.cur.re ? ' <span class="soft">아까 그 말 · 다시 들어 봐요</span>' : '') + '</div>';
     }
     function intro() {
       R = null; glClose(); L = null;
@@ -4435,6 +4993,7 @@ var Core = (function () {
       if (L.i >= L.list.length) return end();
       var o = L.list[L.i], opts = Core.shuffle([o.ko].concat(wrongs(o)));
       if (!o._re) L.u++;
+      if (o.mixB && !o._re) { var tt = Core.today(), rb = LS.it[o.id] || (LS.it[o.id] = { b: 0, d: tt, n: 0, x: 0 }); rb.sn = (rb.sn || 0) + 1; rb.sd = tt; lsSave(); }   // 섞은 문장 B: 본 판 수 · 날(최대 2번)
       L.cur = { o: o, opts: opts, ans: opts.indexOf(o.ko), played: 0, hint: 0, phase: 'listen', re: !!o._re };
       app.innerHTML = head() + '<div class="card lbox lrl"><div class="lrlead">외국인이 나에게 말을 걸어요</div><div id="lrlb"><button class="btn big" data-lr="play">▶ 들어 보기</button></div>' +
         '<div class="lrtx" lang="en" hidden>' + esc(o.en) + '</div></div><div id="lrop"></div>' + nav(false);
@@ -4489,9 +5048,15 @@ var Core = (function () {
       c.phase = 'think'; c.ok = k === c.ans; c.picked = k;
       var o = c.o, res = c.ok ? '<div class="lrres ok">✓ 알아들었어요</div>'
         : '<div class="lrres">이런 말이었어요<span>' + (k === -1 ? '\'모르겠어요\'를 골랐어요' : '내가 고른 뜻: ' + esc(c.opts[k])) + '</span></div>';   // 내가 고른 건 늘 표시(3-1절 15)
+      if (o.hear) {   // 알아듣기(6-2): 대답 단추 없음 — 영어 + 뜻 + 🔊🐢 + 따라 말하기 + 다음
+        c.phase = 'model'; c.stuck = false; grade(c);
+        app.innerHTML = head() + res + '<div class="card"><div class="lrsaid" lang="en">' + esc(o.en) + speakBtn(o.en) + '</div><div class="kom">' + esc(o.ko) + '</div></div>' +
+          '<div id="lrlow"><div class="soft lrtip">한 번 따라 말해 봐요</div><button class="btn big" data-lr="next">' + (L.i + 1 >= L.list.length ? '끝 →' : '다음 →') + '</button></div>' + nav(false);
+        window.scrollTo(0, 0); return;
+      }
       app.innerHTML = head() + res +
         '<div class="qab"><div class="qabl">상대</div><div class="qabq"><div class="lrsaid" lang="en">' + esc(o.en) + speakBtn(o.en) + '</div><div class="kom">' + esc(o.ko) + '</div></div>' +
-        '<div class="qabl me" id="lrmel">나</div><div class="qaba" id="lrme"><div class="qabb"><span>______________</span></div></div></div>' +
+        '<div class="qabl me" id="lrmel">나</div><div class="qaba" id="lrme"><div class="qabb"><span>______________</span></div>' + (o.mixB && o.aKo ? '<div class="kom">' + esc(o.aKo) + '</div>' : '') + '</div></div>' +   // 섞은 문장 B: 처음 보는 대답이라 내 말풍선에 대답 뜻(메인 대화 말풍선과 같은 모양)
         // 문제마다 붙는 위로 · 실마리 문구는 뺌(사용자 11-08 'ai티 나게 답마다 하나하나 달아 주는 건 별로' · 워커 같은 의견)
         '<div id="lrlow"><div class="lrsay">이제 영어로 어떻게 대답할지 생각해서, 소리 내어 말해 봐요</div><div class="soft">말하고 나서 눌러요</div>' +
         '<div class="lrsb"><button class="opt" data-lrs="1"><span class="n">🗣</span>대답해 봤어요</button><button class="opt" data-lrs="0"><span class="n">💭</span>안 떠올라요</button></div></div>' + nav(false);
@@ -4500,7 +5065,7 @@ var Core = (function () {
     function grade(c) {
       var o = c.o, t = Core.today(), r = LS.it[o.id] || (LS.it[o.id] = { b: 0, d: t, n: 0, x: 0 });
       r.n++;
-      if (!c.re) { if (c.ok) L.ok++; if (!c.stuck) L.said++; }
+      if (!c.re) { if (c.ok) L.ok++; if (!c.stuck && !o.hear) L.said++; }   // 알아듣기는 대답 단추가 없어 '대답해 본 말'에 안 셈
       if (!c.ok) {
         r.b = 0; r.d = t; r.x++;
         if (!c.re && L.rq < RQ_MAX && L.list.length - L.i - 1 >= 2) {   // 그 판에서 3문제 뒤 한 번 더(남은 문제가 적으면 다음 판 맨 앞으로)
@@ -4516,7 +5081,7 @@ var Core = (function () {
       c.phase = 'model'; c.stuck = v !== '1'; grade(c);
       var o = c.o, me = document.getElementById('lrme'), ml = document.getElementById('lrmel'), lo = document.getElementById('lrlow');
       // 공개 = 공부한 대답(위로 · 변명 문구를 답마다 달지 않음 — 사용자 11-08 "'아무 말이나 했어도 정답이에요' 같은 거 ai티 나게 … 별로")
-      ml.textContent = '나 · 공부한 대답'; me.innerHTML = '<div class="qabe" lang="en">' + esc(o.a) + speakBtn(o.a) + '</div>' + (o.aKo ? '<div class="kom">' + esc(o.aKo) + '</div>' : '');
+      ml.textContent = o.mixB ? '나 · 배운 말로 한 대답' : '나 · 공부한 대답'; me.innerHTML = '<div class="qabe" lang="en">' + esc(o.a) + speakBtn(o.a) + '</div>' + (o.aKo ? '<div class="kom">' + esc(o.aKo) + '</div>' : '');
       lo.innerHTML = '<div class="soft lrtip">한 번 따라 말해 봐요</div><button class="btn big" data-lr="next">' + (L.i + 1 >= L.list.length ? '끝 →' : '다음 →') + '</button>';
     }
     function end() {
@@ -4526,25 +5091,18 @@ var Core = (function () {
         '<div class="soft" style="margin-top:6px">막힌 말은 다음 판에도 몇 개씩 다시 나오고, 잘 알아들은 말은 며칠 뒤에 다시 나와요</div></div>';
       if (miss.length) h += '<h2>다시 들어 볼 말</h2><div class="card">' + miss.map(function (o) {
         return '<div class="lrml"><div class="lrme" lang="en">' + esc(o.en) + speakBtn(o.en) + '</div><div class="kom">' + esc(o.ko) + '</div>' +
-          '<div class="lrma"><span class="soft">공부한 대답</span> <span lang="en">' + esc(o.a) + '</span>' + speakBtn(o.a) + '</div></div>';
+          (o.hear ? '' : '<div class="lrma"><span class="soft">' + (o.mixB ? '배운 말로 한 대답' : '공부한 대답') + '</span> <span lang="en">' + esc(o.a) + '</span>' + speakBtn(o.a) + '</div>') + '</div>';
       }).join('') + '</div>';
       app.innerHTML = h + '<button class="btn big" data-lr="again">🎧 한 판 더</button><button class="btn" data-go="home">홈으로</button>';
       L = null; window.scrollTo(0, 0);
     }
-    function homeBtn() {   // 메인 공부 단추(묶음) 바로 아래 · '내 실력' 위 · 모래색(선택 단추) — 소리를 못 내는 폰이면 안 보임
-      if (!canSpeak() || app.querySelector('[data-lr="start"]')) return;
-      var k = app.querySelector('.kv'), cd = k && k.closest ? k.closest('.card') : null;
-      var b = '<button class="btn" data-lr="start">🎧 듣고 대답하기<small>새로 써 보는 연습 · 외국인 말을 듣고 대답해 봐요 · 달력 · 기록엔 안 남아요</small></button>';
-      if (cd) cd.insertAdjacentHTML('beforebegin', b);
-      else { var bb = app.querySelectorAll('.btn.big'); if (bb.length) bb[bb.length - 1].insertAdjacentHTML('afterend', b); }
-    }
-    window.__lr = { all: all, pool: pool, wrongs: wrongs, state: function () { return LS; } };   // 검사용(미리보기 · 문제 전부 뽑아 보기)
+    window.__lr = { all: all, pool: pool, wrongs: wrongs, hear: hearAll, mixB: mixB, build: build, ksim: ksim, state: function () { return LS; } };   // 검사용(미리보기 · 문제 전부 뽑아 보기)
     app.addEventListener('click', function (ev) {   // 먼저 받음(capture): ‹ 이전 · 다음 › · 지난 화면에선 🔊🐢만(다시 채점 X)
       var t = ev.target.closest && ev.target.closest('[data-lrh]');
       if (t) { ev.stopImmediatePropagation(); ev.preventDefault(); if (!t.disabled) histGo(t.getAttribute('data-lrh')); return; }
       if (L && L.hv != null && !(ev.target.closest && ev.target.closest('[data-say-text],[data-say-slow]'))) { ev.stopImmediatePropagation(); ev.preventDefault(); }
     }, true);
-    home = (function (orig) { return function () { var r = orig.apply(this, arguments); L = null; try { homeBtn(); } catch (e) {} return r; }; })(home);
+    home = (function (orig) { return function () { var r = orig.apply(this, arguments); L = null; return r; }; })(home);   // 홈 들어가는 단추 = '골라서 하는 연습' 카드(subCard · 11-13)
     app.addEventListener('click', function (ev) {
       var t = ev.target.closest && ev.target.closest('[data-lr],[data-lrk],[data-lrs]'); if (!t || t.disabled) return;
       if (t.hasAttribute('data-lrk')) return pickOpt(+t.getAttribute('data-lrk'));
@@ -4560,8 +5118,8 @@ var Core = (function () {
     var st = document.createElement('style');
     st.textContent = ['#app .lrl{text-align:center}', '#app .lrlead{font-size:15px;color:var(--soft);margin-bottom:6px}',
       '#app .lrtx{font-size:20px;font-weight:700;line-height:1.4;margin-top:10px}', '#app .lrwait{text-align:center;color:var(--soft);font-size:16px;margin:16px 0}',
-      '#app .lrq{font-size:18px;font-weight:700;margin:12px 0 6px}', '#app .lrres{font-size:17px;font-weight:700;margin:8px 0 2px;color:var(--miss)}', '#app .lrres.ok{color:var(--ok)}',
-      '#app .lrres span{display:block;font-size:14px;font-weight:400;color:var(--soft);margin-top:2px}', '#app .lrsaid{font-size:18px;font-weight:700;line-height:1.4}',
+      '#app .lrq{font-size:19px;font-weight:800;margin:14px 0 6px}', '#app .lrres{font-size:17px;font-weight:800;margin:14px 0 10px;padding:12px 14px;border-radius:16px;color:var(--miss);background:var(--missbg)}', '#app .lrres.ok{color:var(--ok);background:var(--okbg)}',
+      '#app .lrres span{display:block;font-size:14.5px;font-weight:500;color:var(--ink);margin-top:3px}', '#app .lrsaid{font-size:18px;font-weight:700;line-height:1.4}',
       '#app .lrsay{font-size:18px;font-weight:700;line-height:1.45;margin:4px 0}', '#app .lrsb{margin-top:8px}', '#app .lrtip{margin:4px 0 10px}',
       '#app .lrst{display:flex;gap:10px;align-items:flex-start;margin:8px 0;line-height:1.45}', '#app .lrst b{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--acc2);color:var(--acc);display:flex;align-items:center;justify-content:center;font-size:14px}',
       '#app .lrml{padding:8px 0;border-bottom:1px solid var(--line)}', '#app .lrml:last-child{border-bottom:none}', '#app .lrme{font-size:17px;font-weight:700;line-height:1.4}', '#app .lrma{margin-top:4px;font-size:15px;line-height:1.45}',
